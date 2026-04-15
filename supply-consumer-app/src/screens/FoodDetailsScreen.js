@@ -1,25 +1,36 @@
 import { useState } from 'react'
 import { Alert, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import { placeOrder } from '../lib/api'
+import { placeOrder, requestFoodByNgo } from '../lib/api'
 
 export default function FoodDetailsScreen({ route, navigation }) {
-  const { food, userId } = route.params
+  const { food, user } = route.params
   const [placing, setPlacing] = useState(false)
 
-  async function onOrder() {
-    if (!userId) {
-      Alert.alert('Missing demo user ID', 'Set EXPO_PUBLIC_DEMO_USER_ID to place orders.')
+  async function onPrimaryAction() {
+    if (!user?.id) {
+      Alert.alert('Missing user', 'Please login again.')
       return
     }
 
     setPlacing(true)
     try {
-      const pickup = new Date(Date.now() + 30 * 60 * 1000).toISOString()
-      await placeOrder({ foodId: food.id, userId, pickupTime: pickup })
-      Alert.alert('Order placed', 'Pickup scheduled in about 30 minutes.')
+      if (user.role === 'ngo') {
+        if (Number(food.price || 0) > 0) {
+          Alert.alert('Not available for NGO', 'Ask provider to mark this listing as donation first.')
+          return
+        }
+
+        await requestFoodByNgo({ foodId: food.id, ngoId: user.id })
+        Alert.alert('Request sent', 'Your NGO request has been recorded.')
+      } else {
+        const pickup = new Date(Date.now() + 30 * 60 * 1000).toISOString()
+        await placeOrder({ foodId: food.id, userId: user.id, pickupTime: pickup })
+        Alert.alert('Order placed', 'Pickup scheduled in about 30 minutes.')
+      }
+
       navigation.goBack()
     } catch (err) {
-      Alert.alert('Order failed', err.message)
+      Alert.alert('Action failed', err.message)
     } finally {
       setPlacing(false)
     }
@@ -36,8 +47,10 @@ export default function FoodDetailsScreen({ route, navigation }) {
         <Text style={styles.meta}>Status: {food.status}</Text>
         <Text style={styles.meta}>Expiry: {new Date(food.expiry_time).toLocaleString()}</Text>
 
-        <Pressable style={[styles.button, placing && styles.buttonDisabled]} onPress={onOrder} disabled={placing}>
-          <Text style={styles.buttonText}>{placing ? 'Placing...' : 'Place Order'}</Text>
+        <Pressable style={[styles.button, placing && styles.buttonDisabled]} onPress={onPrimaryAction} disabled={placing}>
+          <Text style={styles.buttonText}>
+            {placing ? 'Processing...' : user?.role === 'ngo' ? 'Request Food' : 'Place Order'}
+          </Text>
         </Pressable>
       </View>
     </SafeAreaView>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import {
+  Alert,
   FlatList,
   Pressable,
   RefreshControl,
@@ -8,18 +9,36 @@ import {
   Text,
   View,
 } from 'react-native'
-import { getNearbyFood, subscribeFoodRealtime } from '../lib/api'
+import { getLiveSurplus, getNearbyFood, getSupplierPrediction, subscribeFoodRealtime } from '../lib/api'
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen({ navigation, user }) {
   const [foods, setFoods] = useState([])
   const [loading, setLoading] = useState(false)
-  const userId = process.env.EXPO_PUBLIC_DEMO_USER_ID || ''
+  const [liveSurplus, setLiveSurplus] = useState(null)
+  const [prediction, setPrediction] = useState(null)
+
+  const demoSupplierId = process.env.EXPO_PUBLIC_DEMO_SUPPLIER_ID || 'sup-001'
+
+  function onOpenDetails(item) {
+    if (user?.role === 'provider') {
+      Alert.alert('Providers', 'Use My Listings to update food details or donate.')
+      return
+    }
+
+    navigation.navigate('FoodDetails', { food: item, user })
+  }
 
   async function loadData() {
     setLoading(true)
     try {
-      const rows = await getNearbyFood()
+      const [rows, liveData, predictionData] = await Promise.all([
+        getNearbyFood(),
+        getLiveSurplus(),
+        getSupplierPrediction(demoSupplierId),
+      ])
       setFoods(rows)
+      setLiveSurplus(liveData)
+      setPrediction(predictionData?.current_prediction || predictionData)
     } finally {
       setLoading(false)
     }
@@ -40,6 +59,14 @@ export default function HomeScreen({ navigation }) {
         <Text style={styles.subtitle}>Live surplus food listings near you</Text>
       </View>
 
+      <View style={styles.predictionBanner}>
+        <Text style={styles.predictionLabel}>AI surplus forecast</Text>
+        <Text style={styles.predictionTitle}>
+          {prediction?.suggested_action || 'Monitor demand'} · {prediction?.predicted_surplus ?? 0} units expected
+        </Text>
+        <Text style={styles.predictionMeta}>{prediction?.confidence_score ?? 0}% confidence · {liveSurplus?.count ?? foods.length} live offers</Text>
+      </View>
+
       <FlatList
         data={foods}
         keyExtractor={(item) => item.id}
@@ -48,7 +75,7 @@ export default function HomeScreen({ navigation }) {
         renderItem={({ item }) => (
           <Pressable
             style={styles.card}
-            onPress={() => navigation.navigate('FoodDetails', { food: item, userId })}
+            onPress={() => onOpenDetails(item)}
           >
             <View style={styles.rowBetween}>
               <Text style={styles.foodName}>{item.food_name}</Text>
@@ -70,6 +97,18 @@ const styles = StyleSheet.create({
   header: { padding: 16, paddingTop: 20 },
   title: { fontSize: 24, fontWeight: '700', color: '#0f172a' },
   subtitle: { marginTop: 4, color: '#334155' },
+  predictionBanner: {
+    marginHorizontal: 16,
+    marginBottom: 8,
+    padding: 14,
+    borderRadius: 14,
+    backgroundColor: '#ede9fd',
+    borderWidth: 1,
+    borderColor: '#ddd6fe',
+  },
+  predictionLabel: { color: '#6d28d9', fontSize: 11, fontWeight: '700', textTransform: 'uppercase' },
+  predictionTitle: { color: '#0f172a', fontSize: 15, fontWeight: '700', marginTop: 4 },
+  predictionMeta: { color: '#475569', fontSize: 12, marginTop: 6 },
   list: { padding: 16, gap: 12 },
   card: {
     backgroundColor: '#ffffff',

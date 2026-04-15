@@ -1,7 +1,8 @@
 import { supabase } from './supabase'
 import { applyDynamicPricing } from './pricing'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
+const rawApiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
+const API_BASE_URL = rawApiBaseUrl.replace(/\/+$/, '')
 const TOKEN_KEY = 'supplylink_auth_token'
 
 async function requestAuth(path, options = {}) {
@@ -54,6 +55,23 @@ export async function signIn({ email, password }) {
     })
 
     localStorage.setItem(TOKEN_KEY, token)
+    return user
+}
+
+export async function sendPhoneOtp({ phone, channel = 'sms' }) {
+    return requestAuth('/auth/phone/send-otp', {
+        method: 'POST',
+        body: JSON.stringify({ phone, channel }),
+    })
+}
+
+export async function verifyPhoneOtp({ phone, token, type = 'sms', name, role, lat, lng, capacity }) {
+    const { token: appToken, user } = await requestAuth('/auth/phone/verify-otp', {
+        method: 'POST',
+        body: JSON.stringify({ phone, token, type, name, role, lat, lng, capacity }),
+    })
+
+    localStorage.setItem(TOKEN_KEY, appToken)
     return user
 }
 
@@ -148,4 +166,54 @@ export function subscribeProviderFood(providerId, onChange) {
             () => onChange()
         )
         .subscribe()
+}
+
+async function apiRequest(path, options = {}) {
+    const response = await fetch(`${API_BASE_URL}${path}`, {
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...(options.headers || {}),
+        },
+    })
+
+    const body = await response.json().catch(() => ({}))
+
+    if (!response.ok) {
+        throw new Error(body.error || 'Request failed')
+    }
+
+    return body
+}
+
+export function getSupplierPrediction(supplierId, params = {}) {
+    const searchParams = new URLSearchParams(params)
+    const suffix = searchParams.toString() ? `?${searchParams.toString()}` : ''
+    return apiRequest(`/api/predictions/supplier/${supplierId}${suffix}`)
+}
+
+export function runPrediction(payload) {
+    return apiRequest('/api/predictions/run', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+    })
+}
+
+export function runBulkPredictions(payload = {}) {
+    return apiRequest('/api/predictions/bulk-run', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+    })
+}
+
+export function getLiveSurplus() {
+    return apiRequest('/api/surplus/live')
+}
+
+export function getAnalyticsTrends() {
+    return apiRequest('/api/analytics/trends')
+}
+
+export function getSeasonalAnalytics() {
+    return apiRequest('/api/analytics/seasonal')
 }

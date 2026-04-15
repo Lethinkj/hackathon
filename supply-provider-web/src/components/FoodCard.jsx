@@ -1,56 +1,30 @@
-import Countdown from './Countdown'
+function timeLabel(t) {
+    if (t < 60) return `${t}m ago`
+    return `${Math.round(t / 60)}h ago`
+}
 
-export default function FoodCard({ food, onDelete }) {
-    const hoursLeft = ((new Date(food.expiry_time || food.expiryTime) - new Date()) / 3600000)
-    const originalPrice = food.original_price || food.originalPrice || 0
-    const currentPrice = food.price || 0
-    const discount = originalPrice > 0
-        ? Math.round(((originalPrice - currentPrice) / originalPrice) * 100)
-        : 0
-
+export default function FoodCard({ food, onEditFood, onDeleteFood }) {
     return (
-        <div className="food-card">
-            <div className="food-card-header">
-                <div>
-                    <div className="food-name">{food.food_name || food.foodName}</div>
-                    <div style={{ marginTop: 6 }}>
-                        <span className={`food-type-badge ${food.type === 'Veg' ? 'veg' : 'non-veg'}`}>
-                            {food.type === 'Veg' ? '🟢' : '🔴'} {food.type}
-                        </span>
-                    </div>
+        <div className="food-card" id={`fc-${food.id}`}>
+            <div className="food-emoji">{food.emoji}</div>
+            <div className="food-info">
+                <div className="food-name">{food.name}</div>
+                <div className="food-meta">Qty {food.qty} · {food.source}</div>
+                <div className="food-tags">
+                    <span className={`tag ${food.type === 'Veg' ? 'veg' : 'nonveg'}`}>{food.type}</span>
+                    {food.mystery ? <span className="tag mystery">Mystery Box</span> : null}
+                    <span className={`tag ${food.mode === 'discount' ? 'discount' : 'donate'}`}>{food.mode === 'discount' ? 'Discount' : 'Donate'}</span>
                 </div>
-                <span className={`status-badge ${food.status}`}>
-                    <span className="status-dot" />
-                    {food.status}
-                </span>
             </div>
-
-            <div className="food-meta">
-                <span className="food-meta-item">📦 Qty: <strong>{food.quantity}</strong></span>
-                <span className="food-meta-item">
-                    <Countdown expiryTime={food.expiry_time || food.expiryTime} />
-                </span>
+            <div className="food-price-block">
+                <div className="food-price">₹{food.price}</div>
+                <div className="food-price-orig">₹{food.orig}</div>
+                <div className="food-time">{timeLabel(food.time)}</div>
             </div>
-
-            <div className="food-price-row">
-                <span className="food-price">₹{currentPrice}</span>
-                {discount > 0 && (
-                    <>
-                        <span className="food-original-price">₹{originalPrice}</span>
-                        <span className="discount-badge">{discount}% OFF</span>
-                    </>
-                )}
+            <div className="food-actions">
+                <button className="btn-edit" onClick={() => onEditFood(food)}>✏️ Edit</button>
+                <button className="btn-del" onClick={() => onDeleteFood(food.id)}>🗑</button>
             </div>
-
-            {onDelete && food.status === 'available' && (
-                <button
-                    className="btn btn-danger"
-                    style={{ width: '100%', marginTop: 14, fontSize: '0.8rem', padding: '8px' }}
-                    onClick={() => onDelete(food.id)}
-                >
-                    🗑️ Remove
-                </button>
-            )}
         </div>
     )
 }

@@ -1,24 +1,27 @@
 # Supply Consumer App (Expo)
 
-Mobile app for Supply Consumer and NGO mode.
+Mobile app for SupplyLink with role-based consumer, provider, and NGO flows.
 
 ## Screens
 
-- Home: Nearby food deals
-- Food Details: View item and place order
-- NGO Alerts: Free food notifications
-- Orders: User pickup tracking
+- Auth: Register/Login first and choose role on registration
+- Consumer: Browse food and place orders
+- Provider: Update listing details, mark listing as donation, and view incoming orders
+- NGO: View free-food alerts and request donated food
 
 ## Setup
 
 1. Install dependencies:
    npm install
-2. Create `.env` from `.env.example` and fill Supabase keys.
+2. Create/update `.env` with:
+   - `EXPO_PUBLIC_SUPABASE_URL`
+   - `EXPO_PUBLIC_SUPABASE_ANON_KEY`
+   - `EXPO_PUBLIC_API_BASE_URL` (example: `http://localhost:5000` for web/emulator, or your LAN IP for real device)
 3. Start app:
    npm run start
 
 ## Notes
 
-- This app queries Supabase directly.
+- Auth is handled by the backend API (`/auth/*`).
+- Food/orders/donations are read/written from Supabase tables (no hardcoded demo user flow).
 - Realtime updates are enabled for food table changes.
-- Set `EXPO_PUBLIC_DEMO_USER_ID` for order creation/testing.

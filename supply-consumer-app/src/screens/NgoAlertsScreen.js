@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { FlatList, RefreshControl, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { FlatList, Pressable, RefreshControl, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import { getNgoAlerts, subscribeFoodRealtime } from '../lib/api'
 
-export default function NgoAlertsScreen() {
+export default function NgoAlertsScreen({ navigation, user }) {
   const [alerts, setAlerts] = useState([])
   const [loading, setLoading] = useState(false)
 
@@ -37,12 +37,12 @@ export default function NgoAlertsScreen() {
         refreshControl={<RefreshControl refreshing={loading} onRefresh={loadAlerts} />}
         contentContainerStyle={styles.list}
         renderItem={({ item }) => (
-          <View style={styles.card}>
+          <Pressable style={styles.card} onPress={() => navigation.navigate('FoodDetails', { food: item, user })}>
             <Text style={styles.foodName}>{item.food_name}</Text>
             <Text style={styles.meta}>Quantity: {item.quantity}</Text>
             <Text style={styles.meta}>Type: {item.type}</Text>
             <Text style={styles.free}>FREE</Text>
-          </View>
+          </Pressable>
         )}
         ListEmptyComponent={!loading ? <Text style={styles.empty}>No NGO alerts right now.</Text> : null}
       />

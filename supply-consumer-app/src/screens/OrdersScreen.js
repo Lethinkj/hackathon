@@ -2,16 +2,15 @@ import { useEffect, useState } from 'react'
 import { FlatList, RefreshControl, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import { getOrders } from '../lib/api'
 
-export default function OrdersScreen() {
+export default function OrdersScreen({ user }) {
   const [orders, setOrders] = useState([])
   const [loading, setLoading] = useState(false)
-  const userId = process.env.EXPO_PUBLIC_DEMO_USER_ID || ''
 
   async function loadOrders() {
-    if (!userId) return
+    if (!user?.id) return
     setLoading(true)
     try {
-      const rows = await getOrders(userId)
+      const rows = await getOrders(user.id)
       setOrders(rows)
     } finally {
       setLoading(false)
@@ -20,12 +19,12 @@ export default function OrdersScreen() {
 
   useEffect(() => {
     loadOrders()
-  }, [userId])
+  }, [user?.id])
 
-  if (!userId) {
+  if (!user?.id) {
     return (
       <SafeAreaView style={styles.containerCenter}>
-        <Text style={styles.note}>Set EXPO_PUBLIC_DEMO_USER_ID to view orders.</Text>
+        <Text style={styles.note}>Login to view your orders.</Text>
       </SafeAreaView>
     )
   }
@@ -33,7 +32,7 @@ export default function OrdersScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>My Orders</Text>
+        <Text style={styles.title}>{user.role === 'ngo' ? 'My Requests' : 'My Orders'}</Text>
         <Text style={styles.subtitle}>Track pickup timeline and status</Text>
       </View>
 
