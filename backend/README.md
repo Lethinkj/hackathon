@@ -1,13 +1,12 @@
-# SupplyLink Backend (Supabase)
+# SupplyLink Backend
 
-This folder is configured as a Supabase-first backend module.
+This backend uses Supabase for data storage and runs an Express API for password-based auth.
 
-## What Supabase Handles
+## What This Service Handles
 
-- Database: PostgreSQL tables in `schema.sql`
-- Auth: Supabase Auth (no custom JWT service needed)
-- API: Auto-generated REST and JS client access
-- Realtime: Postgres change subscriptions
+- Database access through Supabase (`users`, `food`, `orders`, `donations`)
+- Password auth routes (`/auth/register`, `/auth/login`, `/auth/me`)
+- JWT session tokens for the provider web app
 
 ## Setup
 
@@ -16,16 +15,15 @@ This folder is configured as a Supabase-first backend module.
 2. Add env values in `.env`:
    - SUPABASE_URL
    - SUPABASE_ANON_KEY
+   - JWT_SECRET (optional)
+   - PORT (optional, defaults to 4000)
+   - CORS_ORIGINS (optional, comma-separated)
 3. Apply SQL schema from `schema.sql` in Supabase SQL Editor.
+4. Start the API:
+   npm run start
 
-## Usage Examples
+## Auth Endpoints
 
-```js
-const { addFood, getNearbyFood, getNgoAlerts } = require("./queries");
-const { updatePrice, matchNGO } = require("./coreLogic");
-const { subscribeFoodUpdates } = require("./realtime");
-```
-
-## Pitch Line
-
-SupplyLink uses Supabase-powered real-time technology to transform surplus food into opportunity - instantly connecting providers, consumers, and NGOs to reduce waste and feed communities.
+- `POST /auth/register`
+- `POST /auth/login`
+- `GET /auth/me` (Bearer token required)

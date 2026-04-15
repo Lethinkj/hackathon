@@ -7,12 +7,18 @@ create table if not exists users (
   id uuid primary key default uuid_generate_v4(),
   name text,
   email text unique,
+  password text not null,
   role text check (role in ('provider', 'consumer', 'ngo')),
   lat double precision,
   lng double precision,
   capacity int,
-  rating float default 5
+  rating float default 5,
+  created_at timestamp default now()
 );
+
+-- For existing projects migrated from Supabase Auth-only flow.
+alter table if exists users add column if not exists password text;
+alter table if exists users add column if not exists created_at timestamp default now();
 
 create table if not exists food (
   id uuid primary key default uuid_generate_v4(),

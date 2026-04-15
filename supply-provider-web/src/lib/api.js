@@ -1,68 +1,79 @@
 import { supabase } from './supabase'
 import { applyDynamicPricing } from './pricing'
 
-export async function signUpProvider({ name, email, password, role, lat, lng, capacity }) {
-    const { data: authData, error: authError } = await supabase.auth.signUp({
-        email,
-        password,
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
+const TOKEN_KEY = 'supplylink_auth_token'
+
+async function requestAuth(path, options = {}) {
+    const token = localStorage.getItem(TOKEN_KEY)
+    const headers = {
+        'Content-Type': 'application/json',
+        ...(options.headers || {}),
+    }
+
+    if (token) {
+        headers.Authorization = `Bearer ${token}`
+    }
+
+    const response = await fetch(`${API_BASE_URL}${path}`, {
+        ...options,
+        headers,
     })
 
-    if (authError) throw authError
-    if (!authData.user) throw new Error('Unable to create user')
+    const body = await response.json().catch(() => ({}))
 
-    const { data: user, error: userError } = await supabase
-        .from('users')
-        .upsert({
-            id: authData.user.id,
+    if (!response.ok) {
+        throw new Error(body.error || 'Authentication request failed')
+    }
+
+    return body
+}
+
+export async function signUpProvider({ name, email, password, role, lat, lng, capacity }) {
+    const { token, user } = await requestAuth('/auth/register', {
+        method: 'POST',
+        body: JSON.stringify({
             name,
             email,
+            password,
             role,
             lat,
             lng,
             capacity: capacity || null,
-            rating: 5,
         })
-        .select()
-        .single()
+    })
 
-    if (userError) throw userError
+    localStorage.setItem(TOKEN_KEY, token)
     return user
 }
 
 export async function signIn({ email, password }) {
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) throw error
-    if (!data.user) throw new Error('Invalid credentials')
+    const { token, user } = await requestAuth('/auth/login', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+    })
 
-    const { data: user, error: userError } = await supabase
-        .from('users')
-        .select('*')
-        .eq('id', data.user.id)
-        .single()
-
-    if (userError) throw userError
+    localStorage.setItem(TOKEN_KEY, token)
     return user
 }
 
 export async function signOut() {
-    const { error } = await supabase.auth.signOut()
-    if (error) throw error
+    localStorage.removeItem(TOKEN_KEY)
 }
 
 export async function getSessionUser() {
-    const { data: sessionData, error: sessionError } = await supabase.auth.getSession()
-    if (sessionError) throw sessionError
+    const token = localStorage.getItem(TOKEN_KEY)
+    if (!token) return null
 
-    if (!sessionData.session?.user?.id) return null
-
-    const { data: user, error: userError } = await supabase
-        .from('users')
-        .select('*')
-        .eq('id', sessionData.session.user.id)
-        .single()
-
-    if (userError) throw userError
-    return user
+    try {
+        return await requestAuth('/auth/me')
+    } catch (err) {
+        if (String(err.message || '').toLowerCase().includes('token')) {
+            localStorage.removeItem(TOKEN_KEY)
+            return null
+        }
+        throw err
+    }
 }
 
 export async function addFoodListing(payload) {
