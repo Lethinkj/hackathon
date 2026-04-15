@@ -12,10 +12,6 @@ export default function SidebarClean({ page, setPage, listingsCount, requestsCou
                 <span className="nav-icon">🏠</span> Dashboard
             </div>
 
-            <div className={`nav-item ${page === 'add' ? 'active' : ''}`} onClick={() => setPage('add')}>
-                <span className="nav-icon">➕</span> Add Food
-            </div>
-
             <div className={`nav-item ${page === 'listings' ? 'active' : ''}`} onClick={() => setPage('listings')}>
                 <span className="nav-icon">📋</span> Listings
                 <span className="nav-badge">{listingsCount}</span>
