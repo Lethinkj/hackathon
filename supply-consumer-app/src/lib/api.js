@@ -152,28 +152,40 @@ export async function donateFood(foodId) {
 }
 
 export async function placeOrder({ foodId, userId, pickupTime }) {
-  const { data, error } = await supabase
-    .from('orders')
-    .insert([
-      {
-        food_id: foodId,
-        user_id: userId,
-        status: 'pending',
-        pickup_time: pickupTime,
-      },
-    ])
-    .select()
-    .single()
+  try {
+    return await requestApi('/orders', {
+      method: 'POST',
+      body: JSON.stringify({
+        foodId,
+        userId,
+        pickupTime,
+      }),
+    })
+  } catch (_apiError) {
+    // Local fallback in case backend is unavailable in development.
+    const { data, error } = await supabase
+      .from('orders')
+      .insert([
+        {
+          food_id: foodId,
+          user_id: userId,
+          status: 'pending',
+          pickup_time: pickupTime,
+        },
+      ])
+      .select()
+      .single()
 
-  if (error) throw error
+    if (error) throw error
 
-  const markSold = async (table) => supabase.from(table).update({ status: 'sold' }).eq('id', foodId)
-  const soldPrimary = await markSold('food')
-  if (soldPrimary.error) {
-    await markSold('foods')
+    const markSold = async (table) => supabase.from(table).update({ status: 'sold' }).eq('id', foodId)
+    const soldPrimary = await markSold('food')
+    if (soldPrimary.error) {
+      await markSold('foods')
+    }
+
+    return data
   }
-
-  return data
 }
 
 export async function requestFoodByNgo({ foodId, ngoId }) {
@@ -197,14 +209,25 @@ export async function requestFoodByNgo({ foodId, ngoId }) {
 }
 
 export async function getOrders(userId) {
-  const { data, error } = await supabase
-    .from('orders')
-    .select('*, food(*)')
-    .eq('user_id', userId)
-    .order('pickup_time', { ascending: true })
+  try {
+    const rows = await requestApi(`/orders/${userId}`)
+    return (rows || [])
+      .map((item) => ({
+        ...item,
+        food: item.food || item.foods || null,
+      }))
+      .sort((a, b) => new Date(a.pickup_time).getTime() - new Date(b.pickup_time).getTime())
+  } catch (apiError) {
+    // Fallback keeps mobile app functional if backend route is temporarily unavailable.
+    const { data, error } = await supabase
+      .from('orders')
+      .select('*, food(*)')
+      .eq('user_id', userId)
+      .order('pickup_time', { ascending: true })
 
-  if (error) throw error
-  return data || []
+    if (error) throw apiError
+    return data || []
+  }
 }
 
 export async function getProviderOrders(providerId) {

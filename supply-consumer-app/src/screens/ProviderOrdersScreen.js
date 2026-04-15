@@ -46,13 +46,13 @@ export default function ProviderOrdersScreen({ user }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f8fafc' },
+  container: { flex: 1, backgroundColor: '#ffffff' },
   header: { padding: 16, paddingTop: 20 },
-  title: { fontSize: 24, fontWeight: '700', color: '#0f172a' },
-  subtitle: { marginTop: 4, color: '#334155' },
+  title: { fontSize: 24, fontWeight: '700', color: '#991b1b' },
+  subtitle: { marginTop: 4, color: '#b91c1c' },
   list: { padding: 16, gap: 12 },
-  card: { backgroundColor: '#fff', borderWidth: 1, borderColor: '#e2e8f0', borderRadius: 12, padding: 14 },
-  foodName: { fontSize: 16, fontWeight: '700', color: '#0f172a' },
-  meta: { marginTop: 6, color: '#475569' },
-  empty: { textAlign: 'center', marginTop: 40, color: '#64748b' },
+  card: { backgroundColor: '#fff', borderWidth: 1, borderColor: '#fecaca', borderRadius: 12, padding: 14 },
+  foodName: { fontSize: 16, fontWeight: '700', color: '#7f1d1d' },
+  meta: { marginTop: 6, color: '#991b1b' },
+  empty: { textAlign: 'center', marginTop: 40, color: '#b91c1c' },
 })

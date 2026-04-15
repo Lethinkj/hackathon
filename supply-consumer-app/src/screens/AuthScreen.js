@@ -9,30 +9,67 @@ import {
   TextInput,
   View,
 } from 'react-native'
-import { signIn, signUp } from '../lib/api'
+import { sendPhoneOtp, signIn, signUp, verifyPhoneOtp } from '../lib/api'
 
 const DEFAULT_COORDS = { lat: 12.9716, lng: 77.5946 }
 
 export default function AuthScreen({ onAuthenticated }) {
   const [isLogin, setIsLogin] = useState(true)
+  const [authMethod, setAuthMethod] = useState('email')
+  const [otpSent, setOtpSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [form, setForm] = useState({
     name: '',
     email: '',
     password: '',
+    phone: '',
+    otp: '',
     role: 'consumer',
   })
 
   const set = (key, value) => setForm((prev) => ({ ...prev, [key]: value }))
 
   async function onSubmit() {
-    if (!form.email || !form.password || (!isLogin && !form.name)) {
-      Alert.alert('Missing fields', 'Please fill all required fields.')
-      return
-    }
-
     setLoading(true)
     try {
+      if (authMethod === 'phone') {
+        if (!form.phone) {
+          Alert.alert('Missing phone', 'Please enter your phone in E.164 format, for example +15551234567.')
+          return
+        }
+
+        if (!otpSent) {
+          await sendPhoneOtp({ phone: form.phone.trim(), channel: 'sms' })
+          setOtpSent(true)
+          Alert.alert('OTP sent', 'Enter the code sent to your phone.')
+          return
+        }
+
+        if (!form.otp) {
+          Alert.alert('Missing OTP', 'Please enter the OTP code.')
+          return
+        }
+
+        const user = await verifyPhoneOtp({
+          phone: form.phone.trim(),
+          token: form.otp.trim(),
+          type: 'sms',
+          name: form.name.trim() || undefined,
+          role: form.role,
+          lat: DEFAULT_COORDS.lat,
+          lng: DEFAULT_COORDS.lng,
+          capacity: form.role === 'ngo' ? 20 : null,
+        })
+
+        onAuthenticated(user)
+        return
+      }
+
+      if (!form.email || !form.password || (!isLogin && !form.name)) {
+        Alert.alert('Missing fields', 'Please fill all required fields.')
+        return
+      }
+
       const user = isLogin
         ? await signIn({ email: form.email.trim(), password: form.password })
         : await signUp({
@@ -47,10 +84,22 @@ export default function AuthScreen({ onAuthenticated }) {
 
       onAuthenticated(user)
     } catch (err) {
-      Alert.alert(isLogin ? 'Login failed' : 'Registration failed', err.message)
+      Alert.alert('Authentication failed', err.message)
     } finally {
       setLoading(false)
     }
+  }
+
+  function onToggleMode(nextLoginState) {
+    setIsLogin(nextLoginState)
+    setOtpSent(false)
+    set('otp', '')
+  }
+
+  function onSwitchMethod(nextMethod) {
+    setAuthMethod(nextMethod)
+    setOtpSent(false)
+    set('otp', '')
   }
 
   return (
@@ -59,7 +108,22 @@ export default function AuthScreen({ onAuthenticated }) {
         <Text style={styles.brand}>Left2Lift</Text>
         <Text style={styles.subtitle}>{isLogin ? 'Login to continue' : 'Create your account'}</Text>
 
-        {!isLogin ? (
+        <View style={styles.methods}>
+          <Pressable
+            style={[styles.methodButton, authMethod === 'email' && styles.methodButtonActive]}
+            onPress={() => onSwitchMethod('email')}
+          >
+            <Text style={[styles.methodText, authMethod === 'email' && styles.methodTextActive]}>Email</Text>
+          </Pressable>
+          <Pressable
+            style={[styles.methodButton, authMethod === 'phone' && styles.methodButtonActive]}
+            onPress={() => onSwitchMethod('phone')}
+          >
+            <Text style={[styles.methodText, authMethod === 'phone' && styles.methodTextActive]}>Phone OTP</Text>
+          </Pressable>
+        </View>
+
+        {!isLogin || authMethod === 'phone' ? (
           <View style={styles.roles}>
             {['consumer', 'ngo'].map((role) => (
               <Pressable
@@ -85,31 +149,87 @@ export default function AuthScreen({ onAuthenticated }) {
           />
         ) : null}
 
-        <TextInput
-          value={form.email}
-          onChangeText={(value) => set('email', value)}
-          placeholder="Email"
-          style={styles.input}
-          autoCapitalize="none"
-          keyboardType="email-address"
-        />
-        <TextInput
-          value={form.password}
-          onChangeText={(value) => set('password', value)}
-          placeholder="Password"
-          style={styles.input}
-          secureTextEntry
-        />
+        {authMethod === 'email' ? (
+          <>
+            <TextInput
+              value={form.email}
+              onChangeText={(value) => set('email', value)}
+              placeholder="Email"
+              style={styles.input}
+              autoCapitalize="none"
+              keyboardType="email-address"
+            />
+            <TextInput
+              value={form.password}
+              onChangeText={(value) => set('password', value)}
+              placeholder="Password"
+              style={styles.input}
+              secureTextEntry
+            />
+          </>
+        ) : (
+          <>
+            <TextInput
+              value={form.phone}
+              onChangeText={(value) => set('phone', value)}
+              placeholder="Phone (e.g. +15551234567)"
+              style={styles.input}
+              keyboardType="phone-pad"
+              autoCapitalize="none"
+            />
+            {otpSent ? (
+              <TextInput
+                value={form.otp}
+                onChangeText={(value) => set('otp', value)}
+                placeholder="Enter OTP"
+                style={styles.input}
+                keyboardType="number-pad"
+                autoCapitalize="none"
+              />
+            ) : null}
+          </>
+        )}
 
         <Pressable style={[styles.button, loading && styles.disabled]} onPress={onSubmit} disabled={loading}>
           {loading ? (
             <ActivityIndicator color="#ffffff" />
           ) : (
-            <Text style={styles.buttonText}>{isLogin ? 'Login' : 'Register'}</Text>
+            <Text style={styles.buttonText}>
+              {authMethod === 'phone'
+                ? otpSent
+                  ? 'Verify OTP'
+                  : 'Send OTP'
+                : isLogin
+                  ? 'Login'
+                  : 'Register'}
+            </Text>
           )}
         </Pressable>
 
-        <Pressable onPress={() => setIsLogin((prev) => !prev)}>
+        {authMethod === 'phone' && otpSent ? (
+          <Pressable
+            onPress={async () => {
+              if (loading) return
+              if (!form.phone) {
+                Alert.alert('Missing phone', 'Please enter your phone number first.')
+                return
+              }
+              try {
+                setLoading(true)
+                await sendPhoneOtp({ phone: form.phone.trim(), channel: 'sms' })
+                Alert.alert('OTP resent', 'A new code has been sent.')
+              } catch (err) {
+                Alert.alert('Resend failed', err.message)
+              } finally {
+                setLoading(false)
+              }
+            }}
+          >
+            <Text style={styles.toggleText}>Resend OTP</Text>
+          </Pressable>
+        ) : null}
+
+        <Pressable onPress={() => onToggleMode(!isLogin)}>
           <Text style={styles.toggleText}>
             {isLogin ? "Don't have an account? Register" : 'Already have an account? Login'}
           </Text>
@@ -145,6 +265,31 @@ const styles = StyleSheet.create({
     marginTop: 6,
     marginBottom: 16,
     color: '#991b1b',
+  },
+  methods: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 12,
+  },
+  methodButton: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#fca5a5',
+    borderRadius: 10,
+    paddingVertical: 10,
+    alignItems: 'center',
+  },
+  methodButtonActive: {
+    backgroundColor: '#dc2626',
+    borderColor: '#dc2626',
+  },
+  methodText: {
+    fontWeight: '700',
+    color: '#7f1d1d',
+    fontSize: 12,
+  },
+  methodTextActive: {
+    color: '#ffffff',
   },
   roles: {
     flexDirection: 'row',

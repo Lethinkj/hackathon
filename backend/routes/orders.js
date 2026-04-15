@@ -3,13 +3,47 @@ const supabase = require("../supabaseClient");
 
 const router = express.Router();
 
+async function updateFoodStatus(foodId, status) {
+    const primary = await supabase.from("food").update({ status }).eq("id", foodId);
+    if (!primary.error) return;
+
+    const fallback = await supabase.from("foods").update({ status }).eq("id", foodId);
+    if (fallback.error) {
+        throw fallback.error;
+    }
+}
+
+async function getOrdersWithFood(userId) {
+    const primary = await supabase
+        .from("orders")
+        .select("*, food(*)")
+        .eq("user_id", userId)
+        .order("pickup_time", { ascending: true });
+
+    if (!primary.error) return primary.data || [];
+
+    const fallback = await supabase
+        .from("orders")
+        .select("*, foods(*)")
+        .eq("user_id", userId)
+        .order("pickup_time", { ascending: true });
+
+    if (fallback.error) throw fallback.error;
+
+    return (fallback.data || []).map((item) => ({
+        ...item,
+        food: item.food || item.foods || null,
+    }));
+}
+
 // Create order
 router.post("/", async (req, res) => {
     try {
         const { foodId, userId, pickupTime } = req.body;
 
-        // Mark food as sold
-        await supabase.from("foods").update({ status: "sold" }).eq("id", foodId);
+        if (!foodId || !userId || !pickupTime) {
+            return res.status(400).json({ error: "foodId, userId and pickupTime are required" });
+        }
 
         const { data: order, error } = await supabase
             .from("orders")
@@ -23,6 +57,9 @@ router.post("/", async (req, res) => {
             .single();
 
         if (error) throw error;
+
+        await updateFoodStatus(foodId, "sold");
+
         res.status(201).json(order);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -32,13 +69,7 @@ router.post("/", async (req, res) => {
 // Get orders by user
 router.get("/:userId", async (req, res) => {
     try {
-        const { data: orders, error } = await supabase
-            .from("orders")
-            .select("*, foods(*)")
-            .eq("user_id", req.params.userId)
-            .order("created_at", { ascending: false });
-
-        if (error) throw error;
+        const orders = await getOrdersWithFood(req.params.userId);
         res.json(orders);
     } catch (err) {
         res.status(500).json({ error: err.message });

@@ -9,11 +9,25 @@ function formatClock(value) {
 }
 
 export default function HistoryCard({ food }) {
+    const status = food.finalStatus === 'donated' ? 'donated' : food.finalStatus === 'wasted' ? 'wasted' : 'sold'
+
     return (
         <article className="history-card">
             <div className="history-card-top">
-                <h4 className="history-food-name">{food.name}</h4>
-                <StatusBadge status={food.finalStatus} />
+                <div className="history-food-left">
+                    <div className="food-emoji history-emoji">{food.emoji || '🍱'}</div>
+                    <div>
+                        <h4 className="history-food-name">{food.name}</h4>
+                        <div className="food-meta">{food.source || 'Provider listing'}</div>
+                        <div className="food-tags" style={{ marginTop: 4 }}>
+                            <span className={`tag ${food.type === 'Veg' ? 'veg' : 'nonveg'}`}>{food.type || 'Veg'}</span>
+                            <span className={`tag ${food.mode === 'discount' ? 'discount' : 'donate'}`}>
+                                {food.mode === 'discount' ? 'Discount' : 'Donate'}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <StatusBadge status={status} />
             </div>
             <div className="history-grid">
                 <div className="history-cell">

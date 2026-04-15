@@ -58,14 +58,14 @@ export default function FoodDetailsScreen({ route, navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f8fafc', padding: 16 },
-  card: { backgroundColor: '#fff', borderColor: '#e2e8f0', borderWidth: 1, borderRadius: 12, padding: 16 },
-  name: { fontSize: 24, fontWeight: '700', color: '#0f172a' },
-  price: { fontSize: 20, fontWeight: '700', color: '#1d4ed8', marginTop: 8 },
-  meta: { marginTop: 8, color: '#334155' },
+  container: { flex: 1, backgroundColor: '#ffffff', padding: 16 },
+  card: { backgroundColor: '#fff', borderColor: '#fecaca', borderWidth: 1, borderRadius: 12, padding: 16 },
+  name: { fontSize: 24, fontWeight: '700', color: '#7f1d1d' },
+  price: { fontSize: 20, fontWeight: '700', color: '#dc2626', marginTop: 8 },
+  meta: { marginTop: 8, color: '#991b1b' },
   button: {
     marginTop: 20,
-    backgroundColor: '#1d4ed8',
+    backgroundColor: '#dc2626',
     borderRadius: 10,
     paddingVertical: 12,
     alignItems: 'center',

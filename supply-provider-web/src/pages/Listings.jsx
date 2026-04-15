@@ -21,10 +21,10 @@ export default function Listings({ foods }) {
     }, { Today: [], Yesterday: [], Older: [] })
 
     return (
-        <div className="page">
+        <div className="page active">
             <div className="page-header">
-                <h2 className="page-title">Listings</h2>
-                <p className="page-subtitle">Lifecycle history grouped by date with final outcome tracking.</p>
+                <h2 className="page-title">Listings History</h2>
+                <p className="page-subtitle">Card-based history grouped into Today, Yesterday, and Older.</p>
             </div>
 
             <div className="history-stack" id="listing-grid">
