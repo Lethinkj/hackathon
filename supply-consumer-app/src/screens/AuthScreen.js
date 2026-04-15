@@ -16,6 +16,7 @@ const DEFAULT_COORDS = { lat: 12.9716, lng: 77.5946 }
 export default function AuthScreen({ onAuthenticated }) {
   const [isLogin, setIsLogin] = useState(true)
   const [authMethod, setAuthMethod] = useState('email')
+  const [showMethodDropdown, setShowMethodDropdown] = useState(false)
   const [otpSent, setOtpSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [form, setForm] = useState({
@@ -98,9 +99,12 @@ export default function AuthScreen({ onAuthenticated }) {
 
   function onSwitchMethod(nextMethod) {
     setAuthMethod(nextMethod)
+    setShowMethodDropdown(false)
     setOtpSent(false)
     set('otp', '')
   }
+
+  const authMethodLabel = authMethod === 'phone' ? 'Mobile Number' : 'Email'
 
   return (
     <SafeAreaView style={styles.container}>
@@ -108,36 +112,37 @@ export default function AuthScreen({ onAuthenticated }) {
         <Text style={styles.brand}>Left2Lift</Text>
         <Text style={styles.subtitle}>{isLogin ? 'Login to continue' : 'Create your account'}</Text>
 
-        <View style={styles.methods}>
-          <Pressable
-            style={[styles.methodButton, authMethod === 'email' && styles.methodButtonActive]}
-            onPress={() => onSwitchMethod('email')}
-          >
-            <Text style={[styles.methodText, authMethod === 'email' && styles.methodTextActive]}>Email</Text>
+        <View style={styles.dropdownWrap}>
+          <Text style={styles.dropdownLabel}>Sign in with</Text>
+          <Pressable style={styles.dropdownButton} onPress={() => setShowMethodDropdown((prev) => !prev)}>
+            <Text style={styles.dropdownValue}>{authMethodLabel}</Text>
+            <Text style={styles.dropdownChevron}>{showMethodDropdown ? '▲' : '▼'}</Text>
           </Pressable>
-          <Pressable
-            style={[styles.methodButton, authMethod === 'phone' && styles.methodButtonActive]}
-            onPress={() => onSwitchMethod('phone')}
-          >
-            <Text style={[styles.methodText, authMethod === 'phone' && styles.methodTextActive]}>Phone OTP</Text>
-          </Pressable>
+          {showMethodDropdown ? (
+            <View style={styles.dropdownMenu}>
+              <Pressable style={styles.dropdownItem} onPress={() => onSwitchMethod('email')}>
+                <Text style={styles.dropdownItemText}>Email</Text>
+              </Pressable>
+              <Pressable style={styles.dropdownItem} onPress={() => onSwitchMethod('phone')}>
+                <Text style={styles.dropdownItemText}>Mobile Number</Text>
+              </Pressable>
+            </View>
+          ) : null}
         </View>
 
-        {!isLogin || authMethod === 'phone' ? (
-          <View style={styles.roles}>
-            {['consumer', 'ngo'].map((role) => (
-              <Pressable
-                key={role}
-                style={[styles.roleButton, form.role === role && styles.roleButtonActive]}
-                onPress={() => set('role', role)}
-              >
-                <Text style={[styles.roleText, form.role === role && styles.roleTextActive]}>
-                  {role.toUpperCase()}
-                </Text>
-              </Pressable>
-            ))}
-          </View>
-        ) : null}
+        <View style={styles.roles}>
+          {['consumer', 'ngo'].map((role) => (
+            <Pressable
+              key={role}
+              style={[styles.roleButton, form.role === role && styles.roleButtonActive]}
+              onPress={() => set('role', role)}
+            >
+              <Text style={[styles.roleText, form.role === role && styles.roleTextActive]}>
+                {role.toUpperCase()}
+              </Text>
+            </Pressable>
+          ))}
+        </View>
 
         {!isLogin ? (
           <TextInput
@@ -266,30 +271,52 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     color: '#991b1b',
   },
-  methods: {
-    flexDirection: 'row',
-    gap: 8,
+  dropdownWrap: {
     marginBottom: 12,
   },
-  methodButton: {
-    flex: 1,
+  dropdownLabel: {
+    color: '#991b1b',
+    marginBottom: 6,
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  dropdownButton: {
     borderWidth: 1,
     borderColor: '#fca5a5',
     borderRadius: 10,
-    paddingVertical: 10,
+    paddingHorizontal: 12,
+    height: 44,
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#ffffff',
   },
-  methodButtonActive: {
-    backgroundColor: '#dc2626',
-    borderColor: '#dc2626',
-  },
-  methodText: {
-    fontWeight: '700',
+  dropdownValue: {
     color: '#7f1d1d',
-    fontSize: 12,
+    fontWeight: '600',
   },
-  methodTextActive: {
-    color: '#ffffff',
+  dropdownChevron: {
+    color: '#b91c1c',
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  dropdownMenu: {
+    marginTop: 6,
+    borderWidth: 1,
+    borderColor: '#fecaca',
+    borderRadius: 10,
+    backgroundColor: '#ffffff',
+    overflow: 'hidden',
+  },
+  dropdownItem: {
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#fee2e2',
+  },
+  dropdownItemText: {
+    color: '#7f1d1d',
+    fontWeight: '600',
   },
   roles: {
     flexDirection: 'row',
