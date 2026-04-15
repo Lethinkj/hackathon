@@ -1,0 +1,85 @@
+SupplyLink Project Plan (Supabase Final)
+
+1) Architecture
+
+/project-root
+ - supply-consumer-app (React Native - Expo)
+ - supply-provider-web (React + Vite)
+ - backend (Supabase helpers, SQL, core logic)
+
+Supabase responsibilities:
+ - Database (PostgreSQL)
+ - Auth (Supabase Auth)
+ - APIs (table queries via supabase-js)
+ - Realtime (postgres_changes channels)
+
+2) Role Mapping
+
+ - Restaurants -> Web -> Supply Provider
+ - Customers -> Mobile -> Supply Consumer
+ - NGOs -> Mobile -> NGO Mode
+
+3) Database Tables
+
+ - users
+ - food
+ - orders
+ - donations
+
+Schema source of truth:
+ - backend/schema.sql
+
+4) Core Product Logic
+
+ - Dynamic pricing based on expiry window
+ - NGO matching (distance first, then capacity)
+
+Implemented in:
+ - backend/coreLogic.js
+ - supply-provider-web/src/lib/pricing.js
+ - supply-consumer-app/src/lib/pricing.js
+
+5) Frontend Scope
+
+Provider Web (completed):
+ - Auth page using Supabase auth and users table
+ - Dashboard
+ - Add Food (< 30 second quick entry)
+ - Listings
+ - Analytics
+ - Realtime refresh on food updates
+
+Consumer Mobile (completed):
+ - Home (Nearby Deals)
+ - Food Details
+ - NGO Alerts
+ - Orders
+ - Realtime updates for food feed
+
+6) Setup Steps
+
+ - Apply backend/schema.sql in Supabase SQL editor
+ - Configure env files:
+   - backend/.env
+   - supply-provider-web/.env
+   - supply-consumer-app/.env
+ - Install dependencies in each app folder
+ - Run web (Vite) and mobile (Expo)
+
+7) 24-Hour Build Sequence
+
+0-4 hrs:
+ - Supabase setup + schema + auth wiring
+
+4-10 hrs:
+ - Provider web dashboard and add-food flow
+
+10-18 hrs:
+ - Consumer mobile app + nearby feed
+
+18-24 hrs:
+ - Dynamic pricing + NGO alerts + realtime + demo polish
+
+8) Demo Line
+
+"SupplyLink uses Supabase-powered real-time technology to transform surplus food into opportunity - instantly connecting providers, consumers, and NGOs to reduce waste and feed communities."
