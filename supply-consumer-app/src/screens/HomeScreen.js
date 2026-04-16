@@ -9,62 +9,100 @@ import {
   Text,
   View,
 } from 'react-native'
-import { getLiveSurplus, getNearbyFood, getSupplierPrediction, subscribeFoodRealtime } from '../lib/api'
+import { getLiveSurplus, getPredictionProducts, preOrderPrediction } from '../lib/api'
+import { useRealtimePredictionUpdates } from '../hooks/useRealtimeFoodUpdates'
 
 export default function HomeScreen({ navigation, user }) {
   const [foods, setFoods] = useState([])
   const [loading, setLoading] = useState(false)
   const [liveSurplus, setLiveSurplus] = useState(null)
   const [prediction, setPrediction] = useState(null)
-
-  const demoSupplierId = process.env.EXPO_PUBLIC_DEMO_SUPPLIER_ID || 'sup-001'
+  const [predictionSourceId, setPredictionSourceId] = useState(null)
+  const [error, setError] = useState('')
+  const [prebookingId, setPrebookingId] = useState('')
 
   function onOpenDetails(item) {
-    if (user?.role === 'provider') {
-      Alert.alert('Providers', 'Use My Listings to update food details or donate.')
+    Alert.alert(
+      'Predicted Product',
+      `${item.food_name}\nPredicted qty: ${item.quantity}\nConfidence: ${Math.round(item.confidence_score || 0)}%`
+    )
+  }
+
+  async function onPreOrder(item) {
+    if (!user?.id) {
+      Alert.alert('Login required', 'Please login to place a preorder.')
       return
     }
+    
+    setPrebookingId(item.id)
+    try {
+      const pickup = new Date(Date.now() + 45 * 60 * 1000).toISOString()
+      await preOrderPrediction({
+        predictionId: item.prediction_id || item.id,
+        userId: user.id,
+        pickupTime: pickup,
+        listingId: item.listing_id || null,
+      })
 
-    navigation.navigate('FoodDetails', { food: item, user })
+      Alert.alert('Preordered', 'Your preorder has been placed successfully.')
+    } catch (err) {
+      Alert.alert('Preorder failed', err?.message || 'Could not place this preorder right now.')
+    } finally {
+      setPrebookingId('')
+    }
   }
 
   async function loadData() {
     setLoading(true)
+    setError('')
     try {
-      const [rows, liveData, predictionData] = await Promise.all([
-        getNearbyFood(),
+      const [rows, liveData] = await Promise.all([
+        getPredictionProducts(500),
         getLiveSurplus(),
-        getSupplierPrediction(demoSupplierId),
       ])
+
+      const topPrediction = rows[0] || null
       setFoods(rows)
       setLiveSurplus(liveData)
-      setPrediction(predictionData?.current_prediction || predictionData)
+      setPrediction(topPrediction)
+      setPredictionSourceId(topPrediction?.supplier_id || null)
+    } catch (err) {
+      setFoods([])
+      setPrediction(null)
+      setPredictionSourceId(null)
+      setError(err?.message || 'Failed to load prediction products')
     } finally {
       setLoading(false)
     }
   }
 
+  useRealtimePredictionUpdates((update) => {
+    console.log('[HomeScreen] Real-time prediction update:', update.type, update.data?.id)
+    void loadData()
+  })
+
   useEffect(() => {
     loadData()
-    const channel = subscribeFoodRealtime(loadData)
-    return () => {
-      channel.unsubscribe()
-    }
   }, [])
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Nearby Deals</Text>
-        <Text style={styles.subtitle}>Live surplus food listings near you</Text>
+        <Text style={styles.title}>Predicted Products</Text>
+        <Text style={styles.subtitle}>AI product list from predictions table</Text>
       </View>
+
+      {!!error ? <Text style={styles.errorText}>{error}</Text> : null}
 
       <View style={styles.predictionBanner}>
         <Text style={styles.predictionLabel}>AI surplus forecast</Text>
         <Text style={styles.predictionTitle}>
           {prediction?.suggested_action || 'Monitor demand'} · {prediction?.predicted_surplus ?? 0} units expected
         </Text>
-        <Text style={styles.predictionMeta}>{prediction?.confidence_score ?? 0}% confidence · {liveSurplus?.count ?? foods.length} live offers</Text>
+        <Text style={styles.predictionMeta}>
+          {prediction?.confidence_score ?? 0}% confidence · {liveSurplus?.count ?? foods.length} live offers
+          {predictionSourceId ? ` · supplier ${String(predictionSourceId).slice(0, 8)}` : ''}
+        </Text>
       </View>
 
       <FlatList
@@ -79,14 +117,26 @@ export default function HomeScreen({ navigation, user }) {
           >
             <View style={styles.rowBetween}>
               <Text style={styles.foodName}>{item.food_name}</Text>
-              <Text style={styles.price}>Rs {Math.round(item.price)}</Text>
+              <Text style={styles.price}>{Math.round(item.confidence_score || 0)}%</Text>
             </View>
             <Text style={styles.meta}>Qty: {item.quantity} | Type: {item.type}</Text>
-            <Text style={styles.meta}>Expires: {new Date(item.expiry_time).toLocaleString()}</Text>
-            {!!item.discount && <Text style={styles.discount}>{item.discount}% OFF</Text>}
+            <Text style={styles.meta}>Supplier: {item.supplier_name || 'Local supplier'}</Text>
+            <Text style={styles.meta}>Prediction Date: {item.prediction_date || 'N/A'}</Text>
+            <Text style={styles.discount}>Predicted Surplus: {Math.round(item.predicted_surplus || 0)}</Text>
+            <View style={styles.actionsRow}>
+              <Pressable
+                style={[styles.prebookBtn, prebookingId === item.id && styles.prebookBtnDisabled]}
+                onPress={() => onPreOrder(item)}
+                disabled={prebookingId === item.id}
+              >
+                <Text style={styles.prebookBtnText}>
+                  {prebookingId === item.id ? 'Preordering...' : 'Pre order'}
+                </Text>
+              </Pressable>
+            </View>
           </Pressable>
         )}
-        ListEmptyComponent={!loading ? <Text style={styles.empty}>No food available right now.</Text> : null}
+        ListEmptyComponent={!loading ? <Text style={styles.empty}>No predicted products right now.</Text> : null}
       />
     </SafeAreaView>
   )
@@ -122,5 +172,15 @@ const styles = StyleSheet.create({
   price: { fontSize: 16, fontWeight: '700', color: '#dc2626' },
   meta: { color: '#991b1b', marginTop: 6, fontSize: 13 },
   discount: { marginTop: 8, color: '#dc2626', fontWeight: '700', fontSize: 12 },
+  actionsRow: { marginTop: 10, flexDirection: 'row', justifyContent: 'flex-end' },
+  prebookBtn: {
+    backgroundColor: '#dc2626',
+    borderRadius: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+  },
+  prebookBtnDisabled: { opacity: 0.7 },
+  prebookBtnText: { color: '#fff', fontWeight: '700', fontSize: 12 },
   empty: { textAlign: 'center', marginTop: 40, color: '#b91c1c' },
+  errorText: { color: '#b91c1c', marginHorizontal: 16, marginBottom: 8 },
 })

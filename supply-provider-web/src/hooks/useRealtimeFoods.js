@@ -1,93 +1,98 @@
-import { useEffect } from 'react'
-import { hasSupabaseConfig, supabase } from '../services/supabaseClient'
-import { getFoodIconBackground } from '../utils/foodTheme'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { calculateFoodLifecycle } from '../lib/api'
+import { supabase } from '../lib/supabase'
 
-function normalizeFood(food) {
-    const maxT = Number(food.maxT ?? food.max_t ?? food.durationSeconds ?? food.duration_seconds ?? 3600)
-    const elapsed = Number(food.elapsed ?? 0)
-    const expiresAt = food.expiresAt
-        ? new Date(food.expiresAt).getTime()
-        : food.expiry_time
-            ? new Date(food.expiry_time).getTime()
-            : food.expires_at
-                ? new Date(food.expires_at).getTime()
-                : Date.now() + Math.max(0, maxT - elapsed) * 1000
+const MINUTE_MS = 60 * 1000
 
-    return {
-        ...food,
-        id: food.id,
-        name: food.name ?? food.title ?? 'Listing',
-        prov: food.prov ?? food.provider ?? food.provider_name ?? 'Unknown provider',
-        base: Number(food.base ?? food.original_price ?? food.base_price ?? 0),
-        qty: Number(food.qty ?? food.quantity ?? food.units ?? 0),
-        maxT,
-        elapsed,
-        veg: Boolean(food.veg ?? food.is_veg ?? true),
-        type: food.type ?? food.category ?? 'meal',
-        icon: food.icon ?? '🍽️',
-        iconBg: food.iconBg ?? getFoodIconBackground(food.type ?? food.category ?? 'meal'),
-        status: food.status ?? 'available',
-        expiresAt,
-    }
+function hasLifecycleChanged(previous, next) {
+    return previous?.current_price !== next.current_price || previous?.status !== next.status
 }
 
-function upsertFood(items, nextFood) {
-    const index = items.findIndex((item) => item.id === nextFood.id)
+export function useRealtimeFoods(providerId) {
+    const [foods, setFoods] = useState([])
+    const [loading, setLoading] = useState(Boolean(providerId))
+    const [error, setError] = useState('')
+    const foodsRef = useRef([])
 
-    if (index === -1) return [nextFood, ...items]
-
-    const nextItems = [...items]
-    nextItems[index] = { ...nextItems[index], ...nextFood }
-    return nextItems
-}
-
-export function useRealtimeFoods(setFoods, fallbackFoods = []) {
     useEffect(() => {
-        let active = true
-        let channel
+        foodsRef.current = foods
+    }, [foods])
 
-        const applyFoods = (items) => {
-            if (!active) return
-            setFoods(items.map(normalizeFood))
+    const loadFoods = useCallback(async () => {
+        if (!providerId) {
+            setFoods([])
+            setLoading(false)
+            return []
         }
 
-        const loadFoods = async () => {
-            if (!hasSupabaseConfig) {
-                applyFoods(fallbackFoods)
-                return
-            }
+        setLoading(true)
+        setError('')
 
-            const { data, error } = await supabase.from('foods').select('*').order('created_at', { ascending: false })
+        const { data, error: fetchError } = await supabase
+            .from('foods')
+            .select('*')
+            .eq('provider_id', providerId)
+            .order('created_at', { ascending: false })
 
-            if (!active) return
-
-            if (error || !data?.length) {
-                applyFoods(fallbackFoods)
-                return
-            }
-
-            applyFoods(data)
+        if (fetchError) {
+            setError(fetchError.message)
+            setLoading(false)
+            throw fetchError
         }
 
-        loadFoods().catch(() => applyFoods(fallbackFoods))
+        const normalized = (data || []).map((row) => calculateFoodLifecycle(row))
+        setFoods(normalized)
+        setLoading(false)
+        return normalized
+    }, [providerId])
 
-        if (hasSupabaseConfig) {
-            channel = supabase
-                .channel('left2lift-foods')
-                .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'foods' }, (payload) => {
-                    const nextFood = normalizeFood(payload.new)
-                    setFoods((current) => upsertFood(current, nextFood))
-                })
-                .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'foods' }, (payload) => {
-                    const nextFood = normalizeFood(payload.new)
-                    setFoods((current) => upsertFood(current, nextFood))
-                })
-                .subscribe()
-        }
+    useEffect(() => {
+        void loadFoods()
+    }, [loadFoods])
+
+    useEffect(() => {
+        if (!providerId) return undefined
+
+        const channel = supabase
+            .channel(`foods-${providerId}`)
+            .on(
+                'postgres_changes',
+                { event: '*', schema: 'public', table: 'foods', filter: `provider_id=eq.${providerId}` },
+                () => {
+                    void loadFoods()
+                }
+            )
+            .subscribe()
 
         return () => {
-            active = false
-            if (channel) supabase.removeChannel(channel)
+            void supabase.removeChannel(channel)
         }
-    }, [fallbackFoods, setFoods])
+    }, [loadFoods, providerId])
+
+    useEffect(() => {
+        if (!providerId || !foods.length) return undefined
+
+        const interval = setInterval(() => {
+            const now = Date.now()
+            const nextFoods = foodsRef.current.map((food) => calculateFoodLifecycle(food, now))
+            const changedRows = nextFoods.filter((nextFood, index) => hasLifecycleChanged(foodsRef.current[index], nextFood))
+
+            if (changedRows.length) {
+                void Promise.all(
+                    changedRows.map((food) =>
+                        supabase
+                            .from('foods')
+                            .update({ current_price: food.current_price, status: food.status })
+                            .eq('id', food.id)
+                    )
+                )
+            }
+
+            setFoods(nextFoods)
+        }, MINUTE_MS)
+
+        return () => clearInterval(interval)
+    }, [foods.length, providerId])
+
+    return { foods, loading, error, refreshFoods: loadFoods, setFoods }
 }

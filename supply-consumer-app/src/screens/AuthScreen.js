@@ -109,7 +109,20 @@ export default function AuthScreen({ onAuthenticated }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.brand}>Left2Lift</Text>
+        <View style={styles.logoWrap}>
+          <View style={styles.logoCircle}>
+            <View style={styles.logoScooterBase} />
+            <View style={styles.logoBox} />
+            <View style={styles.logoWheelLeft} />
+            <View style={styles.logoWheelRight} />
+            <View style={styles.logoHead} />
+            <View style={styles.logoArm} />
+            <View style={styles.logoBody} />
+            <View style={styles.logoLeg} />
+            <View style={styles.logoTail} />
+            <View style={styles.logoHandle} />
+          </View>
+        </View>
         <Text style={styles.subtitle}>{isLogin ? 'Login to continue' : 'Create your account'}</Text>
 
         <View style={styles.dropdownWrap}>
@@ -261,10 +274,113 @@ const styles = StyleSheet.create({
     borderColor: '#fecaca',
     padding: 18,
   },
-  brand: {
-    fontSize: 28,
-    fontWeight: '800',
-    color: '#b91c1c',
+  logoWrap: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
+  logoCircle: {
+    width: 108,
+    height: 108,
+    borderRadius: 54,
+    backgroundColor: '#b70b0b',
+    overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logoScooterBase: {
+    position: 'absolute',
+    bottom: 14,
+    left: 38,
+    width: 38,
+    height: 10,
+    backgroundColor: '#ffffff',
+    borderRadius: 999,
+  },
+  logoBox: {
+    position: 'absolute',
+    left: 10,
+    bottom: 34,
+    width: 24,
+    height: 22,
+    backgroundColor: '#ffffff',
+    borderRadius: 2,
+  },
+  logoWheelLeft: {
+    position: 'absolute',
+    left: 14,
+    bottom: 22,
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#ffffff',
+  },
+  logoWheelRight: {
+    position: 'absolute',
+    left: 66,
+    bottom: 16,
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: '#ffffff',
+  },
+  logoHead: {
+    position: 'absolute',
+    top: 16,
+    left: 52,
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    backgroundColor: '#ffffff',
+  },
+  logoArm: {
+    position: 'absolute',
+    top: 34,
+    left: 48,
+    width: 8,
+    height: 28,
+    borderRadius: 4,
+    backgroundColor: '#ffffff',
+    transform: [{ rotate: '16deg' }],
+  },
+  logoBody: {
+    position: 'absolute',
+    top: 40,
+    left: 48,
+    width: 16,
+    height: 34,
+    borderRadius: 8,
+    backgroundColor: '#ffffff',
+    transform: [{ rotate: '-10deg' }],
+  },
+  logoLeg: {
+    position: 'absolute',
+    top: 58,
+    left: 62,
+    width: 8,
+    height: 34,
+    borderRadius: 4,
+    backgroundColor: '#ffffff',
+    transform: [{ rotate: '24deg' }],
+  },
+  logoTail: {
+    position: 'absolute',
+    top: 52,
+    left: 31,
+    width: 14,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#ffffff',
+  },
+  logoHandle: {
+    position: 'absolute',
+    top: 40,
+    left: 64,
+    width: 18,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#ffffff',
+    transform: [{ rotate: '18deg' }],
   },
   subtitle: {
     marginTop: 6,

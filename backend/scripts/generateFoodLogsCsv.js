@@ -4,10 +4,13 @@ const path = require('path')
 const outputPath = path.resolve(__dirname, '../data/food_logs_sample_365.csv')
 
 const suppliers = [
-  { supplier_id: 'sup-001', supplier_name: 'Golden Crust Bakery', location: 'Chennai', category: 'Bakery' },
-  { supplier_id: 'sup-002', supplier_name: 'Saravana Bhavan Outlet', location: 'Chennai', category: 'Restaurant' },
-  { supplier_id: 'sup-003', supplier_name: 'Spice Route Kitchen', location: 'Coimbatore', category: 'Catering' },
-  { supplier_id: 'sup-004', supplier_name: 'Madurai Meals Hub', location: 'Madurai', category: 'Mess' },
+  { supplier_id: 'sup-001', supplier_name: 'Golden Crust Bakery', location: 'Chennai', businessType: 'Restaurants and Cafes' },
+  { supplier_id: 'sup-002', supplier_name: 'Saravana Bhavan Outlet', location: 'Chennai', businessType: 'Restaurants and Cafes' },
+  { supplier_id: 'sup-003', supplier_name: 'Spice Route Kitchen', location: 'Coimbatore', businessType: 'Caterers & Hotels' },
+  { supplier_id: 'sup-004', supplier_name: 'Madurai Meals Hub', location: 'Madurai', businessType: 'Schools & Institutions' },
+  { supplier_id: 'sup-005', supplier_name: 'Grand Celebration Hotel', location: 'Bangalore', businessType: 'Weddings and Parties' },
+  { supplier_id: 'sup-006', supplier_name: 'Corporate Catering Solutions', location: 'Hyderabad', businessType: 'Corporate Offices & Canteens' },
+  { supplier_id: 'sup-007', supplier_name: 'Royal Events Catering', location: 'Chennai', businessType: 'Caterers & Hotels' },
 ]
 
 const foodCatalog = [
@@ -21,6 +24,14 @@ const foodCatalog = [
   { food_name: 'Bread Pack', food_category: 'Bakery', base_price: 50, tempBias: 0.02 },
   { food_name: 'Egg Puff', food_category: 'Bakery', base_price: 35, tempBias: 0.0 },
   { food_name: 'Veg Noodles', food_category: 'FastFood', base_price: 110, tempBias: -0.07 },
+  { food_name: 'Butter Chicken', food_category: 'Main', base_price: 220, tempBias: -0.15 },
+  { food_name: 'Tandoori Chicken', food_category: 'Main', base_price: 250, tempBias: -0.12 },
+  { food_name: 'Mutton Curry', food_category: 'Main', base_price: 280, tempBias: -0.08 },
+  { food_name: 'Biryani Mix Platter', food_category: 'Rice', base_price: 350, tempBias: -0.18 },
+  { food_name: 'Wedding Sweets Mix', food_category: 'Dessert', base_price: 180, tempBias: 0.05 },
+  { food_name: 'Office Lunch Tray', food_category: 'Meal', base_price: 120, tempBias: -0.06 },
+  { food_name: 'Corporate Buffet Pack', food_category: 'Meal', base_price: 400, tempBias: -0.04 },
+  { food_name: 'School Meal Set', food_category: 'Meal', base_price: 80, tempBias: 0.02 },
 ]
 
 const festivals = {
@@ -84,6 +95,19 @@ function csvEscape(value) {
   return str
 }
 
+function getSupplierSpecificFactors(supplierId) {
+  const factors = {
+    'sup-001': { basePrepare: 85, weekendMultiplier: 1.1, festivalMultiplier: 1.05 },
+    'sup-002': { basePrepare: 110, weekendMultiplier: 1.35, festivalMultiplier: 1.15 },
+    'sup-003': { basePrepare: 160, weekendMultiplier: 1.5, festivalMultiplier: 1.4 },
+    'sup-004': { basePrepare: 95, weekendMultiplier: 0.85, festivalMultiplier: 0.9 },
+    'sup-005': { basePrepare: 280, weekendMultiplier: 2.2, festivalMultiplier: 2.8 },
+    'sup-006': { basePrepare: 200, weekendMultiplier: 0.6, festivalMultiplier: 1.8 },
+    'sup-007': { basePrepare: 240, weekendMultiplier: 1.8, festivalMultiplier: 2.5 },
+  }
+  return factors[supplierId] || factors['sup-001']
+}
+
 function buildRows() {
   const startDate = new Date('2025-04-16T00:00:00+05:30')
   const rows = []
@@ -112,8 +136,12 @@ function buildRows() {
     const demandScoreRaw = 0.56 + weekendDemand + festivalDemand + weatherDemand + seasonBoost + supplierTrend + (seededRandom(i * 23 + 3) * 0.2 - 0.1)
     const demandScore = Number(clamp(demandScoreRaw, 0.15, 0.98).toFixed(2))
 
-    const preparedBase = 90 + (supplier.supplier_id === 'sup-003' ? 18 : 0) + (item.food_category === 'Bakery' ? 24 : 0)
-    const preparedQty = round(preparedBase + (seededRandom(i * 31 + 1) * 70 - 35) + (isFestival ? 26 : 0) + (isWeekend ? 14 : 0))
+    const supplierFactors = getSupplierSpecificFactors(supplier.supplier_id)
+    let preparedBase = supplierFactors.basePrepare
+    if (isWeekend) preparedBase *= supplierFactors.weekendMultiplier
+    if (isFestival) preparedBase *= supplierFactors.festivalMultiplier
+
+    const preparedQty = round(preparedBase + (seededRandom(i * 31 + 1) * 70 - 35))
 
     const expectedSoldRatio = clamp(demandScore + (item.tempBias || 0), 0.2, 0.96)
     const soldQty = round(preparedQty * expectedSoldRatio)
@@ -176,8 +204,9 @@ function writeCsv() {
   ].join('\n')
 
   fs.writeFileSync(outputPath, content, 'utf8')
-  console.log(`CSV generated: ${outputPath}`)
-  console.log(`Rows: ${rows.length}`)
+  console.log(`✓ CSV generated: ${outputPath}`)
+  console.log(`✓ Total rows: ${rows.length}`)
+  console.log(`✓ Suppliers: ${suppliers.map(s => s.supplier_name).join(', ')}`)
 }
 
 writeCsv()

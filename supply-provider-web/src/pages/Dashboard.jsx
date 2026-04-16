@@ -1,15 +1,39 @@
 import { useState } from 'react'
-import FoodCard from '../components/FoodCard'
+import BrandLogo from '../components/BrandLogo'
+
+function timeSinceAdded(food) {
+    const createdAt = new Date(food.created_at || food.createdAt || Date.now()).getTime()
+    const diffMinutes = Math.max(0, Math.floor((Date.now() - createdAt) / 60000))
+
+    if (diffMinutes < 60) return `${diffMinutes}m ago`
+    const hours = Math.floor(diffMinutes / 60)
+    const minutes = diffMinutes % 60
+    return `${hours}h ${minutes}m ago`
+}
+
+function lifecycleColor(remainingPct) {
+    if (remainingPct > 60) return '#16a34a'
+    if (remainingPct >= 30) return '#eab308'
+    return '#dc2626'
+}
 
 export default function Dashboard({ foods, requestsCount, onAddFood, onEditFood, onDeleteFood, onAiAction }) {
     const [expandedId, setExpandedId] = useState(null)
-    const predictedSurplus = foods.reduce((sum, food) => sum + Math.max(0, Number(food.qty || 0)), 0)
-    const activeListings = foods.filter((food) => food.finalStatus === 'active').length
+    const todayFoods = foods.filter((food) => {
+        const createdAt = new Date(food.created_at || food.createdAt || 0)
+        const today = new Date()
+        return createdAt.toDateString() === today.toDateString()
+    })
+    const predictedSurplus = todayFoods.reduce((sum, food) => sum + Math.max(0, Number(food.qty || food.quantity || 0)), 0)
+    const donatedCount = todayFoods.filter((food) => String(food.status || food.finalStatus || '').toUpperCase() === 'DONATE').length
+    const activeListings = todayFoods.filter((food) => String(food.status || food.finalStatus || 'SELL').toUpperCase() !== 'EXPIRED').length
 
     return (
         <div className="page active" id="page-dashboard">
-            <div className="page-title">Left2Lift</div>
-            <div className="page-sub">AI-powered surplus prediction, live pricing & impact reporting</div>
+            <div className="dashboard-brand-wrap">
+                <BrandLogo size={72} className="dashboard-brand-logo" title="Provider dashboard logo" />
+            </div>
+            <div className="page-sub page-sub-centered">AI-powered surplus prediction, live pricing & impact reporting</div>
 
             <div className="ai-banner">
                 <div className="ai-banner-left">
@@ -40,24 +64,24 @@ export default function Dashboard({ foods, requestsCount, onAddFood, onEditFood,
 
             <div className="stats-row">
                 <div className="stat-card orange">
-                    <div className="stat-label">Items Live</div>
-                    <div className="stat-val" style={{ color: 'var(--orange)' }}>{foods.length}</div>
-                    <span className="stat-tag up">+2 today</span>
+                    <div className="stat-label">Predicted Surplus</div>
+                    <div className="stat-val" style={{ color: 'var(--orange)' }}>{predictedSurplus}</div>
+                    <span className="stat-tag up">Today</span>
                 </div>
                 <div className="stat-card teal">
-                    <div className="stat-label">Predicted Surplus</div>
-                    <div className="stat-val" style={{ color: 'var(--teal)' }}>{predictedSurplus}</div>
-                    <span className="stat-tag up">AI forecast</span>
+                    <div className="stat-label">Surplus Requests</div>
+                    <div className="stat-val" style={{ color: 'var(--teal)' }}>{requestsCount}</div>
+                    <span className="stat-tag up">Incoming</span>
                 </div>
                 <div className="stat-card yellow">
-                    <div className="stat-label">Active Listings</div>
-                    <div className="stat-val" style={{ color: '#7a5a00' }}>{activeListings}</div>
-                    <span className="stat-tag warn">Live inventory</span>
+                    <div className="stat-label">Donated</div>
+                    <div className="stat-val" style={{ color: '#7a5a00' }}>{donatedCount}</div>
+                    <span className="stat-tag warn">NGO flow</span>
                 </div>
                 <div className="stat-card pink">
-                    <div className="stat-label">Requests</div>
-                    <div className="stat-val" style={{ color: '#9b3a5a' }}>{requestsCount}</div>
-                    <span className="stat-tag warn">Needs action</span>
+                    <div className="stat-label">Active Listings</div>
+                    <div className="stat-val" style={{ color: '#9b3a5a' }}>{activeListings}</div>
+                    <span className="stat-tag warn">Live inventory</span>
                 </div>
             </div>
 
@@ -67,17 +91,21 @@ export default function Dashboard({ foods, requestsCount, onAddFood, onEditFood,
             </div>
 
             <div className="food-list" id="food-list-home">
-                {foods.map((food) => {
+                {todayFoods.map((food) => {
                     const remainingPct = Math.max(0, Math.min(100, Number(food.remainingPercent ?? 100)))
                     const remainingMins = Math.max(0, Number(food.remainingMinutes ?? 0))
                     const ngoThreshold = Math.max(0, Number(food.ngoTriggerMinutes ?? 30))
                     const discountPrice = Number(food.discountPreview ?? Math.round(Number(food.orig || 0) * 0.5))
                     const ngoTriggered = remainingMins <= ngoThreshold
-                    const progressColor = remainingPct > 60 ? '#16a34a' : remainingPct >= 30 ? '#eab308' : '#dc2626'
+                    const progressColor = lifecycleColor(remainingPct)
+                    const isExpanded = expandedId === food.id
+                    const lifecycleBg = ngoTriggered ? '#fff1f2' : '#fffdf9'
+                    const lifecycleBorder = ngoTriggered ? '#fecdd3' : 'var(--border)'
 
                     return (
-                        <div key={food.id} style={{ marginBottom: 10 }}>
+                        <div key={food.id} style={{ marginBottom: 12 }}>
                             <div
+                                className="food-card"
                                 role="button"
                                 tabIndex={0}
                                 onClick={(event) => {
@@ -90,22 +118,80 @@ export default function Dashboard({ foods, requestsCount, onAddFood, onEditFood,
                                         setExpandedId(food.id === expandedId ? null : food.id)
                                     }
                                 }}
-                                style={{ cursor: 'pointer' }}
+                                style={{
+                                    cursor: 'pointer',
+                                    display: 'grid',
+                                    gridTemplateColumns: '1.7fr 1.2fr 0.8fr 0.8fr auto',
+                                    alignItems: 'center',
+                                    gap: 12,
+                                    boxShadow: isExpanded ? '0 10px 22px rgba(15,23,42,0.09)' : undefined,
+                                    transition: 'box-shadow 180ms ease, transform 180ms ease',
+                                }}
                             >
-                                <FoodCard food={food} onEditFood={onEditFood} onDeleteFood={onDeleteFood} />
+                                <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
+                                    <div className="food-emoji">{food.emoji || '🍱'}</div>
+                                    <div style={{ minWidth: 0 }}>
+                                        <div className="food-name" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{food.name}</div>
+                                        <div className="food-meta">{food.source || food.provider_name || 'Provider listing'}</div>
+                                        <div className="food-tags">
+                                            <span className={`tag ${String(food.type || food.food_type || 'Veg') === 'Veg' ? 'veg' : 'nonveg'}`}>{food.type || food.food_type || 'Veg'}</span>
+                                            <span className={`tag ${String(food.status || '').toUpperCase() === 'DONATE' ? 'donate' : 'discount'}`}>
+                                                {String(food.status || '').toUpperCase() === 'DONATE' ? 'Donate' : 'Discount'}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style={{ textAlign: 'right' }}>
+                                    <div className="food-price" style={{ fontSize: 20 }}>₹{food.price ?? food.current_price}</div>
+                                    <div className="food-price-orig">₹{food.orig ?? food.base_price}</div>
+                                </div>
+
+                                <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-2)' }}>
+                                    Qty {food.qty ?? food.quantity}
+                                </div>
+
+                                <div className="food-time" style={{ fontSize: 12 }}>{timeSinceAdded(food)}</div>
+
+                                <div className="food-actions" style={{ justifySelf: 'end' }}>
+                                    <button
+                                        className="btn-edit"
+                                        onClick={(event) => {
+                                            event.stopPropagation()
+                                            onEditFood(food)
+                                        }}
+                                    >
+                                        ✏️ Edit
+                                    </button>
+                                    <button
+                                        className="btn-del"
+                                        onClick={(event) => {
+                                            event.stopPropagation()
+                                            onDeleteFood(food.id)
+                                        }}
+                                    >
+                                        🗑
+                                    </button>
+                                </div>
                             </div>
 
-                            {expandedId === food.id && (
+                            <div
+                                style={{
+                                    maxHeight: isExpanded ? 260 : 0,
+                                    opacity: isExpanded ? 1 : 0,
+                                    overflow: 'hidden',
+                                    transition: 'max-height 280ms ease, opacity 220ms ease',
+                                }}
+                            >
                                 <div
                                     className="food-expanded"
                                     style={{
-                                        background: '#fff',
-                                        border: '1px solid var(--border)',
+                                        background: lifecycleBg,
+                                        border: `1px solid ${lifecycleBorder}`,
                                         borderRadius: '12px',
                                         marginTop: 8,
                                         padding: 12,
-                                        boxShadow: '0 6px 16px rgba(15,23,42,0.06)',
-                                        transition: 'all 220ms ease',
+                                        boxShadow: '0 8px 18px rgba(15,23,42,0.07)',
                                     }}
                                 >
                                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
@@ -125,9 +211,9 @@ export default function Dashboard({ foods, requestsCount, onAddFood, onEditFood,
 
                                     <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, marginBottom: 10 }}>
                                         <div style={{ fontSize: 13, color: '#6b7280' }}>
-                                            <span style={{ textDecoration: 'line-through' }}>₹{food.orig}</span> → <strong>₹{food.price}</strong>
+                                            <span style={{ textDecoration: 'line-through' }}>₹{food.orig ?? food.base_price}</span> → <strong>₹{food.price ?? food.current_price}</strong>
                                         </div>
-                                        <div style={{ fontSize: 12, color: '#4b5563' }}>₹{food.orig} → ₹{discountPrice} → ₹0</div>
+                                        <div style={{ fontSize: 12, color: '#4b5563', fontWeight: 700 }}>₹{food.orig ?? food.base_price} → ₹{discountPrice} → ₹0</div>
                                     </div>
 
                                     {ngoTriggered && (
@@ -149,7 +235,7 @@ export default function Dashboard({ foods, requestsCount, onAddFood, onEditFood,
                                         </div>
                                     )}
                                 </div>
-                            )}
+                            </div>
                         </div>
                     )
                 })}

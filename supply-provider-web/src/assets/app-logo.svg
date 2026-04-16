@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="App logo">
+  <circle cx="256" cy="256" r="246" fill="#b60b0b"/>
+  <g fill="#fff">
+    <circle cx="264" cy="143" r="30"/>
+    <path d="M254 182c-24 0-43 18-46 41l-7 52c-2 14-13 25-27 26l-63 6c-13 1-24 11-26 24-2 16 8 31 24 33l73 10c10 1 18 7 23 16l22 37c8 13 21 21 36 22h19c9 0 16-7 16-16v-8c0-7-5-13-11-15l-35-12c-9-3-15-13-13-23l15-70c2-7 5-13 11-16l62-31c10-5 15-15 14-26-2-11-11-20-23-21l-50-5c-10-1-18-8-20-18-3-12-14-21-27-21z"/>
+    <rect x="93" y="222" width="78" height="86" rx="8"/>
+    <rect x="95" y="302" width="76" height="13" rx="6.5"/>
+    <path d="M109 356h195c9 0 16 7 16 16v4c0 9-7 16-16 16H109c-9 0-16-7-16-16v-4c0-9 7-16 16-16z"/>
+    <rect x="333" y="240" width="34" height="104" rx="17" transform="rotate(22 350 292)"/>
+    <rect x="262" y="372" width="167" height="22" rx="11" transform="rotate(18 345.5 383)"/>
+    <circle cx="182" cy="402" r="23"/>
+    <circle cx="385" cy="415" r="23"/>
+    <rect x="256" y="153" width="67" height="8" rx="4" transform="rotate(-9 289.5 157)"/>
+  </g>
+</svg>

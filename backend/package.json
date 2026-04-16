@@ -14,8 +14,10 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "expo": "^55.0.15",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
-    "node-cron": "^4.2.1"
+    "node-cron": "^4.2.1",
+    "uuid": "^13.0.0"
   }
 }

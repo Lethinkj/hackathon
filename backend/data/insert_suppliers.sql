@@ -1,0 +1,7 @@
+INSERT INTO suppliers (supplier_id, supplier_name, location, category) VALUES ('7933b384-0fba-5867-9d8c-929b61f2acca', 'Golden Crust Bakery', 'Chennai', 'Restaurants and Cafes') ON CONFLICT (supplier_id) DO NOTHING;
+INSERT INTO suppliers (supplier_id, supplier_name, location, category) VALUES ('26fc9b4e-b524-5657-9a97-52821ba0b606', 'Saravana Bhavan Outlet', 'Chennai', 'Restaurants and Cafes') ON CONFLICT (supplier_id) DO NOTHING;
+INSERT INTO suppliers (supplier_id, supplier_name, location, category) VALUES ('a6ba8fc6-3fbb-5aae-8512-9345e6825dc7', 'Spice Route Kitchen', 'Coimbatore', 'Caterers & Hotels') ON CONFLICT (supplier_id) DO NOTHING;
+INSERT INTO suppliers (supplier_id, supplier_name, location, category) VALUES ('3e0608b2-84e3-5a64-bed8-c98722b6066c', 'Madurai Meals Hub', 'Madurai', 'Schools & Institutions') ON CONFLICT (supplier_id) DO NOTHING;
+INSERT INTO suppliers (supplier_id, supplier_name, location, category) VALUES ('8faf69d6-0238-50f2-bbe7-1345d3a7c4dd', 'Grand Celebration Hotel', 'Bangalore', 'Weddings and Parties') ON CONFLICT (supplier_id) DO NOTHING;
+INSERT INTO suppliers (supplier_id, supplier_name, location, category) VALUES ('256ceba6-ddcf-530f-bfa1-c7781a94c5bf', 'Corporate Catering Solutions', 'Hyderabad', 'Corporate Offices & Canteens') ON CONFLICT (supplier_id) DO NOTHING;
+INSERT INTO suppliers (supplier_id, supplier_name, location, category) VALUES ('31373466-0755-5d73-a853-9f55038c9929', 'Royal Events Catering', 'Chennai', 'Caterers & Hotels') ON CONFLICT (supplier_id) DO NOTHING;

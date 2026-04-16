@@ -9,7 +9,10 @@ function formatClock(value) {
 }
 
 export default function HistoryCard({ food }) {
-    const status = food.finalStatus === 'donated' ? 'donated' : food.finalStatus === 'wasted' ? 'wasted' : 'sold'
+    const status = String(food.status || food.finalStatus || 'SELL').toUpperCase()
+    const displayStatus = status === 'DONATE' ? 'donated' : status === 'EXPIRED' ? 'wasted' : 'active'
+    const createdAt = food.created_at || food.createdAt
+    const expiredAt = food.expiredAt || food.expiry_time || food.expiryTime
 
     return (
         <article className="history-card">
@@ -20,27 +23,27 @@ export default function HistoryCard({ food }) {
                         <h4 className="history-food-name">{food.name}</h4>
                         <div className="food-meta">{food.source || 'Provider listing'}</div>
                         <div className="food-tags" style={{ marginTop: 4 }}>
-                            <span className={`tag ${food.type === 'Veg' ? 'veg' : 'nonveg'}`}>{food.type || 'Veg'}</span>
-                            <span className={`tag ${food.mode === 'discount' ? 'discount' : 'donate'}`}>
-                                {food.mode === 'discount' ? 'Discount' : 'Donate'}
+                            <span className={`tag ${String(food.type || food.food_type || 'Veg') === 'Veg' ? 'veg' : 'nonveg'}`}>{food.type || food.food_type || 'Veg'}</span>
+                            <span className={`tag ${String(food.mode || food.listing_mode || 'discount') === 'discount' ? 'discount' : 'donate'}`}>
+                                {String(food.mode || food.listing_mode || 'discount') === 'discount' ? 'Discount' : 'Donate'}
                             </span>
                         </div>
                     </div>
                 </div>
-                <StatusBadge status={status} />
+                <StatusBadge status={displayStatus} />
             </div>
             <div className="history-grid">
                 <div className="history-cell">
                     <span className="history-label">Quantity</span>
-                    <span className="history-value">{food.qty}</span>
+                    <span className="history-value">{food.qty ?? food.quantity}</span>
                 </div>
                 <div className="history-cell">
                     <span className="history-label">Date Added</span>
-                    <span className="history-value">{formatDate(food.createdAt)}</span>
+                    <span className="history-value">{createdAt ? formatDate(createdAt) : '-'}</span>
                 </div>
                 <div className="history-cell">
                     <span className="history-label">Time Expired</span>
-                    <span className="history-value">{food.expiredAt ? formatClock(food.expiredAt) : '-'}</span>
+                    <span className="history-value">{expiredAt ? formatClock(expiredAt) : '-'}</span>
                 </div>
             </div>
         </article>

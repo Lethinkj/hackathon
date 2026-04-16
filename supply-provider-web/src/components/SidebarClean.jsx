@@ -1,8 +1,8 @@
-export default function SidebarClean({ page, setPage, listingsCount, requestsCount }) {
+export default function SidebarClean({ page, setPage, listingsCount, requestsCount, providerName = 'Provider' }) {
     return (
         <div className="sidebar">
             <div className="provider-info">
-                <div className="provider-name">Golden Crust Bakery</div>
+                <div className="provider-name">{providerName}</div>
                 <div className="provider-status">⬤ Live inventory sync enabled</div>
             </div>
 

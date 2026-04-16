@@ -1,366 +1,366 @@
 supplier_id,food_name,food_category,prepared_qty,sold_qty,surplus_qty,price,waste_qty,created_date,weekday_name,is_weekend,festival_name,is_festival,weather,temperature,demand_score
-sup-001,Vegetable Biryani,Rice,105,28,77,135.59,19,2025-04-15,Wednesday,false,,false,Humid,33.1,0.37
-sup-002,Vegetable Biryani,Rice,74,32,42,142.6,9,2025-04-16,Thursday,false,,false,Sunny,31.3,0.53
-sup-003,Vegetable Biryani,Rice,112,36,76,144.2,18,2025-04-17,Friday,false,,false,Humid,30.6,0.42
-sup-004,Idli Sambar,Breakfast,103,63,40,65.28,9,2025-04-18,Saturday,true,,false,Sunny,30.3,0.56
-sup-001,Egg Puff,Bakery,135,74,61,36.34,15,2025-04-19,Sunday,true,,false,Humid,32.4,0.55
-sup-002,Egg Puff,Bakery,90,46,44,39.15,10,2025-04-20,Monday,false,,false,Overcast,30.3,0.51
-sup-003,Idli Sambar,Breakfast,93,48,45,64.26,10,2025-04-21,Tuesday,false,,false,Humid,31,0.47
-sup-004,Veg Noodles,FastFood,108,44,64,110.41,14,2025-04-22,Wednesday,false,,false,Overcast,30.7,0.48
-sup-001,Curd Rice,Lunch,81,32,49,76.64,17,2025-04-23,Thursday,false,,false,Rainy,28.1,0.32
-sup-002,Paneer Fried Rice,Rice,118,44,74,130.57,17,2025-04-24,Friday,false,,false,Sunny,31.8,0.45
-sup-003,Curd Rice,Lunch,137,81,56,71.26,14,2025-04-25,Saturday,true,,false,Humid,30.7,0.51
-sup-004,Chapati Kurma,Dinner,97,56,41,94.86,9,2025-04-26,Sunday,true,,false,Humid,32.3,0.61
-sup-001,Curd Rice,Lunch,102,66,36,70.12,7,2025-04-27,Monday,false,,false,Overcast,32.1,0.57
-sup-002,Chapati Kurma,Dinner,86,37,49,84.41,11,2025-04-28,Tuesday,false,,false,Cloudy,31.5,0.46
-sup-003,Paneer Fried Rice,Rice,137,55,82,128.51,18,2025-04-29,Wednesday,false,,false,Cloudy,28.5,0.48
-sup-004,Lemon Rice,Lunch,102,65,37,65.13,8,2025-04-30,Thursday,false,,false,Sunny,30.3,0.54
-sup-001,Lemon Rice,Lunch,69,35,34,69.51,8,2025-05-01,Friday,false,,false,Cloudy,30.7,0.41
-sup-002,Curd Rice,Lunch,97,61,36,79.18,11,2025-05-02,Saturday,true,,false,Rainy,28.1,0.55
-sup-003,Paneer Fried Rice,Rice,93,51,42,125.48,9,2025-05-03,Sunday,true,,false,Overcast,31.2,0.63
-sup-004,Bread Pack,Bakery,106,47,59,45.6,14,2025-05-04,Monday,false,,false,Sunny,29.7,0.42
-sup-001,Idli Sambar,Breakfast,98,59,39,64.46,8,2025-05-05,Tuesday,false,,false,Sunny,30.9,0.55
-sup-002,Vegetable Biryani,Rice,79,33,46,136.96,10,2025-05-06,Wednesday,false,,false,Cloudy,30,0.52
-sup-003,Chapati Kurma,Dinner,78,37,41,83.52,9,2025-05-07,Thursday,false,,false,Sunny,32.2,0.51
-sup-004,Lemon Rice,Lunch,96,67,29,72.26,6,2025-05-08,Friday,false,,false,Sunny,30,0.6
-sup-001,Chicken Biryani,Rice,113,55,58,178.79,13,2025-05-09,Saturday,true,,false,Cloudy,30.6,0.61
-sup-002,Chicken Biryani,Rice,131,71,60,179.61,13,2025-05-10,Sunday,true,,false,Sunny,31.4,0.66
-sup-003,Vegetable Biryani,Rice,109,39,70,142.77,16,2025-05-11,Monday,false,,false,Sunny,30.3,0.46
-sup-004,Bread Pack,Bakery,146,73,73,55.05,16,2025-05-12,Tuesday,false,,false,Sunny,29.6,0.48
-sup-001,Egg Puff,Bakery,148,61,87,30.56,21,2025-05-13,Wednesday,false,,false,Overcast,30.2,0.41
-sup-002,Lemon Rice,Lunch,57,31,26,66.88,6,2025-05-14,Thursday,false,,false,Cloudy,28.5,0.44
-sup-003,Paneer Fried Rice,Rice,120,59,61,129.76,12,2025-05-15,Friday,false,,false,Sunny,31.4,0.57
-sup-004,Veg Noodles,FastFood,111,59,52,111.58,12,2025-05-16,Saturday,true,,false,Sunny,31.2,0.6
-sup-001,Egg Puff,Bakery,101,56,45,28.05,11,2025-05-17,Sunday,true,,false,Overcast,32,0.55
-sup-002,Idli Sambar,Breakfast,102,45,57,65.54,14,2025-05-18,Monday,false,,false,Cloudy,29.8,0.39
-sup-003,Egg Puff,Bakery,135,76,59,32.68,12,2025-05-19,Tuesday,false,,false,Overcast,32.2,0.56
-sup-004,Chicken Biryani,Rice,121,34,87,182.33,28,2025-05-20,Wednesday,false,,false,Rainy,30.2,0.4
-sup-001,Lemon Rice,Lunch,116,44,72,70.11,25,2025-05-21,Thursday,false,,false,Rainy,30,0.28
-sup-002,Curd Rice,Lunch,64,35,29,71.13,7,2025-05-22,Friday,false,,false,Overcast,31.3,0.47
-sup-003,Idli Sambar,Breakfast,132,100,32,60.1,7,2025-05-23,Saturday,true,,false,Overcast,30.6,0.71
-sup-004,Bread Pack,Bakery,145,78,67,56.76,16,2025-05-24,Sunday,true,,false,Sunny,30.3,0.52
-sup-001,Egg Puff,Bakery,119,60,59,29.12,13,2025-05-25,Monday,false,,false,Cloudy,29.1,0.5
-sup-002,Bread Pack,Bakery,93,43,50,55.53,12,2025-05-26,Tuesday,false,,false,Overcast,31.2,0.44
-sup-003,Curd Rice,Lunch,80,28,52,72.43,18,2025-05-27,Wednesday,false,,false,Rainy,27.7,0.27
-sup-004,Bread Pack,Bakery,88,49,39,51.98,8,2025-05-28,Thursday,false,,false,Cloudy,29,0.54
-sup-001,Chicken Biryani,Rice,95,27,68,174.57,16,2025-05-29,Friday,false,,false,Humid,33.4,0.4
-sup-002,Egg Puff,Bakery,114,52,62,31.54,16,2025-05-30,Saturday,true,,false,Cloudy,29.8,0.46
-sup-003,Bread Pack,Bakery,165,111,54,53.66,12,2025-05-31,Sunday,true,,false,Humid,27.6,0.65
-sup-004,Egg Puff,Bakery,138,80,58,38.85,12,2025-06-01,Monday,false,,false,Sunny,26.6,0.58
-sup-001,Lemon Rice,Lunch,79,52,27,68.88,6,2025-06-02,Tuesday,false,,false,Cloudy,27.3,0.56
-sup-002,Veg Noodles,FastFood,82,28,54,113.88,17,2025-06-03,Wednesday,false,,false,Rainy,24.8,0.41
-sup-003,Vegetable Biryani,Rice,120,35,85,136.85,28,2025-06-04,Thursday,false,,false,Rainy,27,0.39
-sup-004,Chapati Kurma,Dinner,107,73,34,86.56,6,2025-06-05,Friday,false,,false,Overcast,27.2,0.71
-sup-001,Chicken Biryani,Rice,82,43,39,186.47,9,2025-06-06,Saturday,true,,false,Overcast,27.5,0.64
-sup-002,Lemon Rice,Lunch,75,51,24,63.65,7,2025-06-07,Sunday,true,,false,Rainy,26.4,0.58
-sup-003,Chapati Kurma,Dinner,76,33,43,87.1,10,2025-06-08,Monday,false,,false,Cloudy,27,0.47
-sup-004,Idli Sambar,Breakfast,101,56,45,61.18,10,2025-06-09,Tuesday,false,,false,Cloudy,28,0.5
-sup-001,Idli Sambar,Breakfast,72,37,35,56.77,11,2025-06-10,Wednesday,false,,false,Rainy,25.4,0.46
-sup-002,Idli Sambar,Breakfast,106,65,41,62.53,8,2025-06-11,Thursday,false,,false,Sunny,28.4,0.56
-sup-003,Paneer Fried Rice,Rice,83,40,43,135.99,9,2025-06-12,Friday,false,,false,Humid,27.7,0.56
-sup-004,Chicken Biryani,Rice,105,56,49,178.81,15,2025-06-13,Saturday,true,,false,Rainy,26.2,0.65
-sup-001,Lemon Rice,Lunch,80,54,26,71.53,6,2025-06-14,Sunday,true,,false,Humid,30.1,0.58
-sup-002,Chapati Kurma,Dinner,60,21,39,87.09,13,2025-06-15,Monday,false,,false,Rainy,27.3,0.38
-sup-003,Vegetable Biryani,Rice,126,44,82,139.66,19,2025-06-16,Tuesday,false,,false,Humid,28,0.45
-sup-004,Chapati Kurma,Dinner,75,40,35,90.93,7,2025-06-17,Wednesday,false,,false,Sunny,28.1,0.57
-sup-001,Veg Noodles,FastFood,65,25,40,112.92,12,2025-06-18,Thursday,false,,false,Rainy,25.1,0.45
-sup-002,Vegetable Biryani,Rice,77,39,38,141.98,8,2025-06-19,Friday,false,,false,Cloudy,27.5,0.6
-sup-003,Egg Puff,Bakery,167,100,67,38.53,15,2025-06-20,Saturday,true,,false,Humid,28.7,0.6
-sup-004,Chicken Biryani,Rice,99,44,55,178.32,13,2025-06-21,Sunday,true,,false,Cloudy,26.6,0.56
-sup-001,Chicken Biryani,Rice,87,35,52,174.14,11,2025-06-22,Monday,false,,false,Humid,29.9,0.52
-sup-002,Chapati Kurma,Dinner,74,45,29,88.05,5,2025-06-23,Tuesday,false,,false,Sunny,29.1,0.64
-sup-003,Egg Puff,Bakery,166,78,88,32.57,20,2025-06-24,Wednesday,false,,false,Humid,29.5,0.47
-sup-004,Lemon Rice,Lunch,89,54,35,63.35,10,2025-06-25,Thursday,false,,false,Rainy,25.1,0.51
-sup-001,Chicken Biryani,Rice,88,30,58,185.01,13,2025-06-26,Friday,false,,false,Cloudy,27.3,0.46
-sup-002,Chicken Biryani,Rice,98,62,36,184.8,7,2025-06-27,Saturday,true,,false,Overcast,27.1,0.75
-sup-003,Chicken Biryani,Rice,147,100,47,176.85,9,2025-06-28,Sunday,true,,false,Overcast,26.6,0.8
-sup-004,Idli Sambar,Breakfast,119,73,46,61.54,10,2025-06-29,Monday,false,,false,Sunny,27.4,0.56
-sup-001,Idli Sambar,Breakfast,114,76,38,54.34,7,2025-06-30,Tuesday,false,,false,Sunny,28.7,0.62
-sup-002,Chicken Biryani,Rice,57,32,25,185.16,4,2025-07-01,Wednesday,false,,false,Sunny,27.7,0.69
-sup-003,Chicken Biryani,Rice,115,39,76,173.4,17,2025-07-02,Thursday,false,,false,Cloudy,26.5,0.46
-sup-004,Paneer Fried Rice,Rice,61,29,32,125.67,7,2025-07-03,Friday,false,,false,Sunny,27.1,0.55
-sup-001,Egg Puff,Bakery,118,85,33,30.22,7,2025-07-04,Saturday,true,,false,Sunny,26.5,0.72
-sup-002,Bread Pack,Bakery,153,116,37,54.34,7,2025-07-05,Sunday,true,,false,Sunny,26.6,0.74
-sup-003,Chapati Kurma,Dinner,75,36,39,95.74,8,2025-07-06,Monday,false,,false,Cloudy,27.1,0.51
-sup-004,Curd Rice,Lunch,71,47,24,68.78,5,2025-07-07,Tuesday,false,,false,Cloudy,26.4,0.58
-sup-001,Veg Noodles,FastFood,67,31,36,110.54,8,2025-07-08,Wednesday,false,,false,Overcast,28.5,0.54
-sup-002,Vegetable Biryani,Rice,85,25,60,134.24,19,2025-07-09,Thursday,false,,false,Rainy,27.2,0.39
-sup-003,Idli Sambar,Breakfast,125,73,52,59.71,11,2025-07-10,Friday,false,,false,Sunny,29.3,0.53
-sup-004,Chicken Biryani,Rice,139,79,60,178.08,12,2025-07-11,Saturday,true,,false,Humid,30,0.69
-sup-001,Lemon Rice,Lunch,90,68,22,65.58,5,2025-07-12,Sunday,true,,false,Humid,27.9,0.66
-sup-002,Chicken Biryani,Rice,98,44,54,185.05,11,2025-07-13,Monday,false,,false,Humid,28.2,0.57
-sup-003,Vegetable Biryani,Rice,91,50,41,143.23,8,2025-07-14,Tuesday,false,,false,Cloudy,27.1,0.65
-sup-004,Chicken Biryani,Rice,88,46,42,174.81,8,2025-07-15,Wednesday,false,,false,Overcast,28.2,0.64
-sup-001,Chapati Kurma,Dinner,115,75,40,87.99,7,2025-07-16,Thursday,false,,false,Overcast,29,0.68
-sup-002,Bread Pack,Bakery,109,66,43,51.87,9,2025-07-17,Friday,false,,false,Humid,30.2,0.59
-sup-003,Chapati Kurma,Dinner,115,72,43,93.8,9,2025-07-18,Saturday,true,,false,Cloudy,28.1,0.66
-sup-004,Egg Puff,Bakery,109,87,22,40.76,4,2025-07-19,Sunday,true,,false,Overcast,27.2,0.8
-sup-001,Paneer Fried Rice,Rice,101,37,64,135.26,20,2025-07-20,Monday,false,,false,Rainy,25.2,0.45
-sup-002,Egg Puff,Bakery,85,45,40,34.5,9,2025-07-21,Tuesday,false,,false,Overcast,27.8,0.53
-sup-003,Curd Rice,Lunch,134,99,35,69.52,6,2025-07-22,Wednesday,false,,false,Sunny,26.7,0.66
-sup-004,Veg Noodles,FastFood,87,41,46,110.32,10,2025-07-23,Thursday,false,,false,Humid,28.5,0.54
-sup-001,Chicken Biryani,Rice,115,39,76,180.67,17,2025-07-24,Friday,false,,false,Cloudy,27.5,0.46
-sup-002,Chapati Kurma,Dinner,131,101,30,85.88,6,2025-07-25,Saturday,true,,false,Overcast,26.6,0.8
-sup-003,Curd Rice,Lunch,87,77,10,80.05,2,2025-07-26,Sunday,true,,false,Overcast,26.8,0.81
-sup-004,Paneer Fried Rice,Rice,72,32,40,127.08,9,2025-07-27,Monday,false,,false,Overcast,28,0.53
-sup-001,Vegetable Biryani,Rice,118,59,59,146.3,12,2025-07-28,Tuesday,false,,false,Humid,27.9,0.6
-sup-002,Chapati Kurma,Dinner,116,77,39,86.38,7,2025-07-29,Wednesday,false,,false,Overcast,27.6,0.69
-sup-003,Egg Puff,Bakery,122,78,44,39.3,8,2025-07-30,Thursday,false,,false,Cloudy,27.1,0.64
-sup-004,Lemon Rice,Lunch,86,60,26,76.54,5,2025-07-31,Friday,false,,false,Cloudy,26.2,0.6
-sup-001,Chapati Kurma,Dinner,133,100,33,88.03,6,2025-08-01,Saturday,true,,false,Overcast,29.2,0.78
-sup-002,Lemon Rice,Lunch,92,60,32,74.11,10,2025-08-02,Sunday,true,,false,Rainy,25.8,0.55
-sup-003,Paneer Fried Rice,Rice,98,61,37,134.17,7,2025-08-03,Monday,false,,false,Overcast,29.1,0.7
-sup-004,Paneer Fried Rice,Rice,121,56,65,135.85,14,2025-08-04,Tuesday,false,,false,Overcast,27,0.54
-sup-001,Veg Noodles,FastFood,104,38,66,116.71,21,2025-08-05,Wednesday,false,,false,Rainy,25.3,0.44
-sup-002,Veg Noodles,FastFood,112,62,50,114.52,10,2025-08-06,Thursday,false,,false,Sunny,29.5,0.62
-sup-003,Idli Sambar,Breakfast,131,75,56,62.51,12,2025-08-07,Friday,false,,false,Sunny,27.3,0.52
-sup-004,Idli Sambar,Breakfast,75,52,23,54.3,5,2025-08-08,Saturday,true,,false,Overcast,27.7,0.64
-sup-001,Idli Sambar,Breakfast,121,82,39,60.67,12,2025-08-09,Sunday,true,,false,Rainy,26.1,0.63
-sup-002,Paneer Fried Rice,Rice,69,27,42,129.96,13,2025-08-10,Monday,false,,false,Rainy,27.2,0.47
-sup-003,Chicken Biryani,Rice,121,70,51,184.76,9,2025-08-11,Tuesday,false,,false,Sunny,28.4,0.7
-sup-004,Bread Pack,Bakery,135,92,43,52.56,8,2025-08-12,Wednesday,false,,false,Sunny,27.2,0.66
-sup-001,Lemon Rice,Lunch,94,55,39,68.59,12,2025-08-13,Thursday,false,,false,Rainy,25.5,0.49
-sup-002,Vegetable Biryani,Rice,123,73,50,136.47,9,2025-08-14,Friday,false,,false,Overcast,27.5,0.69
-sup-003,Veg Noodles,FastFood,87,57,30,114.42,6,2025-08-15,Saturday,true,,false,Sunny,27.4,0.73
-sup-004,Chapati Kurma,Dinner,81,36,45,90.48,15,2025-08-16,Sunday,true,,false,Rainy,26.5,0.48
-sup-001,Veg Noodles,FastFood,59,22,37,110.22,9,2025-08-17,Monday,false,,false,Cloudy,28.4,0.45
-sup-002,Lemon Rice,Lunch,65,53,12,74.94,2,2025-08-18,Tuesday,false,,false,Sunny,28.1,0.71
-sup-003,Egg Puff,Bakery,125,63,62,30.54,14,2025-08-19,Wednesday,false,,false,Cloudy,26.5,0.5
-sup-004,Veg Noodles,FastFood,120,42,78,111.56,25,2025-08-20,Thursday,false,,false,Rainy,25.9,0.42
-sup-001,Chapati Kurma,Dinner,86,30,56,90.79,18,2025-08-21,Friday,false,,false,Rainy,26.9,0.38
-sup-002,Egg Puff,Bakery,160,88,72,34.94,17,2025-08-22,Saturday,true,,false,Humid,28.6,0.55
-sup-003,Vegetable Biryani,Rice,154,88,66,143.89,14,2025-08-23,Sunday,true,,false,Cloudy,28.2,0.67
-sup-004,Egg Puff,Bakery,92,51,41,30.03,12,2025-08-24,Monday,false,,false,Rainy,27.2,0.55
-sup-001,Vegetable Biryani,Rice,77,39,38,136.7,7,2025-08-25,Tuesday,false,,false,Cloudy,28.5,0.61
-sup-002,Lemon Rice,Lunch,63,39,24,63.97,5,2025-08-26,Wednesday,false,,false,Cloudy,28.2,0.52
-sup-003,Lemon Rice,Lunch,107,56,51,71,16,2025-08-27,Thursday,false,,false,Rainy,25.5,0.42
-sup-004,Paneer Fried Rice,Rice,61,30,31,136.29,6,2025-08-28,Friday,false,,false,Sunny,29.4,0.57
-sup-001,Vegetable Biryani,Rice,122,55,67,142.36,16,2025-08-29,Saturday,true,,false,Humid,30.4,0.55
-sup-002,Lemon Rice,Lunch,124,100,24,75.62,5,2025-08-30,Sunday,true,,false,Overcast,28.7,0.71
-sup-003,Egg Puff,Bakery,121,67,54,30.08,11,2025-08-31,Monday,false,,false,Sunny,29.6,0.55
-sup-004,Lemon Rice,Lunch,107,66,41,71.63,9,2025-09-01,Tuesday,false,,false,Cloudy,27.9,0.52
-sup-001,Curd Rice,Lunch,120,72,48,68.1,10,2025-09-02,Wednesday,false,,false,Cloudy,29.7,0.52
-sup-002,Chapati Kurma,Dinner,104,62,42,86.5,8,2025-09-03,Thursday,false,,false,Overcast,30.9,0.63
-sup-003,Veg Noodles,FastFood,126,68,58,104.86,11,2025-09-04,Friday,false,,false,Humid,32.2,0.61
-sup-004,Vegetable Biryani,Rice,77,32,45,144.18,15,2025-09-05,Saturday,true,,false,Rainy,26.6,0.52
-sup-001,Chapati Kurma,Dinner,104,54,50,85.11,16,2025-09-06,Sunday,true,,false,Rainy,28.6,0.55
-sup-002,Idli Sambar,Breakfast,77,46,31,60.75,6,2025-09-07,Monday,false,,false,Sunny,28.9,0.55
-sup-003,Bread Pack,Bakery,102,53,49,56.71,11,2025-09-08,Tuesday,false,,false,Humid,31.8,0.5
-sup-004,Curd Rice,Lunch,63,37,26,72.53,6,2025-09-09,Wednesday,false,,false,Humid,30.3,0.5
-sup-001,Vegetable Biryani,Rice,58,24,34,135.83,7,2025-09-10,Thursday,false,,false,Humid,29.9,0.51
-sup-002,Chapati Kurma,Dinner,64,34,30,85.76,6,2025-09-11,Friday,false,,false,Overcast,28.6,0.56
-sup-003,Idli Sambar,Breakfast,107,56,51,54.07,17,2025-09-12,Saturday,true,,false,Rainy,27.6,0.47
-sup-004,Idli Sambar,Breakfast,85,71,14,65.18,3,2025-09-13,Sunday,true,,false,Overcast,31.2,0.78
-sup-001,Lemon Rice,Lunch,57,43,14,64.69,3,2025-09-14,Monday,false,,false,Sunny,30,0.65
-sup-002,Chapati Kurma,Dinner,95,39,56,95.22,13,2025-09-15,Tuesday,false,,false,Cloudy,30.4,0.44
-sup-003,Paneer Fried Rice,Rice,113,32,81,125.39,27,2025-09-16,Wednesday,false,,false,Rainy,29.3,0.36
-sup-004,Lemon Rice,Lunch,60,32,28,69.38,7,2025-09-17,Thursday,false,,false,Humid,29.9,0.43
-sup-001,Chapati Kurma,Dinner,85,45,40,90.92,8,2025-09-18,Friday,false,,false,Cloudy,28.6,0.56
-sup-002,Paneer Fried Rice,Rice,80,48,32,134.9,7,2025-09-19,Saturday,true,,false,Overcast,31.3,0.68
-sup-003,Lemon Rice,Lunch,98,78,20,70.77,4,2025-09-20,Sunday,true,,false,Overcast,31.3,0.7
-sup-004,Paneer Fried Rice,Rice,59,22,37,124.83,12,2025-09-21,Monday,false,,false,Rainy,29.2,0.45
-sup-001,Idli Sambar,Breakfast,123,66,57,59.98,13,2025-09-22,Tuesday,false,,false,Overcast,29.2,0.49
-sup-002,Idli Sambar,Breakfast,74,44,30,61.11,6,2025-09-23,Wednesday,false,,false,Cloudy,30.3,0.54
-sup-003,Vegetable Biryani,Rice,99,43,56,134.61,12,2025-09-24,Thursday,false,,false,Sunny,29.4,0.53
-sup-004,Lemon Rice,Lunch,57,44,13,63.55,2,2025-09-25,Friday,false,,false,Overcast,30.2,0.68
-sup-001,Egg Puff,Bakery,161,85,76,28.33,18,2025-09-26,Saturday,true,,false,Cloudy,30.1,0.53
-sup-002,Egg Puff,Bakery,96,67,29,37.62,6,2025-09-27,Sunday,true,,false,Sunny,30.7,0.7
-sup-003,Veg Noodles,FastFood,137,62,75,105.98,16,2025-09-28,Monday,false,,false,Sunny,28.9,0.52
-sup-004,Bread Pack,Bakery,81,52,29,47.47,6,2025-09-29,Tuesday,false,,false,Sunny,31.3,0.62
-sup-001,Vegetable Biryani,Rice,55,29,26,139.44,5,2025-09-30,Wednesday,false,,false,Overcast,30.9,0.63
-sup-002,Curd Rice,Lunch,104,58,46,69.21,14,2025-10-01,Thursday,false,,false,Rainy,28.4,0.48
-sup-003,Chapati Kurma,Dinner,133,73,60,86.31,17,2025-10-02,Friday,false,,false,Rainy,27.4,0.58
-sup-004,Bread Pack,Bakery,107,71,36,46.78,8,2025-10-03,Saturday,true,,false,Humid,32.1,0.64
-sup-001,Paneer Fried Rice,Rice,74,38,36,130.36,11,2025-10-04,Sunday,true,,false,Rainy,27.1,0.6
-sup-002,Idli Sambar,Breakfast,114,89,25,54.28,4,2025-10-05,Monday,false,,false,Overcast,31.4,0.73
-sup-003,Veg Noodles,FastFood,89,44,45,104.26,13,2025-10-06,Tuesday,false,,false,Rainy,26.5,0.56
-sup-004,Egg Puff,Bakery,129,77,52,33.85,14,2025-10-07,Wednesday,false,,false,Rainy,27.2,0.6
-sup-001,Idli Sambar,Breakfast,100,43,57,64.06,19,2025-10-08,Thursday,false,,false,Rainy,28.2,0.38
-sup-002,Vegetable Biryani,Rice,116,53,63,141.58,13,2025-10-09,Friday,false,,false,Cloudy,29.7,0.56
-sup-003,Lemon Rice,Lunch,132,102,30,67.34,6,2025-10-10,Saturday,true,,false,Humid,32.3,0.67
-sup-004,Chapati Kurma,Dinner,89,66,23,83.48,4,2025-10-11,Sunday,true,,false,Cloudy,29,0.77
-sup-001,Paneer Fried Rice,Rice,73,37,36,132.69,7,2025-10-12,Monday,false,,false,Overcast,29.6,0.59
-sup-002,Idli Sambar,Breakfast,83,51,32,54.99,7,2025-10-13,Tuesday,false,,false,Overcast,29.6,0.56
-sup-003,Idli Sambar,Breakfast,78,41,37,58.14,11,2025-10-14,Wednesday,false,,false,Rainy,28.9,0.47
-sup-004,Chapati Kurma,Dinner,110,56,54,87.26,11,2025-10-15,Thursday,false,,false,Cloudy,29,0.54
-sup-001,Idli Sambar,Breakfast,73,43,30,62.85,6,2025-10-16,Friday,false,,false,Overcast,29.3,0.54
-sup-002,Chapati Kurma,Dinner,111,73,38,85.33,8,2025-10-17,Saturday,true,,false,Cloudy,27.6,0.69
-sup-003,Idli Sambar,Breakfast,127,94,33,54.33,7,2025-10-18,Sunday,true,,false,Humid,29.7,0.69
-sup-004,Veg Noodles,FastFood,82,50,32,113.35,6,2025-10-19,Monday,false,,false,Overcast,29.3,0.68
-sup-001,Curd Rice,Lunch,111,84,27,74.41,9,2025-10-20,Tuesday,false,Diwali,true,Rainy,27.7,0.68
-sup-002,Paneer Fried Rice,Rice,96,52,44,127.59,9,2025-10-21,Wednesday,false,,false,Overcast,30.1,0.62
-sup-003,Chapati Kurma,Dinner,95,50,45,92.02,13,2025-10-22,Thursday,false,,false,Rainy,27.2,0.56
-sup-004,Bread Pack,Bakery,85,56,29,56.73,5,2025-10-23,Friday,false,,false,Overcast,29.3,0.64
-sup-001,Idli Sambar,Breakfast,98,84,14,57.78,3,2025-10-24,Saturday,true,,false,Sunny,31.3,0.81
-sup-002,Curd Rice,Lunch,103,91,12,72.06,2,2025-10-25,Sunday,true,,false,Overcast,31.1,0.8
-sup-003,Lemon Rice,Lunch,98,74,24,69.99,4,2025-10-26,Monday,false,,false,Sunny,30.7,0.65
-sup-004,Curd Rice,Lunch,116,65,51,73.8,16,2025-10-27,Tuesday,false,,false,Rainy,26.9,0.48
-sup-001,Egg Puff,Bakery,97,54,43,28.65,9,2025-10-28,Wednesday,false,,false,Cloudy,29.1,0.56
-sup-002,Chapati Kurma,Dinner,89,43,46,94.99,10,2025-10-29,Thursday,false,,false,Cloudy,29,0.51
-sup-003,Idli Sambar,Breakfast,78,39,39,53.77,12,2025-10-30,Friday,false,,false,Rainy,28.6,0.45
-sup-004,Chapati Kurma,Dinner,98,74,24,90.05,4,2025-10-31,Saturday,true,,false,Sunny,25.8,0.79
-sup-001,Paneer Fried Rice,Rice,109,80,29,130.48,5,2025-11-01,Sunday,true,,false,Sunny,27.2,0.81
-sup-002,Chapati Kurma,Dinner,58,37,21,85.25,4,2025-11-02,Monday,false,,false,Cloudy,26,0.67
-sup-003,Chicken Biryani,Rice,140,74,66,182.15,12,2025-11-03,Tuesday,false,,false,Sunny,24.7,0.65
-sup-004,Vegetable Biryani,Rice,65,31,34,134.7,10,2025-11-04,Wednesday,false,,false,Rainy,22.6,0.57
-sup-001,Lemon Rice,Lunch,101,69,32,72.7,6,2025-11-05,Thursday,false,,false,Overcast,26.9,0.58
-sup-002,Paneer Fried Rice,Rice,95,41,54,124.97,12,2025-11-06,Friday,false,,false,Humid,26.9,0.51
-sup-003,Chicken Biryani,Rice,117,71,46,174.54,9,2025-11-07,Saturday,true,,false,Overcast,25.1,0.73
-sup-004,Bread Pack,Bakery,151,103,48,50.39,10,2025-11-08,Sunday,true,,false,Cloudy,26,0.66
-sup-001,Egg Puff,Bakery,93,37,56,31.28,18,2025-11-09,Monday,false,,false,Rainy,24.4,0.4
-sup-002,Curd Rice,Lunch,92,70,22,74.4,4,2025-11-10,Tuesday,false,,false,Overcast,25,0.68
-sup-003,Paneer Fried Rice,Rice,135,67,68,133.26,14,2025-11-11,Wednesday,false,,false,Humid,27.7,0.58
-sup-004,Lemon Rice,Lunch,66,53,13,65.71,2,2025-11-12,Thursday,false,,false,Sunny,25,0.71
-sup-001,Lemon Rice,Lunch,99,79,20,67.35,4,2025-11-13,Friday,false,,false,Overcast,25.3,0.7
-sup-002,Idli Sambar,Breakfast,72,53,19,59.76,4,2025-11-14,Saturday,true,,false,Sunny,25.2,0.68
-sup-003,Vegetable Biryani,Rice,108,48,60,141.29,19,2025-11-15,Sunday,true,,false,Rainy,25.4,0.54
-sup-004,Chicken Biryani,Rice,55,24,31,183.71,6,2025-11-16,Monday,false,,false,Cloudy,24.9,0.55
-sup-001,Idli Sambar,Breakfast,63,38,25,53.69,7,2025-11-17,Tuesday,false,,false,Rainy,24.5,0.56
-sup-002,Paneer Fried Rice,Rice,97,40,57,129.15,13,2025-11-18,Wednesday,false,,false,Cloudy,25.7,0.49
-sup-003,Egg Puff,Bakery,107,55,52,34.12,15,2025-11-19,Thursday,false,,false,Rainy,24.6,0.51
-sup-004,Idli Sambar,Breakfast,122,81,41,55.12,8,2025-11-20,Friday,false,,false,Cloudy,24.7,0.61
-sup-001,Idli Sambar,Breakfast,83,64,19,56.12,4,2025-11-21,Saturday,true,,false,Overcast,24.7,0.72
-sup-002,Bread Pack,Bakery,132,102,30,54.68,6,2025-11-22,Sunday,true,,false,Overcast,27.2,0.75
-sup-003,Curd Rice,Lunch,139,111,28,75.41,5,2025-11-23,Monday,false,,false,Sunny,26.2,0.72
-sup-004,Curd Rice,Lunch,85,55,30,72.69,6,2025-11-24,Tuesday,false,,false,Cloudy,25.2,0.57
-sup-001,Chicken Biryani,Rice,68,31,37,181.18,8,2025-11-25,Wednesday,false,,false,Sunny,26.4,0.57
-sup-002,Egg Puff,Bakery,101,57,44,35.16,9,2025-11-26,Thursday,false,,false,Overcast,27.1,0.56
-sup-003,Egg Puff,Bakery,148,98,50,36.27,9,2025-11-27,Friday,false,,false,Overcast,25.1,0.66
-sup-004,Idli Sambar,Breakfast,130,90,40,58.48,9,2025-11-28,Saturday,true,,false,Cloudy,24.8,0.64
-sup-001,Veg Noodles,FastFood,131,89,42,112.28,8,2025-11-29,Sunday,true,,false,Overcast,26.4,0.75
-sup-002,Veg Noodles,FastFood,57,31,26,109.08,5,2025-11-30,Monday,false,,false,Sunny,25.2,0.62
-sup-003,Chapati Kurma,Dinner,83,45,38,85.99,8,2025-12-01,Tuesday,false,,false,Humid,26.7,0.57
-sup-004,Veg Noodles,FastFood,73,39,34,106.3,7,2025-12-02,Wednesday,false,,false,Sunny,25.9,0.61
-sup-001,Lemon Rice,Lunch,62,38,24,68.8,5,2025-12-03,Thursday,false,,false,Cloudy,23.9,0.52
-sup-002,Veg Noodles,FastFood,95,64,31,111.15,5,2025-12-04,Friday,false,,false,Overcast,24.8,0.74
-sup-003,Paneer Fried Rice,Rice,153,92,61,126.1,13,2025-12-05,Saturday,true,,false,Cloudy,25.6,0.68
-sup-004,Bread Pack,Bakery,159,105,54,46.61,12,2025-12-06,Sunday,true,,false,Cloudy,24.5,0.64
-sup-001,Egg Puff,Bakery,101,43,58,37.32,18,2025-12-07,Monday,false,,false,Rainy,24,0.43
-sup-002,Chicken Biryani,Rice,97,46,51,176.21,10,2025-12-08,Tuesday,false,,false,Overcast,26.3,0.59
-sup-003,Chicken Biryani,Rice,133,55,78,174.39,17,2025-12-09,Wednesday,false,,false,Cloudy,26.3,0.53
-sup-004,Paneer Fried Rice,Rice,105,63,42,135.12,8,2025-12-10,Thursday,false,,false,Overcast,27,0.68
-sup-001,Egg Puff,Bakery,93,53,40,35.76,8,2025-12-11,Friday,false,,false,Sunny,27.4,0.57
-sup-002,Vegetable Biryani,Rice,119,71,48,137.85,10,2025-12-12,Saturday,true,,false,Cloudy,25.3,0.7
-sup-003,Bread Pack,Bakery,153,96,57,46.92,13,2025-12-13,Sunday,true,,false,Cloudy,23.7,0.61
-sup-004,Chapati Kurma,Dinner,111,77,34,83.12,6,2025-12-14,Monday,false,,false,Sunny,25.7,0.72
-sup-001,Veg Noodles,FastFood,108,41,67,110.6,15,2025-12-15,Tuesday,false,,false,Cloudy,25.6,0.45
-sup-002,Chicken Biryani,Rice,68,33,35,185.55,7,2025-12-16,Wednesday,false,,false,Overcast,25,0.61
-sup-003,Paneer Fried Rice,Rice,134,90,44,131.41,7,2025-12-17,Thursday,false,,false,Overcast,25.8,0.75
-sup-004,Chapati Kurma,Dinner,67,46,21,88.62,4,2025-12-18,Friday,false,,false,Overcast,26.3,0.72
-sup-001,Egg Puff,Bakery,130,69,61,36.89,20,2025-12-19,Saturday,true,,false,Rainy,25.3,0.53
-sup-002,Lemon Rice,Lunch,73,68,5,73.19,1,2025-12-20,Sunday,true,,false,Overcast,26,0.83
-sup-003,Chicken Biryani,Rice,109,55,54,174.83,10,2025-12-21,Monday,false,,false,Humid,25.9,0.62
-sup-004,Lemon Rice,Lunch,94,54,40,63.95,9,2025-12-22,Tuesday,false,,false,Humid,28.1,0.47
-sup-001,Veg Noodles,FastFood,99,45,54,107.4,12,2025-12-23,Wednesday,false,,false,Humid,28.1,0.52
-sup-002,Chicken Biryani,Rice,69,32,37,174.08,7,2025-12-24,Thursday,false,,false,Overcast,27,0.58
-sup-003,Bread Pack,Bakery,162,122,40,59.4,10,2025-12-25,Friday,false,Christmas,true,Humid,27.2,0.73
-sup-004,Vegetable Biryani,Rice,117,59,58,141.29,13,2025-12-26,Saturday,true,,false,Cloudy,24.5,0.6
-sup-001,Vegetable Biryani,Rice,128,74,54,144.44,11,2025-12-27,Sunday,true,,false,Overcast,25.2,0.68
-sup-002,Vegetable Biryani,Rice,73,39,34,138.08,7,2025-12-28,Monday,false,,false,Overcast,25.8,0.63
-sup-003,Vegetable Biryani,Rice,142,54,88,141.35,27,2025-12-29,Tuesday,false,,false,Rainy,22.8,0.48
-sup-004,Idli Sambar,Breakfast,96,67,29,56.86,5,2025-12-30,Wednesday,false,,false,Overcast,26.1,0.65
-sup-001,Chicken Biryani,Rice,79,28,51,178.35,12,2025-12-31,Thursday,false,,false,Overcast,27.4,0.47
-sup-002,Veg Noodles,FastFood,82,43,39,112.17,8,2026-01-01,Friday,false,,false,Overcast,25.3,0.59
-sup-003,Curd Rice,Lunch,126,101,25,75.33,5,2026-01-02,Saturday,true,,false,Cloudy,25.5,0.72
-sup-004,Bread Pack,Bakery,98,68,30,47.08,6,2026-01-03,Sunday,true,,false,Overcast,25.2,0.67
-sup-001,Curd Rice,Lunch,105,62,43,73.75,9,2026-01-04,Monday,false,,false,Overcast,25.6,0.51
-sup-002,Bread Pack,Bakery,119,63,56,56.21,12,2026-01-05,Tuesday,false,,false,Cloudy,24,0.51
-sup-003,Lemon Rice,Lunch,82,57,25,76.37,5,2026-01-06,Wednesday,false,,false,Overcast,26.5,0.6
-sup-004,Curd Rice,Lunch,119,81,38,68.93,8,2026-01-07,Thursday,false,,false,Overcast,25.6,0.6
-sup-001,Veg Noodles,FastFood,67,22,45,108.27,11,2026-01-08,Friday,false,,false,Cloudy,23.9,0.4
-sup-002,Vegetable Biryani,Rice,83,45,38,141.84,8,2026-01-09,Saturday,true,,false,Humid,27.6,0.64
-sup-003,Lemon Rice,Lunch,148,124,24,72.82,5,2026-01-10,Sunday,true,,false,Sunny,26.9,0.74
-sup-004,Chicken Biryani,Rice,117,44,73,180.21,22,2026-01-11,Monday,false,,false,Rainy,23.7,0.5
-sup-001,Veg Noodles,FastFood,76,32,44,111.43,10,2026-01-12,Tuesday,false,,false,Sunny,24.7,0.49
-sup-002,Paneer Fried Rice,Rice,103,61,42,125.38,8,2026-01-13,Wednesday,false,,false,Sunny,25.5,0.67
-sup-003,Idli Sambar,Breakfast,147,103,44,62.37,11,2026-01-14,Thursday,false,Pongal,true,Sunny,27.4,0.65
-sup-004,Chicken Biryani,Rice,110,52,58,173.79,12,2026-01-15,Friday,false,,false,Sunny,26.7,0.59
-sup-001,Idli Sambar,Breakfast,80,56,24,62.99,5,2026-01-16,Saturday,true,,false,Overcast,26.8,0.65
-sup-002,Chapati Kurma,Dinner,133,97,36,84.72,7,2026-01-17,Sunday,true,,false,Sunny,25.5,0.76
-sup-003,Chapati Kurma,Dinner,89,59,30,93.63,5,2026-01-18,Monday,false,,false,Sunny,26.9,0.69
-sup-004,Paneer Fried Rice,Rice,75,39,36,125.58,7,2026-01-19,Tuesday,false,,false,Sunny,25.3,0.6
-sup-001,Veg Noodles,FastFood,109,47,62,104.41,14,2026-01-20,Wednesday,false,,false,Overcast,27.2,0.5
-sup-002,Veg Noodles,FastFood,115,55,60,111.92,13,2026-01-21,Thursday,false,,false,Cloudy,26.3,0.55
-sup-003,Bread Pack,Bakery,119,65,54,49.24,12,2026-01-22,Friday,false,,false,Sunny,27.2,0.53
-sup-004,Paneer Fried Rice,Rice,106,64,42,130.9,9,2026-01-23,Saturday,true,,false,Overcast,24.8,0.68
-sup-001,Curd Rice,Lunch,78,53,25,77.09,6,2026-01-24,Sunday,true,,false,Sunny,24.8,0.6
-sup-002,Egg Puff,Bakery,145,88,57,36.07,11,2026-01-25,Monday,false,,false,Cloudy,23.8,0.61
-sup-003,Vegetable Biryani,Rice,120,65,55,143.8,10,2026-01-26,Tuesday,false,,false,Overcast,26.8,0.64
-sup-004,Curd Rice,Lunch,70,37,33,76.4,8,2026-01-27,Wednesday,false,,false,Cloudy,26,0.45
-sup-001,Chicken Biryani,Rice,65,17,48,177.58,16,2026-01-28,Thursday,false,,false,Rainy,24.6,0.38
-sup-002,Chapati Kurma,Dinner,67,33,34,88.6,7,2026-01-29,Friday,false,,false,Cloudy,25.1,0.52
-sup-003,Idli Sambar,Breakfast,137,110,27,55.75,5,2026-01-30,Saturday,true,,false,Sunny,26.3,0.75
-sup-004,Chapati Kurma,Dinner,107,61,46,93.77,14,2026-01-31,Sunday,true,,false,Rainy,26.8,0.6
-sup-001,Veg Noodles,FastFood,115,63,52,113.66,10,2026-02-01,Monday,false,,false,Overcast,28.1,0.62
-sup-002,Chapati Kurma,Dinner,123,79,44,95.86,8,2026-02-02,Tuesday,false,,false,Sunny,29.7,0.67
-sup-003,Vegetable Biryani,Rice,80,29,51,138.33,12,2026-02-03,Wednesday,false,,false,Humid,31.3,0.46
-sup-004,Vegetable Biryani,Rice,109,56,53,136.54,10,2026-02-04,Thursday,false,,false,Sunny,28.7,0.61
-sup-001,Idli Sambar,Breakfast,94,51,43,66.39,10,2026-02-05,Friday,false,,false,Overcast,30.4,0.49
-sup-002,Vegetable Biryani,Rice,116,66,50,133,11,2026-02-06,Saturday,true,,false,Sunny,27.7,0.67
-sup-003,Veg Noodles,FastFood,90,40,50,105.73,16,2026-02-07,Sunday,true,,false,Rainy,28.3,0.51
-sup-004,Bread Pack,Bakery,142,62,80,45.71,19,2026-02-08,Monday,false,,false,Humid,31.1,0.42
-sup-001,Bread Pack,Bakery,88,40,48,50.17,11,2026-02-09,Tuesday,false,,false,Humid,29.5,0.43
-sup-002,Bread Pack,Bakery,83,46,37,47.76,8,2026-02-10,Wednesday,false,,false,Cloudy,28.9,0.54
-sup-003,Idli Sambar,Breakfast,110,63,47,57.94,10,2026-02-11,Thursday,false,,false,Cloudy,28.2,0.52
-sup-004,Chicken Biryani,Rice,99,47,52,181.77,10,2026-02-12,Friday,false,,false,Sunny,29.4,0.59
-sup-001,Paneer Fried Rice,Rice,82,48,34,136.72,7,2026-02-13,Saturday,true,,false,Cloudy,26.8,0.67
-sup-002,Bread Pack,Bakery,111,61,50,52.54,16,2026-02-14,Sunday,true,,false,Rainy,28.4,0.53
-sup-003,Veg Noodles,FastFood,133,82,51,110.24,9,2026-02-15,Monday,false,,false,Sunny,28.2,0.69
-sup-004,Paneer Fried Rice,Rice,56,15,41,131.56,14,2026-02-16,Tuesday,false,,false,Rainy,27.1,0.35
-sup-001,Chicken Biryani,Rice,73,31,42,173.63,9,2026-02-17,Wednesday,false,,false,Cloudy,27.7,0.55
-sup-002,Veg Noodles,FastFood,87,44,43,115.35,9,2026-02-18,Thursday,false,,false,Cloudy,27.7,0.58
-sup-003,Curd Rice,Lunch,84,44,40,75.93,9,2026-02-19,Friday,false,,false,Cloudy,28,0.44
-sup-004,Vegetable Biryani,Rice,71,40,31,139.34,7,2026-02-20,Saturday,true,,false,Cloudy,27.1,0.66
-sup-001,Lemon Rice,Lunch,131,89,42,69.21,10,2026-02-21,Sunday,true,,false,Cloudy,29.3,0.58
-sup-002,Bread Pack,Bakery,113,71,42,43.59,8,2026-02-22,Monday,false,,false,Cloudy,26.9,0.61
-sup-003,Egg Puff,Bakery,102,43,59,29.34,19,2026-02-23,Tuesday,false,,false,Rainy,27.7,0.42
-sup-004,Chicken Biryani,Rice,101,53,48,181.04,9,2026-02-24,Wednesday,false,,false,Cloudy,27.7,0.64
-sup-001,Bread Pack,Bakery,144,62,82,48.69,20,2026-02-25,Thursday,false,,false,Humid,28.6,0.41
-sup-002,Chicken Biryani,Rice,111,51,60,178.58,12,2026-02-26,Friday,false,,false,Sunny,28.4,0.58
-sup-003,Curd Rice,Lunch,117,77,40,81.19,9,2026-02-27,Saturday,true,,false,Humid,29.2,0.58
-sup-004,Idli Sambar,Breakfast,131,96,35,65.54,7,2026-02-28,Sunday,true,,false,Sunny,30.4,0.68
-sup-001,Egg Puff,Bakery,119,61,58,32.69,13,2026-03-01,Monday,false,,false,Sunny,29.2,0.51
-sup-002,Idli Sambar,Breakfast,83,60,23,64.42,4,2026-03-02,Tuesday,false,,false,Sunny,27.6,0.67
-sup-003,Idli Sambar,Breakfast,139,72,67,57.87,21,2026-03-03,Wednesday,false,,false,Rainy,26.5,0.47
-sup-004,Veg Noodles,FastFood,124,38,86,107.85,28,2026-03-04,Thursday,false,,false,Rainy,27.1,0.38
-sup-001,Chicken Biryani,Rice,98,37,61,177.86,13,2026-03-05,Friday,false,,false,Humid,29,0.5
-sup-002,Curd Rice,Lunch,104,82,22,75.38,4,2026-03-06,Saturday,true,,false,Overcast,29.4,0.71
-sup-003,Egg Puff,Bakery,116,89,27,30.58,5,2026-03-07,Sunday,true,,false,Overcast,29.2,0.77
-sup-004,Chicken Biryani,Rice,111,46,65,181.37,14,2026-03-08,Monday,false,,false,Humid,30.3,0.53
-sup-001,Paneer Fried Rice,Rice,101,49,52,123.95,11,2026-03-09,Tuesday,false,,false,Overcast,29.9,0.57
-sup-002,Veg Noodles,FastFood,71,40,31,110.42,6,2026-03-10,Wednesday,false,,false,Overcast,29.2,0.64
-sup-003,Veg Noodles,FastFood,131,65,66,103.44,14,2026-03-11,Thursday,false,,false,Overcast,28.2,0.57
-sup-004,Chapati Kurma,Dinner,71,41,30,90.53,6,2026-03-12,Friday,false,,false,Sunny,29.8,0.61
-sup-001,Chapati Kurma,Dinner,112,69,43,83.75,9,2026-03-13,Saturday,true,,false,Overcast,30,0.65
-sup-002,Bread Pack,Bakery,154,99,55,50.79,12,2026-03-14,Sunday,true,,false,Sunny,27.9,0.62
-sup-003,Bread Pack,Bakery,127,81,46,50.81,9,2026-03-15,Monday,false,,false,Overcast,29.1,0.62
-sup-004,Bread Pack,Bakery,136,61,75,48.01,24,2026-03-16,Tuesday,false,,false,Rainy,26.9,0.43
-sup-001,Veg Noodles,FastFood,86,28,58,107.78,14,2026-03-17,Wednesday,false,,false,Humid,30.4,0.4
-sup-002,Paneer Fried Rice,Rice,67,26,41,135.22,9,2026-03-18,Thursday,false,,false,Cloudy,28.5,0.47
-sup-003,Vegetable Biryani,Rice,76,38,38,139.33,8,2026-03-19,Friday,false,,false,Cloudy,27.7,0.6
-sup-004,Idli Sambar,Breakfast,126,79,47,66.06,15,2026-03-20,Saturday,true,,false,Rainy,26.6,0.58
-sup-001,Vegetable Biryani,Rice,94,47,47,144.88,11,2026-03-21,Sunday,true,,false,Humid,28.6,0.6
-sup-002,Vegetable Biryani,Rice,87,41,46,144.71,9,2026-03-22,Monday,false,,false,Sunny,30.2,0.57
-sup-003,Bread Pack,Bakery,118,67,51,56.87,11,2026-03-23,Tuesday,false,,false,Sunny,29.3,0.55
-sup-004,Curd Rice,Lunch,81,50,31,80.39,7,2026-03-24,Wednesday,false,,false,Humid,30.7,0.54
-sup-001,Curd Rice,Lunch,55,25,30,74.53,7,2026-03-25,Thursday,false,,false,Humid,30.9,0.37
-sup-002,Veg Noodles,FastFood,123,53,70,116.86,21,2026-03-26,Friday,false,,false,Rainy,27.8,0.5
-sup-003,Idli Sambar,Breakfast,151,119,32,56.94,6,2026-03-27,Saturday,true,,false,Cloudy,28.7,0.74
-sup-004,Lemon Rice,Lunch,109,69,40,66.7,10,2026-03-28,Sunday,true,,false,Humid,29.7,0.53
-sup-001,Chapati Kurma,Dinner,75,32,43,95.84,10,2026-03-29,Monday,false,,false,Overcast,29,0.45
-sup-002,Veg Noodles,FastFood,123,68,55,110.68,11,2026-03-30,Tuesday,false,,false,Sunny,28.1,0.62
-sup-003,Chicken Biryani,Rice,82,34,48,173.36,10,2026-03-31,Wednesday,false,,false,Humid,31.3,0.53
-sup-004,Vegetable Biryani,Rice,74,21,53,136.16,13,2026-04-01,Thursday,false,,false,Humid,31.9,0.38
-sup-001,Lemon Rice,Lunch,69,39,30,66.94,7,2026-04-02,Friday,false,,false,Sunny,31.7,0.46
-sup-002,Lemon Rice,Lunch,86,54,32,74.89,8,2026-04-03,Saturday,true,,false,Humid,31.7,0.53
-sup-003,Veg Noodles,FastFood,104,60,44,115.34,10,2026-04-04,Sunday,true,,false,Sunny,30.8,0.65
-sup-004,Egg Puff,Bakery,96,54,42,38.94,9,2026-04-05,Monday,false,,false,Sunny,32,0.56
-sup-001,Egg Puff,Bakery,145,73,72,41.53,16,2026-04-06,Tuesday,false,,false,Cloudy,30.6,0.5
-sup-002,Chapati Kurma,Dinner,71,29,42,93.12,10,2026-04-07,Wednesday,false,,false,Humid,33.4,0.44
-sup-003,Paneer Fried Rice,Rice,105,46,59,132.85,13,2026-04-08,Thursday,false,,false,Sunny,31,0.52
-sup-004,Bread Pack,Bakery,82,42,40,50.23,9,2026-04-09,Friday,false,,false,Overcast,32.3,0.49
-sup-001,Vegetable Biryani,Rice,99,33,66,146,18,2026-04-10,Saturday,true,,false,Humid,31,0.43
-sup-002,Bread Pack,Bakery,93,60,33,43.43,7,2026-04-11,Sunday,true,,false,Cloudy,28.9,0.62
-sup-003,Veg Noodles,FastFood,98,37,61,116.57,14,2026-04-12,Monday,false,,false,Overcast,31.7,0.45
-sup-004,Chicken Biryani,Rice,58,20,38,184.23,9,2026-04-13,Tuesday,false,,false,Overcast,31.8,0.47
-sup-001,Lemon Rice,Lunch,104,62,42,74.95,9,2026-04-14,Wednesday,false,,false,Cloudy,31.5,0.5
+7933b384-0fba-5867-9d8c-929b61f2acca,Idli Sambar,Breakfast,107,45,62,55.59,15,2025-04-15,Wednesday,false,,false,Humid,33.1,0.37
+26fc9b4e-b524-5657-9a97-52821ba0b606,Idli Sambar,Breakfast,102,59,43,62.6,9,2025-04-16,Thursday,false,,false,Sunny,31.3,0.53
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Vegetable Biryani,Rice,176,56,120,144.2,29,2025-04-17,Friday,false,,false,Humid,30.6,0.42
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Paneer Fried Rice,Rice,71,34,37,135.28,9,2025-04-18,Saturday,true,,false,Sunny,30.3,0.56
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Office Lunch Tray,Meal,723,354,369,121.34,88,2025-04-19,Sunday,true,,false,Humid,32.4,0.55
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Office Lunch Tray,Meal,190,86,104,124.15,23,2025-04-20,Monday,false,,false,Overcast,30.3,0.51
+31373466-0755-5d73-a853-9f55038c9929,Paneer Fried Rice,Rice,223,87,136,134.26,31,2025-04-21,Tuesday,false,,false,Humid,31,0.47
+7933b384-0fba-5867-9d8c-929b61f2acca,Corporate Buffet Pack,Meal,110,47,63,400.41,14,2025-04-22,Wednesday,false,,false,Overcast,30.7,0.47
+26fc9b4e-b524-5657-9a97-52821ba0b606,Bread Pack,Bakery,109,37,72,51.64,24,2025-04-23,Thursday,false,,false,Rainy,28.1,0.32
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Lemon Rice,Lunch,200,110,90,70.57,21,2025-04-24,Friday,false,,false,Sunny,31.8,0.45
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Egg Puff,Bakery,87,44,43,31.26,11,2025-04-25,Saturday,true,,false,Humid,30.7,0.51
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Paneer Fried Rice,Rice,710,376,334,134.86,75,2025-04-26,Sunday,true,,false,Humid,32.3,0.61
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Egg Puff,Bakery,226,131,95,30.12,19,2025-04-27,Monday,false,,false,Overcast,32.1,0.58
+31373466-0755-5d73-a853-9f55038c9929,Curd Rice,Lunch,234,126,108,69.41,25,2025-04-28,Tuesday,false,,false,Cloudy,31.5,0.46
+7933b384-0fba-5867-9d8c-929b61f2acca,Chicken Biryani,Rice,121,44,77,178.51,17,2025-04-29,Wednesday,false,,false,Cloudy,28.5,0.48
+26fc9b4e-b524-5657-9a97-52821ba0b606,Veg Noodles,FastFood,130,61,69,105.13,15,2025-04-30,Thursday,false,,false,Sunny,30.3,0.54
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Veg Noodles,FastFood,151,53,98,109.51,23,2025-05-01,Friday,false,,false,Cloudy,30.7,0.42
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Bread Pack,Bakery,65,37,28,54.18,9,2025-05-02,Saturday,true,,false,Rainy,28.1,0.55
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Bread Pack,Bakery,688,447,241,45.48,53,2025-05-03,Sunday,true,,false,Overcast,31.2,0.63
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Mutton Curry,Main,206,70,136,275.6,32,2025-05-04,Monday,false,,false,Sunny,29.7,0.42
+31373466-0755-5d73-a853-9f55038c9929,Paneer Fried Rice,Rice,246,116,130,134.46,27,2025-05-05,Tuesday,false,,false,Sunny,30.9,0.55
+7933b384-0fba-5867-9d8c-929b61f2acca,Idli Sambar,Breakfast,81,46,35,56.96,8,2025-05-06,Wednesday,false,,false,Cloudy,30,0.52
+26fc9b4e-b524-5657-9a97-52821ba0b606,Curd Rice,Lunch,88,52,36,68.52,8,2025-05-07,Thursday,false,,false,Sunny,32.2,0.51
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Butter Chicken,Main,178,80,98,222.26,19,2025-05-08,Friday,false,,false,Sunny,30,0.6
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Tandoori Chicken,Main,81,41,40,248.79,9,2025-05-09,Saturday,true,,false,Cloudy,30.6,0.62
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Tandoori Chicken,Main,744,402,342,249.61,73,2025-05-10,Sunday,true,,false,Sunny,31.4,0.66
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Idli Sambar,Breakfast,215,110,105,62.77,24,2025-05-11,Monday,false,,false,Sunny,30.3,0.46
+31373466-0755-5d73-a853-9f55038c9929,Biryani Mix Platter,Rice,270,81,189,355.05,42,2025-05-12,Tuesday,false,,false,Sunny,29.6,0.48
+7933b384-0fba-5867-9d8c-929b61f2acca,Office Lunch Tray,Meal,126,44,82,115.56,20,2025-05-13,Wednesday,false,,false,Overcast,30.2,0.41
+26fc9b4e-b524-5657-9a97-52821ba0b606,Veg Noodles,FastFood,85,31,54,106.88,13,2025-05-14,Thursday,false,,false,Cloudy,28.5,0.44
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Chicken Biryani,Rice,184,83,101,179.76,21,2025-05-15,Friday,false,,false,Sunny,31.4,0.57
+3e0608b2-84e3-5a64-bed8-c98722b6066c,School Meal Set,Meal,79,49,30,81.58,7,2025-05-16,Saturday,true,,false,Sunny,31.2,0.6
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Wedding Sweets Mix,Dessert,689,413,276,173.05,66,2025-05-17,Sunday,true,,false,Overcast,32,0.55
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Idli Sambar,Breakfast,226,99,127,65.54,31,2025-05-18,Monday,false,,false,Cloudy,29.8,0.39
+31373466-0755-5d73-a853-9f55038c9929,Wedding Sweets Mix,Dessert,241,147,94,177.68,19,2025-05-19,Tuesday,false,,false,Overcast,32.2,0.56
+7933b384-0fba-5867-9d8c-929b61f2acca,Tandoori Chicken,Main,123,33,90,252.33,29,2025-05-20,Wednesday,false,,false,Rainy,30.2,0.39
+26fc9b4e-b524-5657-9a97-52821ba0b606,Veg Noodles,FastFood,144,32,112,110.11,39,2025-05-21,Thursday,false,,false,Rainy,30,0.29
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Egg Puff,Bakery,146,69,77,31.13,17,2025-05-22,Friday,false,,false,Overcast,31.3,0.47
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Paneer Fried Rice,Rice,82,52,30,130.1,6,2025-05-23,Saturday,true,,false,Overcast,30.6,0.71
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Mutton Curry,Main,734,323,411,286.76,101,2025-05-24,Sunday,true,,false,Sunny,30.3,0.52
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Wedding Sweets Mix,Dessert,219,123,96,174.12,21,2025-05-25,Monday,false,,false,Cloudy,29.1,0.51
+31373466-0755-5d73-a853-9f55038c9929,Biryani Mix Platter,Rice,217,56,161,355.53,38,2025-05-26,Tuesday,false,,false,Overcast,31.2,0.44
+7933b384-0fba-5867-9d8c-929b61f2acca,Bread Pack,Bakery,64,18,46,47.43,16,2025-05-27,Wednesday,false,,false,Rainy,27.7,0.26
+26fc9b4e-b524-5657-9a97-52821ba0b606,Biryani Mix Platter,Rice,92,33,59,351.98,12,2025-05-28,Thursday,false,,false,Cloudy,29,0.54
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Tandoori Chicken,Main,177,51,126,244.57,30,2025-05-29,Friday,false,,false,Humid,33.4,0.41
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Office Lunch Tray,Meal,58,23,35,116.54,9,2025-05-30,Saturday,true,,false,Cloudy,29.8,0.46
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Wedding Sweets Mix,Dessert,736,515,221,183.66,48,2025-05-31,Sunday,true,,false,Humid,27.6,0.65
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Office Lunch Tray,Meal,238,124,114,123.85,23,2025-06-01,Monday,false,,false,Sunny,26.6,0.58
+31373466-0755-5d73-a853-9f55038c9929,Butter Chicken,Main,227,95,132,218.88,27,2025-06-02,Tuesday,false,,false,Cloudy,27.3,0.57
+7933b384-0fba-5867-9d8c-929b61f2acca,School Meal Set,Meal,84,35,49,83.88,16,2025-06-03,Wednesday,false,,false,Rainy,24.8,0.4
+26fc9b4e-b524-5657-9a97-52821ba0b606,Idli Sambar,Breakfast,130,57,73,56.85,24,2025-06-04,Thursday,false,,false,Rainy,27,0.39
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Paneer Fried Rice,Rice,189,119,70,126.56,12,2025-06-05,Friday,false,,false,Overcast,27.2,0.71
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Tandoori Chicken,Main,50,27,23,256.47,5,2025-06-06,Saturday,true,,false,Overcast,27.5,0.65
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Veg Noodles,FastFood,688,351,337,103.65,105,2025-06-07,Sunday,true,,false,Rainy,26.4,0.58
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Paneer Fried Rice,Rice,182,71,111,127.1,25,2025-06-08,Monday,false,,false,Cloudy,27,0.47
+31373466-0755-5d73-a853-9f55038c9929,Chapati Kurma,Dinner,249,117,132,91.18,29,2025-06-09,Tuesday,false,,false,Cloudy,28,0.5
+7933b384-0fba-5867-9d8c-929b61f2acca,Paneer Fried Rice,Rice,74,28,46,126.77,14,2025-06-10,Wednesday,false,,false,Rainy,25.4,0.46
+26fc9b4e-b524-5657-9a97-52821ba0b606,Chapati Kurma,Dinner,134,71,63,92.53,13,2025-06-11,Thursday,false,,false,Sunny,28.4,0.56
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Lemon Rice,Lunch,147,97,50,75.99,10,2025-06-12,Friday,false,,false,Humid,27.7,0.56
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Tandoori Chicken,Main,73,39,34,248.81,10,2025-06-13,Saturday,true,,false,Rainy,26.2,0.65
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Butter Chicken,Main,693,305,388,221.53,89,2025-06-14,Sunday,true,,false,Humid,30.1,0.59
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Curd Rice,Lunch,184,85,99,72.09,32,2025-06-15,Monday,false,,false,Rainy,27.3,0.38
+31373466-0755-5d73-a853-9f55038c9929,Idli Sambar,Breakfast,256,128,128,59.66,30,2025-06-16,Tuesday,false,,false,Humid,28,0.45
+7933b384-0fba-5867-9d8c-929b61f2acca,Curd Rice,Lunch,77,49,28,75.93,6,2025-06-17,Wednesday,false,,false,Sunny,28.1,0.56
+26fc9b4e-b524-5657-9a97-52821ba0b606,Corporate Buffet Pack,Meal,93,39,54,402.92,17,2025-06-18,Thursday,false,,false,Rainy,25.1,0.46
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Vegetable Biryani,Rice,159,80,79,141.98,16,2025-06-19,Friday,false,,false,Cloudy,27.5,0.6
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Office Lunch Tray,Meal,94,51,43,123.53,10,2025-06-20,Saturday,true,,false,Humid,28.7,0.6
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Tandoori Chicken,Main,712,313,399,248.32,94,2025-06-21,Sunday,true,,false,Cloudy,26.6,0.56
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Tandoori Chicken,Main,211,87,124,244.14,26,2025-06-22,Monday,false,,false,Humid,29.9,0.53
+31373466-0755-5d73-a853-9f55038c9929,Paneer Fried Rice,Rice,222,124,98,128.05,19,2025-06-23,Tuesday,false,,false,Sunny,29.1,0.64
+7933b384-0fba-5867-9d8c-929b61f2acca,Office Lunch Tray,Meal,126,50,76,117.57,17,2025-06-24,Wednesday,false,,false,Humid,29.5,0.46
+26fc9b4e-b524-5657-9a97-52821ba0b606,Veg Noodles,FastFood,117,51,66,103.35,20,2025-06-25,Thursday,false,,false,Rainy,25.1,0.51
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Tandoori Chicken,Main,170,59,111,255.01,25,2025-06-26,Friday,false,,false,Cloudy,27.3,0.47
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Tandoori Chicken,Main,66,42,24,254.8,5,2025-06-27,Saturday,true,,false,Overcast,27.1,0.75
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Mutton Curry,Main,741,534,207,276.85,38,2025-06-28,Sunday,true,,false,Overcast,26.6,0.8
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Paneer Fried Rice,Rice,243,117,126,131.54,26,2025-06-29,Monday,false,,false,Sunny,27.4,0.56
+31373466-0755-5d73-a853-9f55038c9929,Idli Sambar,Breakfast,262,178,84,54.34,16,2025-06-30,Tuesday,false,,false,Sunny,28.7,0.63
+7933b384-0fba-5867-9d8c-929b61f2acca,Mutton Curry,Main,59,35,24,285.16,4,2025-07-01,Wednesday,false,,false,Sunny,27.7,0.68
+26fc9b4e-b524-5657-9a97-52821ba0b606,Tandoori Chicken,Main,125,43,82,243.4,19,2025-07-02,Thursday,false,,false,Cloudy,26.5,0.46
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Lemon Rice,Lunch,143,93,50,65.67,10,2025-07-03,Friday,false,,false,Sunny,27.1,0.55
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Corporate Buffet Pack,Meal,62,43,19,395.22,4,2025-07-04,Saturday,true,,false,Sunny,26.5,0.74
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Biryani Mix Platter,Rice,742,416,326,354.34,64,2025-07-05,Sunday,true,,false,Sunny,26.6,0.74
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Paneer Fried Rice,Rice,181,78,103,135.74,22,2025-07-06,Monday,false,,false,Cloudy,27.1,0.51
+31373466-0755-5d73-a853-9f55038c9929,Egg Puff,Bakery,219,127,92,28.78,19,2025-07-07,Tuesday,false,,false,Cloudy,26.4,0.58
+7933b384-0fba-5867-9d8c-929b61f2acca,School Meal Set,Meal,69,39,30,80.54,6,2025-07-08,Wednesday,false,,false,Overcast,28.5,0.54
+26fc9b4e-b524-5657-9a97-52821ba0b606,Idli Sambar,Breakfast,113,50,63,54.24,20,2025-07-09,Thursday,false,,false,Rainy,27.2,0.39
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Chapati Kurma,Dinner,189,95,94,89.71,20,2025-07-10,Friday,false,,false,Sunny,29.3,0.53
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Mutton Curry,Main,107,65,42,278.08,9,2025-07-11,Saturday,true,,false,Humid,30,0.69
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Veg Noodles,FastFood,703,422,281,105.58,60,2025-07-12,Sunday,true,,false,Humid,27.9,0.67
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Tandoori Chicken,Main,222,100,122,255.05,25,2025-07-13,Monday,false,,false,Humid,28.2,0.57
+31373466-0755-5d73-a853-9f55038c9929,Idli Sambar,Breakfast,221,155,66,63.23,12,2025-07-14,Tuesday,false,,false,Cloudy,27.1,0.65
+7933b384-0fba-5867-9d8c-929b61f2acca,Tandoori Chicken,Main,90,46,44,244.81,8,2025-07-15,Wednesday,false,,false,Overcast,28.2,0.63
+26fc9b4e-b524-5657-9a97-52821ba0b606,Lemon Rice,Lunch,143,114,29,67.99,5,2025-07-16,Thursday,false,,false,Overcast,29,0.7
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Biryani Mix Platter,Rice,167,68,99,351.87,20,2025-07-17,Friday,false,,false,Humid,30.2,0.59
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Curd Rice,Lunch,66,49,17,78.8,4,2025-07-18,Saturday,true,,false,Cloudy,28.1,0.66
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Office Lunch Tray,Meal,698,517,181,125.76,33,2025-07-19,Sunday,true,,false,Overcast,27.2,0.8
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Lemon Rice,Lunch,225,128,97,75.26,30,2025-07-20,Monday,false,,false,Rainy,25.2,0.47
+31373466-0755-5d73-a853-9f55038c9929,Office Lunch Tray,Meal,209,98,111,119.5,24,2025-07-21,Tuesday,false,,false,Overcast,27.8,0.53
+7933b384-0fba-5867-9d8c-929b61f2acca,Bread Pack,Bakery,118,78,40,44.52,8,2025-07-22,Wednesday,false,,false,Sunny,26.7,0.64
+26fc9b4e-b524-5657-9a97-52821ba0b606,School Meal Set,Meal,115,64,51,80.32,11,2025-07-23,Thursday,false,,false,Humid,28.5,0.54
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Mutton Curry,Main,197,79,118,280.67,26,2025-07-24,Friday,false,,false,Cloudy,27.5,0.48
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Curd Rice,Lunch,99,87,12,70.88,2,2025-07-25,Saturday,true,,false,Overcast,26.6,0.8
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Egg Puff,Bakery,682,552,130,40.05,24,2025-07-26,Sunday,true,,false,Overcast,26.8,0.81
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Lemon Rice,Lunch,196,123,73,67.08,16,2025-07-27,Monday,false,,false,Overcast,28,0.53
+31373466-0755-5d73-a853-9f55038c9929,Vegetable Biryani,Rice,266,138,128,146.3,25,2025-07-28,Tuesday,false,,false,Humid,27.9,0.62
+7933b384-0fba-5867-9d8c-929b61f2acca,Curd Rice,Lunch,118,90,28,71.38,5,2025-07-29,Wednesday,false,,false,Overcast,27.6,0.68
+26fc9b4e-b524-5657-9a97-52821ba0b606,Office Lunch Tray,Meal,108,63,45,124.3,9,2025-07-30,Thursday,false,,false,Cloudy,27.1,0.64
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Veg Noodles,FastFood,168,89,79,116.54,16,2025-07-31,Friday,false,,false,Cloudy,26.2,0.6
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Curd Rice,Lunch,101,89,12,73.03,2,2025-08-01,Saturday,true,,false,Overcast,29.2,0.8
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Veg Noodles,FastFood,705,338,367,114.11,117,2025-08-02,Sunday,true,,false,Rainy,25.8,0.55
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Bread Pack,Bakery,204,147,57,54.17,10,2025-08-03,Monday,false,,false,Overcast,29.1,0.7
+31373466-0755-5d73-a853-9f55038c9929,Chicken Biryani,Rice,269,113,156,185.85,33,2025-08-04,Tuesday,false,,false,Overcast,27,0.54
+7933b384-0fba-5867-9d8c-929b61f2acca,Corporate Buffet Pack,Meal,106,42,64,406.71,20,2025-08-05,Wednesday,false,,false,Rainy,25.3,0.44
+26fc9b4e-b524-5657-9a97-52821ba0b606,School Meal Set,Meal,140,90,50,84.52,10,2025-08-06,Thursday,false,,false,Sunny,29.5,0.62
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Chapati Kurma,Dinner,195,96,99,92.51,21,2025-08-07,Friday,false,,false,Sunny,27.3,0.52
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Chapati Kurma,Dinner,43,26,17,84.3,4,2025-08-08,Saturday,true,,false,Overcast,27.7,0.64
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Chapati Kurma,Dinner,734,455,279,90.67,83,2025-08-09,Sunday,true,,false,Rainy,26.1,0.65
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Bread Pack,Bakery,193,95,98,49.96,30,2025-08-10,Monday,false,,false,Rainy,27.2,0.47
+31373466-0755-5d73-a853-9f55038c9929,Tandoori Chicken,Main,251,146,105,254.76,18,2025-08-11,Tuesday,false,,false,Sunny,28.4,0.7
+7933b384-0fba-5867-9d8c-929b61f2acca,Wedding Sweets Mix,Dessert,113,78,35,182.56,7,2025-08-12,Wednesday,false,,false,Sunny,27.2,0.64
+26fc9b4e-b524-5657-9a97-52821ba0b606,Veg Noodles,FastFood,122,54,68,108.59,20,2025-08-13,Thursday,false,,false,Rainy,25.5,0.51
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Vegetable Biryani,Rice,205,121,84,136.47,15,2025-08-14,Friday,false,,false,Overcast,27.5,0.69
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Corporate Buffet Pack,Meal,38,26,12,404.42,2,2025-08-15,Saturday,true,,false,Sunny,27.4,0.73
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Paneer Fried Rice,Rice,694,278,416,130.48,139,2025-08-16,Sunday,true,,false,Rainy,26.5,0.48
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Corporate Buffet Pack,Meal,183,79,104,400.22,24,2025-08-17,Monday,false,,false,Cloudy,28.4,0.47
+31373466-0755-5d73-a853-9f55038c9929,Butter Chicken,Main,213,119,94,224.94,16,2025-08-18,Tuesday,false,,false,Sunny,28.1,0.71
+7933b384-0fba-5867-9d8c-929b61f2acca,Wedding Sweets Mix,Dessert,85,45,40,175.54,9,2025-08-19,Wednesday,false,,false,Cloudy,26.5,0.48
+26fc9b4e-b524-5657-9a97-52821ba0b606,Corporate Buffet Pack,Meal,148,56,92,401.56,29,2025-08-20,Thursday,false,,false,Rainy,25.9,0.42
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Curd Rice,Lunch,168,81,87,75.79,28,2025-08-21,Friday,false,,false,Rainy,26.9,0.4
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Office Lunch Tray,Meal,105,51,54,119.94,13,2025-08-22,Saturday,true,,false,Humid,28.6,0.55
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Idli Sambar,Breakfast,749,539,210,63.89,45,2025-08-23,Sunday,true,,false,Cloudy,28.2,0.67
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Office Lunch Tray,Meal,192,94,98,115.03,28,2025-08-24,Monday,false,,false,Rainy,27.2,0.55
+31373466-0755-5d73-a853-9f55038c9929,Vegetable Biryani,Rice,225,119,106,136.7,20,2025-08-25,Tuesday,false,,false,Cloudy,28.5,0.63
+7933b384-0fba-5867-9d8c-929b61f2acca,Butter Chicken,Main,65,23,42,213.97,9,2025-08-26,Wednesday,false,,false,Cloudy,28.2,0.5
+26fc9b4e-b524-5657-9a97-52821ba0b606,Butter Chicken,Main,117,32,85,221,27,2025-08-27,Thursday,false,,false,Rainy,25.5,0.42
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Lemon Rice,Lunch,143,96,47,76.29,10,2025-08-28,Friday,false,,false,Sunny,29.4,0.57
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Idli Sambar,Breakfast,90,57,33,62.36,8,2025-08-29,Saturday,true,,false,Humid,30.4,0.58
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Butter Chicken,Main,736,412,324,225.62,66,2025-08-30,Sunday,true,,false,Overcast,28.7,0.71
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Office Lunch Tray,Meal,203,99,104,115.08,22,2025-08-31,Monday,false,,false,Sunny,29.6,0.55
+31373466-0755-5d73-a853-9f55038c9929,Veg Noodles,FastFood,255,115,140,111.63,30,2025-09-01,Tuesday,false,,false,Cloudy,27.9,0.52
+7933b384-0fba-5867-9d8c-929b61f2acca,Bread Pack,Bakery,122,66,56,43.1,12,2025-09-02,Wednesday,false,,false,Cloudy,29.7,0.52
+26fc9b4e-b524-5657-9a97-52821ba0b606,Curd Rice,Lunch,132,94,38,71.5,7,2025-09-03,Thursday,false,,false,Overcast,30.9,0.63
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Corporate Buffet Pack,Meal,190,108,82,394.86,16,2025-09-04,Friday,false,,false,Humid,32.2,0.61
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Idli Sambar,Breakfast,45,26,19,64.18,6,2025-09-05,Saturday,true,,false,Rainy,26.6,0.52
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Paneer Fried Rice,Rice,716,351,365,125.11,115,2025-09-06,Sunday,true,,false,Rainy,28.6,0.57
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Idli Sambar,Breakfast,201,121,80,60.75,17,2025-09-07,Monday,false,,false,Sunny,28.9,0.55
+31373466-0755-5d73-a853-9f55038c9929,Biryani Mix Platter,Rice,208,67,141,356.71,31,2025-09-08,Tuesday,false,,false,Humid,31.8,0.5
+7933b384-0fba-5867-9d8c-929b61f2acca,Bread Pack,Bakery,65,32,33,47.53,7,2025-09-09,Wednesday,false,,false,Humid,30.3,0.47
+26fc9b4e-b524-5657-9a97-52821ba0b606,Idli Sambar,Breakfast,86,50,36,55.83,8,2025-09-10,Thursday,false,,false,Humid,29.9,0.53
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Curd Rice,Lunch,146,93,53,70.76,11,2025-09-11,Friday,false,,false,Overcast,28.6,0.56
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Paneer Fried Rice,Rice,57,22,35,124.07,12,2025-09-12,Saturday,true,,false,Rainy,27.6,0.47
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Chapati Kurma,Dinner,698,524,174,95.18,33,2025-09-13,Sunday,true,,false,Overcast,31.2,0.78
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Veg Noodles,FastFood,181,110,71,104.69,13,2025-09-14,Monday,false,,false,Sunny,30,0.68
+31373466-0755-5d73-a853-9f55038c9929,Paneer Fried Rice,Rice,243,87,156,135.22,36,2025-09-15,Tuesday,false,,false,Cloudy,30.4,0.44
+7933b384-0fba-5867-9d8c-929b61f2acca,Chicken Biryani,Rice,97,20,77,175.39,26,2025-09-16,Wednesday,false,,false,Rainy,29.3,0.33
+26fc9b4e-b524-5657-9a97-52821ba0b606,Butter Chicken,Main,88,25,63,219.38,15,2025-09-17,Thursday,false,,false,Humid,29.9,0.43
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Curd Rice,Lunch,167,112,55,75.92,11,2025-09-18,Friday,false,,false,Cloudy,28.6,0.59
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Bread Pack,Bakery,48,34,14,54.9,3,2025-09-19,Saturday,true,,false,Overcast,31.3,0.68
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Butter Chicken,Main,692,381,311,220.77,64,2025-09-20,Sunday,true,,false,Overcast,31.3,0.7
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Chicken Biryani,Rice,183,60,123,174.83,38,2025-09-21,Monday,false,,false,Rainy,29.2,0.45
+31373466-0755-5d73-a853-9f55038c9929,Paneer Fried Rice,Rice,271,119,152,129.98,33,2025-09-22,Tuesday,false,,false,Overcast,29.2,0.52
+7933b384-0fba-5867-9d8c-929b61f2acca,Chapati Kurma,Dinner,76,37,39,91.11,8,2025-09-23,Wednesday,false,,false,Cloudy,30.3,0.52
+26fc9b4e-b524-5657-9a97-52821ba0b606,Vegetable Biryani,Rice,109,47,62,134.61,13,2025-09-24,Thursday,false,,false,Sunny,29.4,0.53
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Butter Chicken,Main,139,74,65,213.55,12,2025-09-25,Friday,false,,false,Overcast,30.2,0.68
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Office Lunch Tray,Meal,106,53,53,113.33,13,2025-09-26,Saturday,true,,false,Cloudy,30.1,0.56
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Wedding Sweets Mix,Dessert,685,514,171,182.62,35,2025-09-27,Sunday,true,,false,Sunny,30.7,0.7
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,School Meal Set,Meal,243,131,112,75.98,24,2025-09-28,Monday,false,,false,Sunny,28.9,0.52
+31373466-0755-5d73-a853-9f55038c9929,Biryani Mix Platter,Rice,205,90,115,347.47,22,2025-09-29,Tuesday,false,,false,Sunny,31.3,0.62
+7933b384-0fba-5867-9d8c-929b61f2acca,Vegetable Biryani,Rice,57,30,27,139.44,5,2025-09-30,Wednesday,false,,false,Overcast,30.9,0.63
+26fc9b4e-b524-5657-9a97-52821ba0b606,Bread Pack,Bakery,132,66,66,44.21,20,2025-10-01,Thursday,false,,false,Rainy,28.4,0.48
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Paneer Fried Rice,Rice,197,98,99,126.31,28,2025-10-02,Friday,false,,false,Rainy,27.4,0.58
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Mutton Curry,Main,52,29,23,276.78,5,2025-10-03,Saturday,true,,false,Humid,32.1,0.64
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Chicken Biryani,Rice,687,350,337,180.36,102,2025-10-04,Sunday,true,,false,Rainy,27.1,0.63
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Chapati Kurma,Dinner,238,167,71,84.28,12,2025-10-05,Monday,false,,false,Overcast,31.4,0.73
+31373466-0755-5d73-a853-9f55038c9929,Corporate Buffet Pack,Meal,219,114,105,394.26,30,2025-10-06,Tuesday,false,,false,Rainy,26.5,0.56
+7933b384-0fba-5867-9d8c-929b61f2acca,Corporate Buffet Pack,Meal,107,57,50,398.85,14,2025-10-07,Wednesday,false,,false,Rainy,27.2,0.57
+26fc9b4e-b524-5657-9a97-52821ba0b606,Chapati Kurma,Dinner,128,49,79,94.06,25,2025-10-08,Thursday,false,,false,Rainy,28.2,0.41
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Vegetable Biryani,Rice,198,91,107,141.58,22,2025-10-09,Friday,false,,false,Cloudy,29.7,0.56
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Butter Chicken,Main,82,43,39,217.34,8,2025-10-10,Saturday,true,,false,Humid,32.3,0.67
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Curd Rice,Lunch,702,597,105,68.48,20,2025-10-11,Sunday,true,,false,Cloudy,29,0.77
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Chicken Biryani,Rice,197,99,98,182.69,19,2025-10-12,Monday,false,,false,Overcast,29.6,0.62
+31373466-0755-5d73-a853-9f55038c9929,Chapati Kurma,Dinner,231,122,109,84.99,23,2025-10-13,Tuesday,false,,false,Overcast,29.6,0.56
+7933b384-0fba-5867-9d8c-929b61f2acca,Paneer Fried Rice,Rice,62,22,40,128.14,13,2025-10-14,Wednesday,false,,false,Rainy,28.9,0.44
+26fc9b4e-b524-5657-9a97-52821ba0b606,Lemon Rice,Lunch,138,88,50,67.26,11,2025-10-15,Thursday,false,,false,Cloudy,29,0.54
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Paneer Fried Rice,Rice,155,76,79,132.85,16,2025-10-16,Friday,false,,false,Overcast,29.3,0.57
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Curd Rice,Lunch,80,62,18,70.33,4,2025-10-17,Saturday,true,,false,Cloudy,27.6,0.69
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Paneer Fried Rice,Rice,722,440,282,124.33,59,2025-10-18,Sunday,true,,false,Humid,29.7,0.69
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,School Meal Set,Meal,206,144,62,83.35,11,2025-10-19,Monday,false,,false,Overcast,29.3,0.68
+31373466-0755-5d73-a853-9f55038c9929,Bread Pack,Bakery,571,423,148,49.41,48,2025-10-20,Tuesday,false,Diwali,true,Rainy,27.7,0.72
+7933b384-0fba-5867-9d8c-929b61f2acca,Chicken Biryani,Rice,98,46,52,177.59,10,2025-10-21,Wednesday,false,,false,Overcast,30.1,0.59
+26fc9b4e-b524-5657-9a97-52821ba0b606,Lemon Rice,Lunch,105,69,36,72.02,10,2025-10-22,Thursday,false,,false,Rainy,27.2,0.56
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Biryani Mix Platter,Rice,143,66,77,356.73,15,2025-10-23,Friday,false,,false,Overcast,29.3,0.64
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Paneer Fried Rice,Rice,67,51,16,127.78,3,2025-10-24,Saturday,true,,false,Sunny,31.3,0.84
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Bread Pack,Bakery,716,587,129,47.06,24,2025-10-25,Sunday,true,,false,Overcast,31.1,0.8
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Veg Noodles,FastFood,204,118,86,109.99,16,2025-10-26,Monday,false,,false,Sunny,30.7,0.65
+31373466-0755-5d73-a853-9f55038c9929,Egg Puff,Bakery,264,127,137,33.8,42,2025-10-27,Tuesday,false,,false,Rainy,26.9,0.48
+7933b384-0fba-5867-9d8c-929b61f2acca,Office Lunch Tray,Meal,75,38,37,113.65,8,2025-10-28,Wednesday,false,,false,Cloudy,29.1,0.56
+26fc9b4e-b524-5657-9a97-52821ba0b606,Paneer Fried Rice,Rice,117,50,67,134.99,15,2025-10-29,Thursday,false,,false,Cloudy,29,0.51
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Chapati Kurma,Dinner,142,60,82,83.77,26,2025-10-30,Friday,false,,false,Rainy,28.6,0.45
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Curd Rice,Lunch,66,57,9,75.05,2,2025-10-31,Saturday,true,,false,Sunny,25.8,0.79
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Chicken Biryani,Rice,722,520,202,180.48,35,2025-11-01,Sunday,true,,false,Sunny,27.2,0.84
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Curd Rice,Lunch,182,137,45,70.25,8,2025-11-02,Monday,false,,false,Cloudy,26,0.67
+31373466-0755-5d73-a853-9f55038c9929,Tandoori Chicken,Main,270,143,127,252.15,24,2025-11-03,Tuesday,false,,false,Sunny,24.7,0.65
+7933b384-0fba-5867-9d8c-929b61f2acca,Vegetable Biryani,Rice,67,29,38,134.7,11,2025-11-04,Wednesday,false,,false,Rainy,22.6,0.53
+26fc9b4e-b524-5657-9a97-52821ba0b606,Veg Noodles,FastFood,129,70,59,112.7,12,2025-11-05,Thursday,false,,false,Overcast,26.9,0.61
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Bread Pack,Bakery,177,94,83,44.97,18,2025-11-06,Friday,false,,false,Humid,26.9,0.51
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Mutton Curry,Main,67,44,23,274.54,5,2025-11-07,Saturday,true,,false,Overcast,25.1,0.73
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Wedding Sweets Mix,Dessert,740,525,215,180.39,46,2025-11-08,Sunday,true,,false,Cloudy,26,0.66
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Wedding Sweets Mix,Dessert,193,95,98,176.28,31,2025-11-09,Monday,false,,false,Rainy,24.4,0.44
+31373466-0755-5d73-a853-9f55038c9929,Egg Puff,Bakery,240,163,77,34.4,14,2025-11-10,Tuesday,false,,false,Overcast,25,0.68
+7933b384-0fba-5867-9d8c-929b61f2acca,Chicken Biryani,Rice,119,51,68,183.26,14,2025-11-11,Wednesday,false,,false,Humid,27.7,0.55
+26fc9b4e-b524-5657-9a97-52821ba0b606,Veg Noodles,FastFood,94,60,34,105.71,6,2025-11-12,Thursday,false,,false,Sunny,25,0.71
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Butter Chicken,Main,181,107,74,217.35,12,2025-11-13,Friday,false,,false,Overcast,25.3,0.74
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Chapati Kurma,Dinner,41,27,14,89.76,3,2025-11-14,Saturday,true,,false,Sunny,25.2,0.68
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Vegetable Biryani,Rice,702,309,393,141.29,126,2025-11-15,Sunday,true,,false,Rainy,25.4,0.54
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Mutton Curry,Main,179,84,95,283.71,20,2025-11-16,Monday,false,,false,Cloudy,24.9,0.55
+31373466-0755-5d73-a853-9f55038c9929,Chapati Kurma,Dinner,211,120,91,83.69,25,2025-11-17,Tuesday,false,,false,Rainy,24.5,0.6
+7933b384-0fba-5867-9d8c-929b61f2acca,Chicken Biryani,Rice,99,34,65,179.15,15,2025-11-18,Wednesday,false,,false,Cloudy,25.7,0.46
+26fc9b4e-b524-5657-9a97-52821ba0b606,Office Lunch Tray,Meal,93,42,51,119.12,15,2025-11-19,Thursday,false,,false,Rainy,24.6,0.51
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Paneer Fried Rice,Rice,204,108,96,125.12,19,2025-11-20,Friday,false,,false,Cloudy,24.7,0.61
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Idli Sambar,Breakfast,51,41,10,56.12,2,2025-11-21,Saturday,true,,false,Overcast,24.7,0.76
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Biryani Mix Platter,Rice,721,411,310,354.68,60,2025-11-22,Sunday,true,,false,Overcast,27.2,0.75
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Bread Pack,Bakery,245,181,64,50.41,11,2025-11-23,Monday,false,,false,Sunny,26.2,0.72
+31373466-0755-5d73-a853-9f55038c9929,Egg Puff,Bakery,233,133,100,32.69,20,2025-11-24,Tuesday,false,,false,Cloudy,25.2,0.57
+7933b384-0fba-5867-9d8c-929b61f2acca,Mutton Curry,Main,70,34,36,281.18,7,2025-11-25,Wednesday,false,,false,Sunny,26.4,0.57
+26fc9b4e-b524-5657-9a97-52821ba0b606,Office Lunch Tray,Meal,105,53,52,120.16,11,2025-11-26,Thursday,false,,false,Overcast,27.1,0.56
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Wedding Sweets Mix,Dessert,188,133,55,181.27,10,2025-11-27,Friday,false,,false,Overcast,25.1,0.66
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Paneer Fried Rice,Rice,98,55,43,128.48,9,2025-11-28,Saturday,true,,false,Cloudy,24.8,0.64
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Corporate Buffet Pack,Meal,744,558,186,402.28,35,2025-11-29,Sunday,true,,false,Overcast,26.4,0.79
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Corporate Buffet Pack,Meal,181,105,76,399.08,15,2025-11-30,Monday,false,,false,Sunny,25.2,0.62
+31373466-0755-5d73-a853-9f55038c9929,Paneer Fried Rice,Rice,213,104,109,125.99,22,2025-12-01,Tuesday,false,,false,Humid,26.7,0.57
+7933b384-0fba-5867-9d8c-929b61f2acca,Corporate Buffet Pack,Meal,75,40,35,396.3,7,2025-12-02,Wednesday,false,,false,Sunny,25.9,0.58
+26fc9b4e-b524-5657-9a97-52821ba0b606,Veg Noodles,FastFood,90,43,47,108.8,10,2025-12-03,Thursday,false,,false,Cloudy,23.9,0.55
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Corporate Buffet Pack,Meal,177,124,53,401.15,9,2025-12-04,Friday,false,,false,Overcast,24.8,0.74
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Chicken Biryani,Rice,103,58,45,176.1,9,2025-12-05,Saturday,true,,false,Cloudy,25.6,0.68
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Wedding Sweets Mix,Dessert,748,516,232,176.61,51,2025-12-06,Sunday,true,,false,Cloudy,24.5,0.64
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Corporate Buffet Pack,Meal,201,86,115,402.32,35,2025-12-07,Monday,false,,false,Rainy,24,0.47
+31373466-0755-5d73-a853-9f55038c9929,Tandoori Chicken,Main,245,115,130,246.21,26,2025-12-08,Tuesday,false,,false,Overcast,26.3,0.59
+7933b384-0fba-5867-9d8c-929b61f2acca,Butter Chicken,Main,117,40,77,214.39,17,2025-12-09,Wednesday,false,,false,Cloudy,26.3,0.49
+26fc9b4e-b524-5657-9a97-52821ba0b606,Chicken Biryani,Rice,133,74,59,185.12,11,2025-12-10,Thursday,false,,false,Overcast,27,0.68
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Office Lunch Tray,Meal,151,83,68,120.76,13,2025-12-11,Friday,false,,false,Sunny,27.4,0.61
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Idli Sambar,Breakfast,87,65,22,57.85,5,2025-12-12,Saturday,true,,false,Cloudy,25.3,0.7
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Mutton Curry,Main,724,384,340,276.92,77,2025-12-13,Sunday,true,,false,Cloudy,23.7,0.61
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Paneer Fried Rice,Rice,235,150,85,123.12,15,2025-12-14,Monday,false,,false,Sunny,25.7,0.72
+31373466-0755-5d73-a853-9f55038c9929,School Meal Set,Meal,256,131,125,80.6,28,2025-12-15,Tuesday,false,,false,Cloudy,25.6,0.49
+7933b384-0fba-5867-9d8c-929b61f2acca,Tandoori Chicken,Main,70,31,39,255.55,8,2025-12-16,Wednesday,false,,false,Overcast,25,0.57
+26fc9b4e-b524-5657-9a97-52821ba0b606,Lemon Rice,Lunch,144,122,22,71.41,4,2025-12-17,Thursday,false,,false,Overcast,25.8,0.75
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Curd Rice,Lunch,149,119,30,73.62,5,2025-12-18,Friday,false,,false,Overcast,26.3,0.72
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Office Lunch Tray,Meal,74,38,36,121.89,11,2025-12-19,Saturday,true,,false,Rainy,25.3,0.57
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Butter Chicken,Main,686,466,220,223.19,39,2025-12-20,Sunday,true,,false,Overcast,26,0.83
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Tandoori Chicken,Main,215,108,107,244.83,21,2025-12-21,Monday,false,,false,Humid,25.9,0.62
+31373466-0755-5d73-a853-9f55038c9929,Veg Noodles,FastFood,242,97,145,103.95,33,2025-12-22,Tuesday,false,,false,Humid,28.1,0.47
+7933b384-0fba-5867-9d8c-929b61f2acca,Corporate Buffet Pack,Meal,101,48,53,397.4,11,2025-12-23,Wednesday,false,,false,Humid,28.1,0.52
+26fc9b4e-b524-5657-9a97-52821ba0b606,Mutton Curry,Main,97,48,49,274.08,10,2025-12-24,Thursday,false,,false,Overcast,27,0.58
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Biryani Mix Platter,Rice,265,146,119,359.4,28,2025-12-25,Friday,false,Christmas,true,Humid,27.2,0.73
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Vegetable Biryani,Rice,85,43,42,141.29,10,2025-12-26,Saturday,true,,false,Cloudy,24.5,0.6
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Idli Sambar,Breakfast,741,571,170,64.44,34,2025-12-27,Sunday,true,,false,Overcast,25.2,0.72
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Idli Sambar,Breakfast,197,134,63,58.08,12,2025-12-28,Monday,false,,false,Overcast,25.8,0.63
+31373466-0755-5d73-a853-9f55038c9929,Idli Sambar,Breakfast,272,144,128,61.35,39,2025-12-29,Tuesday,false,,false,Rainy,22.8,0.48
+7933b384-0fba-5867-9d8c-929b61f2acca,Paneer Fried Rice,Rice,98,51,47,126.86,9,2025-12-30,Wednesday,false,,false,Overcast,26.1,0.6
+26fc9b4e-b524-5657-9a97-52821ba0b606,Mutton Curry,Main,107,47,60,278.35,13,2025-12-31,Thursday,false,,false,Overcast,27.4,0.52
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,School Meal Set,Meal,164,100,64,82.17,13,2026-01-01,Friday,false,,false,Overcast,25.3,0.59
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Egg Puff,Bakery,76,55,21,35.33,4,2026-01-02,Saturday,true,,false,Cloudy,25.5,0.72
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Mutton Curry,Main,687,405,282,277.08,60,2026-01-03,Sunday,true,,false,Overcast,25.2,0.67
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Bread Pack,Bakery,229,131,98,48.75,20,2026-01-04,Monday,false,,false,Overcast,25.6,0.55
+31373466-0755-5d73-a853-9f55038c9929,Biryani Mix Platter,Rice,243,80,163,356.21,36,2026-01-05,Tuesday,false,,false,Cloudy,24,0.51
+7933b384-0fba-5867-9d8c-929b61f2acca,Butter Chicken,Main,66,27,39,226.37,8,2026-01-06,Wednesday,false,,false,Overcast,26.5,0.56
+26fc9b4e-b524-5657-9a97-52821ba0b606,Egg Puff,Bakery,147,88,59,28.93,12,2026-01-07,Thursday,false,,false,Overcast,25.6,0.6
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,School Meal Set,Meal,149,69,80,78.27,19,2026-01-08,Friday,false,,false,Cloudy,23.9,0.44
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Vegetable Biryani,Rice,51,28,23,141.84,5,2026-01-09,Saturday,true,,false,Humid,27.6,0.64
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Veg Noodles,FastFood,742,497,245,112.82,48,2026-01-10,Sunday,true,,false,Sunny,26.9,0.74
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Mutton Curry,Main,241,101,140,280.21,42,2026-01-11,Monday,false,,false,Rainy,23.7,0.5
+31373466-0755-5d73-a853-9f55038c9929,School Meal Set,Meal,224,125,99,81.43,21,2026-01-12,Tuesday,false,,false,Sunny,24.7,0.54
+7933b384-0fba-5867-9d8c-929b61f2acca,Chicken Biryani,Rice,105,53,52,175.38,10,2026-01-13,Wednesday,false,,false,Sunny,25.5,0.62
+26fc9b4e-b524-5657-9a97-52821ba0b606,Chapati Kurma,Dinner,151,94,57,92.37,15,2026-01-14,Thursday,false,Pongal,true,Sunny,27.4,0.65
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Tandoori Chicken,Main,192,90,102,243.79,20,2026-01-15,Friday,false,,false,Sunny,26.7,0.59
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Idli Sambar,Breakfast,48,36,12,62.99,2,2026-01-16,Saturday,true,,false,Overcast,26.8,0.69
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Lemon Rice,Lunch,745,641,104,64.72,20,2026-01-17,Sunday,true,,false,Sunny,25.5,0.76
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Curd Rice,Lunch,195,150,45,78.63,8,2026-01-18,Monday,false,,false,Sunny,26.9,0.69
+31373466-0755-5d73-a853-9f55038c9929,Chicken Biryani,Rice,223,107,116,175.58,23,2026-01-19,Tuesday,false,,false,Sunny,25.3,0.6
+7933b384-0fba-5867-9d8c-929b61f2acca,School Meal Set,Meal,111,58,53,74.41,12,2026-01-20,Wednesday,false,,false,Overcast,27.2,0.5
+26fc9b4e-b524-5657-9a97-52821ba0b606,Corporate Buffet Pack,Meal,143,73,70,401.92,15,2026-01-21,Thursday,false,,false,Cloudy,26.3,0.55
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Biryani Mix Platter,Rice,159,56,103,349.24,22,2026-01-22,Friday,false,,false,Sunny,27.2,0.53
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Chicken Biryani,Rice,75,42,33,180.9,7,2026-01-23,Saturday,true,,false,Overcast,24.8,0.68
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Egg Puff,Bakery,691,442,249,37.09,55,2026-01-24,Sunday,true,,false,Sunny,24.8,0.64
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Wedding Sweets Mix,Dessert,245,162,83,181.07,16,2026-01-25,Monday,false,,false,Cloudy,23.8,0.61
+31373466-0755-5d73-a853-9f55038c9929,Vegetable Biryani,Rice,250,135,115,143.8,22,2026-01-26,Tuesday,false,,false,Overcast,26.8,0.64
+7933b384-0fba-5867-9d8c-929b61f2acca,Bread Pack,Bakery,72,30,42,51.4,10,2026-01-27,Wednesday,false,,false,Cloudy,26,0.4
+26fc9b4e-b524-5657-9a97-52821ba0b606,Butter Chicken,Main,93,26,67,217.58,21,2026-01-28,Thursday,false,,false,Rainy,24.6,0.43
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Lemon Rice,Lunch,149,92,57,68.6,12,2026-01-29,Friday,false,,false,Cloudy,25.1,0.52
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Paneer Fried Rice,Rice,87,58,29,125.75,6,2026-01-30,Saturday,true,,false,Sunny,26.3,0.75
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Lemon Rice,Lunch,719,503,216,73.77,67,2026-01-31,Sunday,true,,false,Rainy,26.8,0.6
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,School Meal Set,Meal,239,165,74,83.66,14,2026-02-01,Monday,false,,false,Overcast,28.1,0.67
+31373466-0755-5d73-a853-9f55038c9929,Curd Rice,Lunch,271,203,68,80.86,12,2026-02-02,Tuesday,false,,false,Sunny,29.7,0.67
+7933b384-0fba-5867-9d8c-929b61f2acca,Idli Sambar,Breakfast,64,29,35,58.33,8,2026-02-03,Wednesday,false,,false,Humid,31.3,0.41
+26fc9b4e-b524-5657-9a97-52821ba0b606,Idli Sambar,Breakfast,137,90,47,56.54,9,2026-02-04,Thursday,false,,false,Sunny,28.7,0.61
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Paneer Fried Rice,Rice,176,81,95,136.39,20,2026-02-05,Friday,false,,false,Overcast,30.4,0.54
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Idli Sambar,Breakfast,84,60,24,53,5,2026-02-06,Saturday,true,,false,Sunny,27.7,0.67
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,School Meal Set,Meal,685,363,322,75.73,106,2026-02-07,Sunday,true,,false,Rainy,28.3,0.51
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Biryani Mix Platter,Rice,242,58,184,345.71,44,2026-02-08,Monday,false,,false,Humid,31.1,0.42
+31373466-0755-5d73-a853-9f55038c9929,Wedding Sweets Mix,Dessert,212,110,102,180.17,23,2026-02-09,Tuesday,false,,false,Humid,29.5,0.47
+7933b384-0fba-5867-9d8c-929b61f2acca,Wedding Sweets Mix,Dessert,61,33,28,177.76,6,2026-02-10,Wednesday,false,,false,Cloudy,28.9,0.49
+26fc9b4e-b524-5657-9a97-52821ba0b606,Paneer Fried Rice,Rice,120,53,67,127.94,14,2026-02-11,Thursday,false,,false,Cloudy,28.2,0.52
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Mutton Curry,Main,181,92,89,281.77,18,2026-02-12,Friday,false,,false,Sunny,29.4,0.59
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Lemon Rice,Lunch,51,42,9,76.72,2,2026-02-13,Saturday,true,,false,Cloudy,26.8,0.72
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Mutton Curry,Main,699,315,384,282.54,124,2026-02-14,Sunday,true,,false,Rainy,28.4,0.53
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,School Meal Set,Meal,239,170,69,80.24,12,2026-02-15,Monday,false,,false,Sunny,28.2,0.69
+31373466-0755-5d73-a853-9f55038c9929,Lemon Rice,Lunch,204,92,112,71.56,37,2026-02-16,Tuesday,false,,false,Rainy,27.1,0.35
+7933b384-0fba-5867-9d8c-929b61f2acca,Tandoori Chicken,Main,75,32,43,243.63,9,2026-02-17,Wednesday,false,,false,Cloudy,27.7,0.55
+26fc9b4e-b524-5657-9a97-52821ba0b606,School Meal Set,Meal,115,69,46,85.35,9,2026-02-18,Thursday,false,,false,Cloudy,27.7,0.58
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Egg Puff,Bakery,148,65,83,35.93,19,2026-02-19,Friday,false,,false,Cloudy,28,0.44
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Idli Sambar,Breakfast,39,28,11,59.34,2,2026-02-20,Saturday,true,,false,Cloudy,27.1,0.66
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Butter Chicken,Main,744,357,387,219.21,86,2026-02-21,Sunday,true,,false,Cloudy,29.3,0.63
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Biryani Mix Platter,Rice,213,92,121,343.59,24,2026-02-22,Monday,false,,false,Cloudy,26.9,0.61
+31373466-0755-5d73-a853-9f55038c9929,Office Lunch Tray,Meal,208,75,133,114.34,42,2026-02-23,Tuesday,false,,false,Rainy,27.7,0.42
+7933b384-0fba-5867-9d8c-929b61f2acca,Mutton Curry,Main,103,51,52,281.04,11,2026-02-24,Wednesday,false,,false,Cloudy,27.7,0.58
+26fc9b4e-b524-5657-9a97-52821ba0b606,Biryani Mix Platter,Rice,148,41,107,348.69,24,2026-02-25,Thursday,false,,false,Humid,28.6,0.46
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Tandoori Chicken,Main,193,89,104,248.58,21,2026-02-26,Friday,false,,false,Sunny,28.4,0.58
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Egg Puff,Bakery,67,39,28,41.19,7,2026-02-27,Saturday,true,,false,Humid,29.2,0.58
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Paneer Fried Rice,Rice,744,446,298,135.54,63,2026-02-28,Sunday,true,,false,Sunny,30.4,0.68
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Wedding Sweets Mix,Dessert,219,134,85,177.69,18,2026-03-01,Monday,false,,false,Sunny,29.2,0.56
+31373466-0755-5d73-a853-9f55038c9929,Paneer Fried Rice,Rice,231,136,95,134.42,17,2026-03-02,Tuesday,false,,false,Sunny,27.6,0.67
+7933b384-0fba-5867-9d8c-929b61f2acca,Chapati Kurma,Dinner,123,48,75,87.87,24,2026-03-03,Wednesday,false,,false,Rainy,26.5,0.42
+26fc9b4e-b524-5657-9a97-52821ba0b606,Corporate Buffet Pack,Meal,152,52,100,397.85,33,2026-03-04,Thursday,false,,false,Rainy,27.1,0.38
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Tandoori Chicken,Main,180,77,103,247.86,22,2026-03-05,Friday,false,,false,Humid,29,0.55
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Bread Pack,Bakery,72,53,19,50.38,4,2026-03-06,Saturday,true,,false,Overcast,29.4,0.71
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Wedding Sweets Mix,Dessert,687,563,124,175.58,24,2026-03-07,Sunday,true,,false,Overcast,29.2,0.77
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Butter Chicken,Main,235,89,146,221.37,31,2026-03-08,Monday,false,,false,Humid,30.3,0.53
+31373466-0755-5d73-a853-9f55038c9929,Chicken Biryani,Rice,249,125,124,173.95,24,2026-03-09,Tuesday,false,,false,Overcast,29.9,0.62
+7933b384-0fba-5867-9d8c-929b61f2acca,Corporate Buffet Pack,Meal,73,40,33,400.42,7,2026-03-10,Wednesday,false,,false,Overcast,29.2,0.59
+26fc9b4e-b524-5657-9a97-52821ba0b606,Corporate Buffet Pack,Meal,141,75,66,393.44,14,2026-03-11,Thursday,false,,false,Overcast,28.2,0.57
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Lemon Rice,Lunch,153,109,44,70.53,9,2026-03-12,Friday,false,,false,Sunny,29.8,0.61
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Lemon Rice,Lunch,80,64,16,63.75,3,2026-03-13,Saturday,true,,false,Overcast,30,0.7
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Mutton Curry,Main,743,401,342,280.79,76,2026-03-14,Sunday,true,,false,Sunny,27.9,0.62
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Wedding Sweets Mix,Dessert,209,140,69,180.81,13,2026-03-15,Monday,false,,false,Overcast,29.1,0.62
+31373466-0755-5d73-a853-9f55038c9929,Mutton Curry,Main,260,91,169,278.01,53,2026-03-16,Tuesday,false,,false,Rainy,26.9,0.43
+7933b384-0fba-5867-9d8c-929b61f2acca,Corporate Buffet Pack,Meal,88,32,56,397.78,14,2026-03-17,Wednesday,false,,false,Humid,30.4,0.4
+26fc9b4e-b524-5657-9a97-52821ba0b606,Lemon Rice,Lunch,95,54,41,75.22,9,2026-03-18,Thursday,false,,false,Cloudy,28.5,0.47
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Vegetable Biryani,Rice,140,70,70,139.33,14,2026-03-19,Friday,false,,false,Cloudy,27.7,0.6
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Chapati Kurma,Dinner,94,52,42,96.06,13,2026-03-20,Saturday,true,,false,Rainy,26.6,0.58
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Idli Sambar,Breakfast,707,502,205,64.88,44,2026-03-21,Sunday,true,,false,Humid,28.6,0.66
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Vegetable Biryani,Rice,211,99,112,144.71,23,2026-03-22,Monday,false,,false,Sunny,30.2,0.57
+31373466-0755-5d73-a853-9f55038c9929,Mutton Curry,Main,224,105,119,286.87,25,2026-03-23,Tuesday,false,,false,Sunny,29.3,0.55
+7933b384-0fba-5867-9d8c-929b61f2acca,Egg Puff,Bakery,83,40,43,40.39,10,2026-03-24,Wednesday,false,,false,Humid,30.7,0.48
+26fc9b4e-b524-5657-9a97-52821ba0b606,Bread Pack,Bakery,83,37,46,49.53,11,2026-03-25,Thursday,false,,false,Humid,30.9,0.43
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,School Meal Set,Meal,205,107,98,86.86,29,2026-03-26,Friday,false,,false,Rainy,27.8,0.5
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Paneer Fried Rice,Rice,101,67,34,126.94,7,2026-03-27,Saturday,true,,false,Cloudy,28.7,0.74
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Butter Chicken,Main,722,274,448,216.7,109,2026-03-28,Sunday,true,,false,Humid,29.7,0.53
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Curd Rice,Lunch,199,117,82,80.84,18,2026-03-29,Monday,false,,false,Overcast,29,0.51
+31373466-0755-5d73-a853-9f55038c9929,School Meal Set,Meal,271,173,98,80.68,19,2026-03-30,Tuesday,false,,false,Sunny,28.1,0.62
+7933b384-0fba-5867-9d8c-929b61f2acca,Tandoori Chicken,Main,66,23,43,243.36,10,2026-03-31,Wednesday,false,,false,Humid,31.3,0.47
+26fc9b4e-b524-5657-9a97-52821ba0b606,Vegetable Biryani,Rice,102,29,73,136.16,18,2026-04-01,Thursday,false,,false,Humid,31.9,0.38
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Veg Noodles,FastFood,151,66,85,106.94,19,2026-04-02,Friday,false,,false,Sunny,31.7,0.51
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Veg Noodles,FastFood,54,25,29,114.89,7,2026-04-03,Saturday,true,,false,Humid,31.7,0.53
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Corporate Buffet Pack,Meal,699,426,273,405.34,59,2026-04-04,Sunday,true,,false,Sunny,30.8,0.65
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Office Lunch Tray,Meal,196,98,98,123.94,20,2026-04-05,Monday,false,,false,Sunny,32,0.56
+31373466-0755-5d73-a853-9f55038c9929,Office Lunch Tray,Meal,269,135,134,126.53,28,2026-04-06,Tuesday,false,,false,Cloudy,30.6,0.56
+7933b384-0fba-5867-9d8c-929b61f2acca,Curd Rice,Lunch,73,34,39,78.12,10,2026-04-07,Wednesday,false,,false,Humid,33.4,0.38
+26fc9b4e-b524-5657-9a97-52821ba0b606,Chicken Biryani,Rice,115,46,69,182.85,15,2026-04-08,Thursday,false,,false,Sunny,31,0.52
+a6ba8fc6-3fbb-5aae-8512-9345e6825dc7,Mutton Curry,Main,140,57,83,280.23,18,2026-04-09,Friday,false,,false,Overcast,32.3,0.49
+3e0608b2-84e3-5a64-bed8-c98722b6066c,Vegetable Biryani,Rice,68,27,41,146,10,2026-04-10,Saturday,true,,false,Humid,31,0.49
+8faf69d6-0238-50f2-bbe7-1345d3a7c4dd,Mutton Curry,Main,682,368,314,273.43,70,2026-04-11,Sunday,true,,false,Cloudy,28.9,0.62
+256ceba6-ddcf-530f-bfa1-c7781a94c5bf,Corporate Buffet Pack,Meal,204,84,120,406.57,28,2026-04-12,Monday,false,,false,Overcast,31.7,0.45
+31373466-0755-5d73-a853-9f55038c9929,Tandoori Chicken,Main,206,72,134,254.23,30,2026-04-13,Tuesday,false,,false,Overcast,31.8,0.47
+7933b384-0fba-5867-9d8c-929b61f2acca,Veg Noodles,FastFood,106,46,60,114.95,13,2026-04-14,Wednesday,false,,false,Cloudy,31.5,0.5

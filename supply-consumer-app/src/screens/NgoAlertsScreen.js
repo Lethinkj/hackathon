@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { FlatList, Pressable, RefreshControl, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import { getNgoAlerts, subscribeFoodRealtime } from '../lib/api'
+import { getNgoAlerts } from '../lib/api'
+import { useRealtimeFoodUpdates } from '../hooks/useRealtimeFoodUpdates'
 
 export default function NgoAlertsScreen({ navigation, user }) {
   const [alerts, setAlerts] = useState([])
@@ -16,12 +17,33 @@ export default function NgoAlertsScreen({ navigation, user }) {
     }
   }
 
+  useRealtimeFoodUpdates((update) => {
+    console.log('[NgoAlertsScreen] Real-time food update:', update.type, update.data?.id)
+    
+    // Free food became available (price = 0)
+    if (update.type === 'insert' && update.data?.price === 0) {
+      setAlerts(prev => {
+        if (prev.some(a => a.id === update.data.id)) return prev
+        return [update.data, ...prev]
+      })
+    } else if (update.type === 'update') {
+      if (update.data?.price === 0) {
+        // Now free
+        setAlerts(prev => {
+          if (prev.some(a => a.id === update.data.id)) return prev
+          return [...prev, update.data]
+        })
+      } else {
+        // No longer free - remove
+        setAlerts(prev => prev.filter(a => a.id !== update.data.id))
+      }
+    } else if (update.type === 'delete') {
+      setAlerts(prev => prev.filter(a => a.id !== update.data.id))
+    }
+  })
+
   useEffect(() => {
     loadAlerts()
-    const channel = subscribeFoodRealtime(loadAlerts)
-    return () => {
-      channel.unsubscribe()
-    }
   }, [])
 
   return (

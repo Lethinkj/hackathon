@@ -16,7 +16,7 @@ Mobile app for SupplyLink with role-based consumer, provider, and NGO flows.
 2. Create/update `.env` with:
    - `EXPO_PUBLIC_SUPABASE_URL`
    - `EXPO_PUBLIC_SUPABASE_ANON_KEY`
-   - `EXPO_PUBLIC_API_BASE_URL` (example: `http://localhost:5000` for web/emulator, or your LAN IP for real device)
+   - `EXPO_PUBLIC_API_BASE_URL` (example: `http://localhost:4001` for web/emulator, or your LAN IP for real device)
 3. Start app:
    npm run start
 

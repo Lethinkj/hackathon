@@ -6,7 +6,11 @@ const supabase = require("../supabaseClient");
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "supplylink_secret_key_2026";
-const ALLOWED_ROLES = new Set(["consumer", "ngo"]);
+const ALLOWED_ROLES = new Set(["provider", "consumer", "ngo"]);
+
+function normalizeIdentifier(value) {
+    return String(value || "").trim().toLowerCase();
+}
 
 function normalizePhone(phone) {
     return String(phone || "").trim().replace(/\s+/g, "");
@@ -25,28 +29,54 @@ function buildPhoneDisplayName(phone) {
 // Register
 router.post("/register", async (req, res) => {
     try {
-        const { name, email, password, role, lat, lng, capacity } = req.body;
+        const { name, email, username, phone, password, role, lat, lng, capacity, source_of_food_provider } = req.body;
         const normalizedRole = role ? String(role).trim().toLowerCase() : "";
+        const normalizedPhone = normalizePhone(phone);
+        const normalizedUsername = normalizeIdentifier(username);
+        const normalizedEmail = String(email || "").trim().toLowerCase();
+        const hasProviderIdentifier = Boolean(normalizedPhone || normalizedUsername || normalizedEmail);
 
-        if (!name || !email || !password || !role) {
-            return res.status(400).json({ error: "Name, email, password, and role are required" });
+        if (!password || !role) {
+            return res.status(400).json({ error: "Password and role are required" });
         }
 
         if (!ALLOWED_ROLES.has(normalizedRole)) {
-            return res.status(400).json({ error: "Role must be consumer or ngo" });
+            return res.status(400).json({ error: "Role must be provider, consumer, or ngo" });
         }
 
-        const normalizedEmail = String(email).trim().toLowerCase();
+        if (normalizedRole === "provider" && !hasProviderIdentifier) {
+            return res.status(400).json({ error: "Provider signup requires phone, username, or email" });
+        }
+
+        const finalName = String(name || normalizedUsername || normalizedPhone || "Provider").trim();
+        const fallbackEmail = normalizedEmail || (normalizedUsername
+            ? `provider_${normalizedUsername}@provider.left2lift.local`
+            : normalizedPhone
+                ? buildPhoneFallbackEmail(normalizedPhone)
+                : `provider_${Date.now()}@provider.left2lift.local`);
 
         // Check if user already exists
-        const { data: existing } = await supabase
-            .from("users")
-            .select("id")
-            .eq("email", normalizedEmail)
-            .maybeSingle();
+        const matchers = [];
+        if (fallbackEmail) matchers.push(`email.eq.${fallbackEmail}`);
+        if (normalizedPhone) matchers.push(`phone.eq.${normalizedPhone}`);
+        if (normalizedUsername) matchers.push(`username.eq.${normalizedUsername}`);
+
+        let existing = null;
+        if (matchers.length) {
+            const lookup = await supabase
+                .from("users")
+                .select("id")
+                .or(matchers.join(","))
+                .maybeSingle();
+
+            if (lookup.error && lookup.error.code !== "PGRST116") {
+                throw lookup.error;
+            }
+            existing = lookup.data;
+        }
 
         if (existing) {
-            return res.status(400).json({ error: "Email already registered" });
+            return res.status(400).json({ error: "Account already exists with this phone, username, or email" });
         }
 
         // Hash password
@@ -56,13 +86,16 @@ router.post("/register", async (req, res) => {
         const { data: user, error } = await supabase
             .from("users")
             .insert({
-                name,
-                email: normalizedEmail,
+                name: finalName,
+                email: fallbackEmail,
+                username: normalizedUsername || null,
+                phone: normalizedPhone || null,
                 password: hashedPassword,
                 role: normalizedRole,
                 lat: lat || 0,
                 lng: lng || 0,
                 capacity: normalizedRole === "ngo" ? capacity || 0 : 0,
+                source_of_food_provider: normalizedRole === "provider" ? (source_of_food_provider || null) : null,
             })
             .select()
             .single();
@@ -79,12 +112,23 @@ router.post("/register", async (req, res) => {
                 id: user.id,
                 name: user.name,
                 email: user.email,
+                username: user.username,
+                phone: user.phone,
                 role: user.role,
                 lat: user.lat,
                 lng: user.lng,
+                source_of_food_provider: user.source_of_food_provider,
             },
         });
     } catch (err) {
+        const message = String(err?.message || "");
+        if (message.includes("column users.") && message.includes("does not exist")) {
+            return res.status(500).json({
+                error: "Database schema is outdated. Run backend/migrations/20260416_provider_credentials_and_source.sql and retry.",
+                details: message,
+            });
+        }
+
         res.status(500).json({ error: err.message });
     }
 });
@@ -92,18 +136,27 @@ router.post("/register", async (req, res) => {
 // Login
 router.post("/login", async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { email, identifier, phone, username, password } = req.body;
+        const normalizedIdentifier = normalizeIdentifier(identifier || email || username || phone);
+        const normalizedPhone = normalizePhone(phone || identifier);
 
-        if (!email || !password) {
-            return res.status(400).json({ error: "Email and password are required" });
+        if (!normalizedIdentifier || !password) {
+            return res.status(400).json({ error: "Phone or username and password are required" });
         }
 
-        const normalizedEmail = String(email).trim().toLowerCase();
+        const matchers = [
+            `email.eq.${normalizedIdentifier}`,
+            `username.eq.${normalizedIdentifier}`,
+        ];
+
+        if (normalizedPhone && normalizedPhone.startsWith("+")) {
+            matchers.push(`phone.eq.${normalizedPhone}`);
+        }
 
         const { data: user, error } = await supabase
             .from("users")
             .select("*")
-            .eq("email", normalizedEmail)
+            .or(matchers.join(","))
             .maybeSingle();
 
         if (error || !user) {
@@ -116,7 +169,7 @@ router.post("/login", async (req, res) => {
         }
 
         if (!ALLOWED_ROLES.has(String(user.role || "").toLowerCase())) {
-            return res.status(403).json({ error: "Provider login is disabled" });
+            return res.status(403).json({ error: "Role is not allowed" });
         }
 
         const token = jwt.sign({ id: user.id, role: user.role }, JWT_SECRET, {
@@ -129,9 +182,12 @@ router.post("/login", async (req, res) => {
                 id: user.id,
                 name: user.name,
                 email: user.email,
+                username: user.username,
+                phone: user.phone,
                 role: user.role,
                 lat: user.lat,
                 lng: user.lng,
+                source_of_food_provider: user.source_of_food_provider,
             },
         });
     } catch (err) {
@@ -200,18 +256,34 @@ router.post("/phone/verify-otp", async (req, res) => {
         const parsedLng = Number.parseFloat(lng);
         const parsedCapacity = Number.parseInt(capacity, 10);
         if (!ALLOWED_ROLES.has(normalizedRole)) {
-            return res.status(400).json({ error: "Role must be consumer or ngo" });
+            return res.status(400).json({ error: "Role must be provider, consumer, or ngo" });
         }
 
-        const { data: existingUser, error: readError } = await supabase
-            .from("users")
-            .select("*")
-            .eq("phone", normalizedPhone)
-            .maybeSingle();
+        const lookupByPhone = await supabase.from("users").select("*").eq("phone", normalizedPhone).maybeSingle();
+        if (lookupByPhone.error) {
+            return res.status(400).json({
+                error: lookupByPhone.error.message,
+                details: lookupByPhone.error.details || null,
+                hint: lookupByPhone.error.hint || null,
+            });
+        }
 
-        if (readError) throw readError;
+        const fallbackEmail = buildPhoneFallbackEmail(normalizedPhone);
+        let user = lookupByPhone.data;
 
-        let user = existingUser;
+        if (!user) {
+            const lookupByEmail = await supabase.from("users").select("*").eq("email", fallbackEmail).maybeSingle();
+
+            if (lookupByEmail.error) {
+                return res.status(400).json({
+                    error: lookupByEmail.error.message,
+                    details: lookupByEmail.error.details || null,
+                    hint: lookupByEmail.error.hint || null,
+                });
+            }
+
+            user = lookupByEmail.data;
+        }
 
         if (!user) {
             const randomPasswordHash = await bcrypt.hash(crypto.randomBytes(24).toString("hex"), 10);
@@ -233,8 +305,31 @@ router.post("/phone/verify-otp", async (req, res) => {
                 .select()
                 .single();
 
-            if (insertError) throw insertError;
+            if (insertError) {
+                return res.status(400).json({
+                    error: insertError.message,
+                    details: insertError.details || null,
+                    hint: insertError.hint || null,
+                });
+            }
             user = insertedUser;
+        } else if (!user.phone) {
+            const { data: updatedUser, error: updateError } = await supabase
+                .from("users")
+                .update({ phone: normalizedPhone })
+                .eq("id", user.id)
+                .select()
+                .single();
+
+            if (updateError) {
+                return res.status(400).json({
+                    error: updateError.message,
+                    details: updateError.details || null,
+                    hint: updateError.hint || null,
+                });
+            }
+
+            user = updatedUser;
         }
 
         const tokenJwt = jwt.sign({ id: user.id, role: user.role }, JWT_SECRET, {
@@ -269,7 +364,7 @@ router.get("/me", async (req, res) => {
 
         const { data: user, error } = await supabase
             .from("users")
-            .select("id, name, email, phone, role, lat, lng, capacity, rating, created_at")
+            .select("id, name, email, username, phone, role, lat, lng, capacity, rating, source_of_food_provider, created_at")
             .eq("id", decoded.id)
             .single();
 

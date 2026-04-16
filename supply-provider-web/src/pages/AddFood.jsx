@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { insertFoodListing, updateFoodListing } from '../lib/api'
 
 const initialFormState = {
     name: '',
@@ -20,16 +21,21 @@ const initialFormState = {
 
 function toFormState(food) {
     if (!food) return initialFormState
+
+    const expiryTime = food.expiry_time || food.expiryTime
+    const createdAt = food.created_at || food.createdAt
+    const expiryMinutes = expiryTime && createdAt ? Math.max(1, Math.round((new Date(expiryTime).getTime() - new Date(createdAt).getTime()) / 60000)) : food.expiryMinutes || 120
+
     return {
         name: food.name || '',
-        qty: food.qty || '',
-        type: food.type || 'Veg',
-        orig: food.orig || '',
-        expiryMinutes: food.expiryMinutes || 120,
-        discountTriggerMinutes: food.discountTriggerMinutes || 60,
-        ngoTriggerMinutes: food.ngoTriggerMinutes || 30,
+        qty: food.qty || food.quantity || '',
+        type: food.type || food.food_type || 'Veg',
+        orig: food.orig || food.base_price || food.basePrice || '',
+        expiryMinutes,
+        discountTriggerMinutes: food.discountTriggerMinutes || food.discount_time || 60,
+        ngoTriggerMinutes: food.ngoTriggerMinutes || food.ngo_time || 30,
         cat: 'Bakery',
-        mode: food.mode || 'discount',
+        mode: food.mode || food.listing_mode || 'discount',
         mystery: Boolean(food.mystery),
         ngo: true,
         auto: true,
@@ -40,36 +46,67 @@ function toFormState(food) {
 }
 
 function normalizeFood(form) {
+    const basePrice = Number(form.orig || 10)
+    const expiryMinutes = Number(form.expiryMinutes || 120)
+    const discountTriggerMinutes = Number(form.discountTriggerMinutes || 60)
+    const ngoTriggerMinutes = Number(form.ngoTriggerMinutes || 30)
+
     return {
         name: form.name.trim(),
-        qty: Number(form.qty || 1),
-        type: form.type,
-        orig: Number(form.orig || 10),
-        price: Number(form.orig || 10),
-        basePrice: Number(form.orig || 10),
-        expiryMinutes: Number(form.expiryMinutes || 120),
-        discountTriggerMinutes: Number(form.discountTriggerMinutes || 60),
-        ngoTriggerMinutes: Number(form.ngoTriggerMinutes || 30),
-        mode: form.mode === 'both' ? 'discount' : form.mode,
-        mystery: form.mystery,
+        quantity: Number(form.qty || 1),
+        food_type: form.type,
+        base_price: basePrice,
+        current_price: basePrice,
+        expiry_time: new Date(Date.now() + expiryMinutes * 60000).toISOString(),
+        discount_time: discountTriggerMinutes,
+        ngo_time: ngoTriggerMinutes,
+        listing_mode: form.mode === 'both' ? 'discount' : form.mode,
+        status: 'SELL',
     }
 }
 
-export default function AddFood({ inPage = false, initialFood = null, onSubmitFood, onClose }) {
+export default function AddFood({ inPage = false, providerId, initialFood = null, onSaved, onClose }) {
     const [form, setForm] = useState(() => toFormState(initialFood))
+    const [loading, setLoading] = useState(false)
+    const isEdit = useMemo(() => Boolean(initialFood), [initialFood])
 
     useEffect(() => {
         setForm(toFormState(initialFood))
     }, [initialFood])
 
-    const isEdit = useMemo(() => Boolean(initialFood), [initialFood])
-
-    const submit = () => {
+    const submit = async () => {
         if (!form.name.trim()) return
 
-        onSubmitFood(normalizeFood(form))
-        if (!isEdit) {
-            setForm(initialFormState)
+        const payload = normalizeFood(form)
+        setLoading(true)
+
+        try {
+            if (isEdit && initialFood?.id) {
+                await updateFoodListing(initialFood.id, {
+                    name: payload.name,
+                    quantity: payload.quantity,
+                    food_type: payload.food_type,
+                    base_price: payload.base_price,
+                    current_price: payload.base_price,
+                    expiry_time: payload.expiry_time,
+                    discount_time: payload.discount_time,
+                    ngo_time: payload.ngo_time,
+                    listing_mode: payload.listing_mode,
+                    status: 'SELL',
+                })
+            } else {
+                await insertFoodListing({
+                    ...payload,
+                    provider_id: providerId,
+                })
+            }
+
+            onSaved?.(payload)
+            if (!isEdit) {
+                setForm(initialFormState)
+            }
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -182,7 +219,7 @@ export default function AddFood({ inPage = false, initialFood = null, onSubmitFo
                     </div>
                     <label className="switch"><input type="checkbox" checked={form.self} onChange={(event) => setForm((prev) => ({ ...prev, self: event.target.checked }))} /><span className="slider-sw" /></label>
                 </div>
-                <button className="btn-submit" onClick={submit}>{isEdit ? 'Save Changes' : '🚀 Publish Listing'}</button>
+                <button className="btn-submit" onClick={submit} disabled={loading}>{loading ? 'Saving...' : isEdit ? 'Save Changes' : '🚀 Publish Listing'}</button>
             </div>
         </>
     )
